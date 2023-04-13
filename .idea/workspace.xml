@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="enumeratie Geslacht incl. unit-tests toegevoegd" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="'Initial setup'">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +128,7 @@
       <workItem from="1681370703892" duration="649000" />
       <workItem from="1681371415576" duration="1745000" />
       <workItem from="1681373173086" duration="37000" />
-      <workItem from="1681373220167" duration="14184000" />
+      <workItem from="1681373220167" duration="15066000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -135,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681384068550</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="'Initial setup'">
+      <created>1681394040172</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681394040172</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +176,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="enumeratie Geslacht incl. unit-tests toegevoegd" />
-    <option name="LAST_COMMIT_MESSAGE" value="enumeratie Geslacht incl. unit-tests toegevoegd" />
+    <MESSAGE value="'Initial setup'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'Initial setup'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
