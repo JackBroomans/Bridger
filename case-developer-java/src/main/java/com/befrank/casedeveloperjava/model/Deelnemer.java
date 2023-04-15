@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
  * De volgende elementen dienen gespecificieerd te zijn, de overige zijn optioneel:
  * <ul>
  *     <li>Kenmerk (Id)</li>
- *     <li>Dellnemersnummer</li>
+ *     <li>Deelnemersnummer</li>
  *     <li>Familienaam</li>
  *     <li>Voornamen</li>
  *     <li>Emailadres</li>
@@ -35,8 +35,8 @@ public class Deelnemer implements Serializable, IValidaties {
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
 
-    private String deelnemersNummer;
-    private String familieNaam;
+    private String deelnemersnummer;
+    private String familienaam;
     private String voorvoegsels;
     private String voornamen;
     private String initialen;
@@ -55,26 +55,26 @@ public class Deelnemer implements Serializable, IValidaties {
         return id;
     }
 
-    public String getDeelnemersNummer() {
-        return deelnemersNummer;
+    public String getDeelnemersnummer() {
+        return deelnemersnummer;
     }
-    public void setDeelnemersNummer(String deelnemersNummer) {
+    public void setDeelnemersnummer(String deelnemersNummer) {
         if (!valideerTekenreeks(deelnemersNummer)) {
             // Todo: Implementeer logging en log 'Geen of ongeldig deelnemrsnummer'
             return;
         }
-        this.deelnemersNummer = deelnemersNummer;
+        this.deelnemersnummer = deelnemersNummer;
     }
 
-    public String getFamilieNaam() {
-        return familieNaam;
+    public String getFamilienaam() {
+        return familienaam;
     }
-    public void setFamilieNaam(String familieNaam) {
+    public void setFamilienaam(String familieNaam) {
         if (!valideerTekenreeks(familieNaam)) {
             // Todo: Implementeer logging en log 'Geen of ongeldige familienaam'
             return;
         }
-        this.familieNaam = familieNaam;
+        this.familienaam = familieNaam;
     }
 
     public String getVoorvoegsels() {
@@ -181,7 +181,7 @@ public class Deelnemer implements Serializable, IValidaties {
                 .append(valideerTekenreeks(this.prefixTitels) ? this.prefixTitels : "")
                 .append(valideerTekenreeks(this.initialen) ? " " + this.initialen : "")
                 .append(valideerTekenreeks(this.voorvoegsels) ? " " + this.voorvoegsels : "")
-                .append(valideerTekenreeks(this.familieNaam) ?  " " + this.familieNaam  : " ")
+                .append(valideerTekenreeks(this.familienaam) ?  " " + this.familienaam : " ")
                 .append(valideerTekenreeks(this.suffixTitels) ? " " + this.suffixTitels : "");
         return tekst.toString();
     }
@@ -210,8 +210,8 @@ public class Deelnemer implements Serializable, IValidaties {
 
         try {
             tekst.append("\n\tKenmerk: ").append(this.id == null ? "" : this.id);
-            tekst.append("\n\tDeelnemersnummer: ").append(presentatie(this.deelnemersNummer));
-            tekst.append("\n\tFamilienaam: ").append(presentatie(this.familieNaam));
+            tekst.append("\n\tDeelnemersnummer: ").append(presentatie(this.deelnemersnummer));
+            tekst.append("\n\tFamilienaam: ").append(presentatie(this.familienaam));
             tekst.append("\n\tVoorvoegsels: ").append(presentatie(this.voorvoegsels));
             tekst.append("\n\tVoornamen: ").append(presentatie(this.voornamen));
             tekst.append("\n\tInitialen: ").append(presentatie(this.initialen));

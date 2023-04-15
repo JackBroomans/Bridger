@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="'Initial setup'">
-      <change afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/util/DatumTijdFuncties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/util/interfaces/IValidaties.java" afterDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="Entiteit Deelnemer afgerond incl. unit-testen">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case-developer-scripts/mySQL/createDatatbase.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/case-developer-scripts/mySQL/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/DeelnemerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/DeelnemerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Deelnemer.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Deelnemer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Geslacht.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Geslacht.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Deelnemer.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Deelnemer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Geslacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Geslacht.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/TEST-com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/TEST-com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/test-classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/test-classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,27 +53,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.6678161&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;300f7836a410a6dd7d4e33c03329e09e&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.6678161",
+    "settings.editor.selected.configurable": "database.query.execution",
+    "spring.configuration.checksum": "300f7836a410a6dd7d4e33c03329e09e",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "MySQL"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.befrank.casedeveloperjava.util" />
@@ -182,7 +184,8 @@
       <workItem from="1681371415576" duration="1745000" />
       <workItem from="1681373173086" duration="37000" />
       <workItem from="1681373220167" duration="15066000" />
-      <workItem from="1681457362016" duration="31802000" />
+      <workItem from="1681457362016" duration="34356000" />
+      <workItem from="1681566137704" duration="7540000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -198,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681394040172</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Entiteit Deelnemer afgerond incl. unit-testen">
+      <created>1681556669230</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681556669230</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +241,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="enumeratie Geslacht incl. unit-tests toegevoegd" />
     <MESSAGE value="'Initial setup'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'Initial setup'" />
+    <MESSAGE value="Entiteit Deelnemer afgerond incl. unit-testen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Entiteit Deelnemer afgerond incl. unit-testen" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

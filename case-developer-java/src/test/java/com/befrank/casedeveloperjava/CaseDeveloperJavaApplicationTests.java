@@ -67,11 +67,11 @@ class CaseDeveloperJavaApplicationTests {
 		assertEquals(getLeeftijd(null), 0);
 		assertTrue(deelnemer.getLeeftijd() > 0 && deelnemer.getLeeftijd() < 120);
 
-		deelnemer.setFamilieNaam(null);
-		assertNull(deelnemer.getFamilieNaam());
+		deelnemer.setFamilienaam(null);
+		assertNull(deelnemer.getFamilienaam());
 
 		// Test happy flow specificaties deelnemer
-		deelnemer.setFamilieNaam("Botje");
+		deelnemer.setFamilienaam("Botje");
 		deelnemer.setVoornamen("Berend");
 		deelnemer.setInitialen("B.");
 		deelnemer.setPrefixTitels("dhr.");
@@ -80,8 +80,8 @@ class CaseDeveloperJavaApplicationTests {
 		assertEquals(deelnemer.stelCorrespondentienaamSamen(), "dhr. B. Botje");
 
 		// Test wissen van verplichte velden is onmogelijk, de oude waarde blijft behouden
-		deelnemer.setFamilieNaam(null);
-		assertTrue(deelnemer.getFamilieNaam().equals("Botje"));
+		deelnemer.setFamilienaam(null);
+		assertTrue(deelnemer.getFamilienaam().equals("Botje"));
 		deelnemer.setGeslacht(null);
 		assertTrue(deelnemer.getGeslacht().equals(Geslacht.ONBEKEND));
 		deelnemer.setEmail("");
