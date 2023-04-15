@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="Entiteit Deelnemer afgerond incl. unit-testen">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/case-developer-scripts/mySQL/createDatatbase.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/case-developer-scripts/mySQL/docker-compose.yml" afterDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="YAML-script voor docker MySQL database.&#10;SQL-script voor aanmaken database.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/DeelnemerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/DeelnemerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/case-developer-java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/case-developer-java.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Deelnemer.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Deelnemer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Deelnemer.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Deelnemer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/TEST-com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/TEST-com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-scripts/mySQL/createDatatbase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-scripts/mySQL/createDatatbase.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +59,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -92,7 +96,7 @@
       <recent name="com.befrank.casedeveloperjava.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CaseDeveloperJavaApplicationTests.classDeelnemerTest">
+  <component name="RunManager" selected="JUnit.CaseDeveloperJavaApplicationTests">
     <configuration name="CaseDeveloperJavaApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="case-developer-java" />
       <extension name="coverage">
@@ -165,8 +169,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.classDeelnemerTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests" />
+        <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.classDeelnemerTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.valideerTekenreeksTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.enumGeslachtTest" />
       </list>
@@ -185,7 +189,7 @@
       <workItem from="1681373173086" duration="37000" />
       <workItem from="1681373220167" duration="15066000" />
       <workItem from="1681457362016" duration="34356000" />
-      <workItem from="1681566137704" duration="7540000" />
+      <workItem from="1681566137704" duration="8675000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -208,7 +212,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681556669230</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="YAML-script voor docker MySQL database.&#10;SQL-script voor aanmaken database.">
+      <created>1681579385199</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681579385199</updated>
+    </task>
+    <task id="LOCAL-00005" summary="YAML-script voor docker MySQL database.&#10;SQL-script voor aanmaken database.">
+      <created>1681579499944</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681579499944</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +260,8 @@
     <MESSAGE value="enumeratie Geslacht incl. unit-tests toegevoegd" />
     <MESSAGE value="'Initial setup'" />
     <MESSAGE value="Entiteit Deelnemer afgerond incl. unit-testen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Entiteit Deelnemer afgerond incl. unit-testen" />
+    <MESSAGE value="YAML-script voor docker MySQL database.&#10;SQL-script voor aanmaken database." />
+    <option name="LAST_COMMIT_MESSAGE" value="YAML-script voor docker MySQL database.&#10;SQL-script voor aanmaken database." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

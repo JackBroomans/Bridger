@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS casebefrank COLLATE latin1_general_cs;
 
 USE casebefrank;
 
-CREATE TABLE IF NOT EXISTS deelnemers (
+CREATE TABLE IF NOT EXISTS deelnemer (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     deelnemersnummer VARCHAR(15) NOT NULL,
     familieNaam VARCHAR(131) NOT NULL,
@@ -18,11 +18,11 @@ CREATE TABLE IF NOT EXISTS deelnemers (
     telefoonMobiel VARCHAR(15) NOT NULL
 ) ENGINE=INNODB;
 
-CREATE UNIQUE INDEX iDeelnemersnummer ON deelnemers(deelnemersnummer);
-CREATE INDEX iFamilienaam ON deelnemers(deelnemersnummer, voornamen);
-CREATE INDEX iEmail ON deelnemers(email);
+CREATE UNIQUE INDEX iDeelnemersnummer ON deelnemer (deelnemersnummer);
+CREATE INDEX iFamilienaam ON deelnemer (deelnemersnummer, voornamen);
+CREATE INDEX iEmail ON deelnemer (email);
 
-CREATE TABLE IF NOT EXISTS adressen (
+CREATE TABLE IF NOT EXISTS adres (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     volgnummer SMALLINT NOT NULL DEFAULT 0,
     deelnemer BIGINT NOT NULL,
@@ -33,10 +33,10 @@ CREATE TABLE IF NOT EXISTS adressen (
     land VARCHAR(127) DEFAULT 'Nederland',
     isActief BOOLEAN NOT NULL DEFAULT false,
     FOREIGN KEY (deelnemer)
-        REFERENCES deelnemers(id)
+        REFERENCES deelnemer (id)
         ON UPDATE RESTRICT
         ON DELETE CASCADE
 ) ENGINE=INNODB;
 
-CREATE INDEX iDeelnemerAdres ON adressen(deelnemer);
-CREATE INDEX iPostcode ON adressen(postcode);
+CREATE INDEX iDeelnemerAdres ON adres(deelnemer);
+CREATE INDEX iPostcode ON adres(postcode);

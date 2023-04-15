@@ -26,6 +26,7 @@ import java.time.format.DateTimeFormatter;
  */
 
 @Entity
+@Table(name="deelnemer")
 public class Deelnemer implements Serializable, IValidaties {
     // Todo: Variabele opnemen in resources-bestand om externe configuratie mogelijk te maken
     @Transient
