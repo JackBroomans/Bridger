@@ -1,7 +1,11 @@
 package com.befrank.casedeveloperjava.model;
 
 import java.security.InvalidParameterException;
-import java.util.InvalidPropertiesFormatException;
+
+/**
+ * <strong>Geslacht</strong><br>
+ * Een enumeratie waarin het mogelijke geslacht van de deelnemer als opties zijn opgenomen.
+ */
 
 public enum Geslacht {
     MAN ("M","Man"),
@@ -9,10 +13,10 @@ public enum Geslacht {
     NIET_RELEVANT ("N", "Niet Relevant"),
     ONBEKEND ("O", "Onbekend");
 
-    // ToDo: Variable opnemen in resources bestand om externe configuratie mogelijk te maken
+    // Todo: Variabele opnemen in resources-bestand om externe configuratie mogelijk te maken
     private static final String STANDAARD_OPTIE_GESLACHT = "Onbekend";
 
-    private String code;
+    private final String code;
     private String tekst;
 
     Geslacht(String code, String tekst){
@@ -42,6 +46,8 @@ public enum Geslacht {
     /**
      * <strong>zoekOpCode(<i>String</i></strong><br>
      * zoekt en selecteert op basis van de gegeven code het geslacht.<br>
+     * @return Het element uit de enumeratie waarnaar is gezocht. Indien  dit element niet is gevonden, dan zal
+     * <i>null</i> worden geretourneerd.
      */
     public static Geslacht zoekOpCode(String code) {
         try {
@@ -56,11 +62,10 @@ public enum Geslacht {
             throw new InvalidParameterException();
         }
         catch (InvalidParameterException ex) {
-            // Todo: Implementeer logger en log 'ongeldige code'
+            // Todo: Implementeer logger en log 'ongeldige code geslacht.'
         }
         return null;
     }
-
 
     /**
      * <strong>toString()</strong> <i>override</i><br>
@@ -75,6 +80,4 @@ public enum Geslacht {
 
         return tekst.toString();
     }
-
-
 }
