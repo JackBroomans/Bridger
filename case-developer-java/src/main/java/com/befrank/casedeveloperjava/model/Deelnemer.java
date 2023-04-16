@@ -4,7 +4,6 @@ import com.befrank.casedeveloperjava.util.interfaces.IValidaties;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -38,28 +37,51 @@ public class Deelnemer implements Serializable, IValidaties {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private BigInteger id;
+    @Column(name="id")
+    private long id;
 
+    @Column(name="deelnemersnummer")
     private String deelnemersnummer;
+
+    @Column(name="familienaam")
     private String familienaam;
+
+    @Column(name="voorvoegsels")
     private String voorvoegsels;
+
+    @Column(name="voornamen")
     private String voornamen;
+
+    @Column(name="initialen")
     private String initialen;
+
+    @Column(name="titelsprefix")
     private String prefixTitels;
+
+    @Column(name="titelssuffix")
     private String suffixTitels;
+
     @Transient
     private Geslacht geslacht = Geslacht.getStandaardOptie();
-    private String codeGeslacht;
+
+    @Column(name="geslachtscode")
+    private String geslachtscode = Geslacht.getStandaardOptie().getCode();
+
+    @Column(name = "geboortedatum")
     private LocalDate geboortedatum;
+    @Column(name = "email")
     private String email;
+    @Column(name="telefoon_vast")
     private String telefoonVast;
+
+    @Column(name="telefoon_mobiel")
     private String telefoonMobiel;
 
     @OneToMany(mappedBy = "deelnemer", fetch = FetchType.EAGER)
     private Set<Adres> adres;
 
     // Getters en Setters
-    public BigInteger getId() {
+    public long getId() {
         return id;
     }
 
@@ -133,7 +155,14 @@ public class Deelnemer implements Serializable, IValidaties {
             return;
         }
         this.geslacht = geslacht;
-        this.codeGeslacht = geslacht.getCode();
+        this.geslachtscode = geslacht.getCode();
+    }
+
+    public String getGeslachtscode() {
+        return this.geslachtscode;
+    }
+    public void setGeslachtscode(String codeGeslacht) {
+        this.geslachtscode = codeGeslacht;
     }
 
     public LocalDate getGeboortedatum() {
@@ -217,7 +246,7 @@ public class Deelnemer implements Serializable, IValidaties {
         StringBuilder tekst = new StringBuilder().append("Deelnemer");
 
         try {
-            tekst.append("\n\tKenmerk: ").append(this.id == null ? "" : this.id);
+            tekst.append("\n\tKenmerk: ").append(this.id);
             tekst.append("\n\tDeelnemersnummer: ").append(presentatie(this.deelnemersnummer));
             tekst.append("\n\tFamilienaam: ").append(presentatie(this.familienaam));
             tekst.append("\n\tVoorvoegsels: ").append(presentatie(this.voorvoegsels));
@@ -228,7 +257,7 @@ public class Deelnemer implements Serializable, IValidaties {
             tekst.append("\n\tGeslacht: ").append(this.geslacht.getTekst());
             tekst.append("\n\tEmail: ").append(presentatie(this.email));
             tekst.append("\n\tTelefoon vast: ").append(presentatie(this.telefoonVast));
-            tekst.append("\n\tTelefoon mobiel: ").append(presentatie(this.telefoonMobiel));
+            tekst.append("\n\tTelefoon mobiel: ").append(presentatie(this.telefoonMobiel)).append("\n");
 
             return tekst.toString();
         }

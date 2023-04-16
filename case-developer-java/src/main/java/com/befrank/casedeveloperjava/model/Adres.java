@@ -34,18 +34,19 @@ public class Adres implements Serializable, IValidaties {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private BigInteger id;
+    private long id;
     private int volgnummer;
-    private BigInteger deelnemer;
+    private long deelnemer;
     private String straatnaam;
     private String huisnummer;
+
     private String postcode;
     private String plaatsnaam;
     private String land = STANDAARD_LAND;
-    private Boolean isActive = false;
+    private Boolean actief = false;
 
     // Getters en Setters
-    public BigInteger getId() {
+    public long getId() {
         return id;
     }
 
@@ -56,10 +57,10 @@ public class Adres implements Serializable, IValidaties {
         this.volgnummer = volgnummer;
     }
 
-    public BigInteger getDeelknemr() {
+    public long getDeelknemr() {
         return deelnemer;
     }
-    public void setDeelknemr(BigInteger deelnemer) {
+    public void setDeelknemr(long deelnemer) {
         this.deelnemer = deelnemer;
     }
 
@@ -96,11 +97,11 @@ public class Adres implements Serializable, IValidaties {
         this.land = land;
     }
 
-    public Boolean getActive() {
-        return isActive;
+    public Boolean getActief() {
+        return actief;
     }
-    public void setActive(Boolean active) {
-        isActive = active;
+    public void setActief(Boolean active) {
+        actief = active;
     }
 
     /**
@@ -129,15 +130,15 @@ public class Adres implements Serializable, IValidaties {
         StringBuilder tekst = new StringBuilder().append("Deelnemer");
 
         try {
-            tekst.append("\n\tKenmerk (Id): ").append(this.id == null ? "" : this.id);
+            tekst.append("\n\tKenmerk (Id): ").append(this.id);
             tekst.append("\n\tVolgnummer: ").append(this.volgnummer == 0 ? "" : this.volgnummer);
-            tekst.append("\n\tDeelnemer (Id): ").append(this.deelnemer == null ? "" : this.deelnemer);
+            tekst.append("\n\tDeelnemer (Id): ").append(this.deelnemer);
             tekst.append("\n\tStraatnaam: ").append(presentatie(this.straatnaam));
             tekst.append("\n\tHuisaanduiding: ").append(presentatie(this.huisnummer));
             tekst.append("\n\tPostcode: ").append(presentatie(this.postcode));
             tekst.append("\n\tPlaatsnaam: ").append(presentatie(this.plaatsnaam));
             tekst.append("\n\tLand: ").append(presentatie(this.land));
-            tekst.append("\n\tActief adres: ").append(this.isActive ? "ja" : "nee");
+            tekst.append("\n\tActief adres: ").append(this.actief ? "ja" : "nee").append("\n");
 
             return tekst.toString();
         }

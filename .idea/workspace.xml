@@ -4,31 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="Entiteit adres toegevoegd en JPA annotaties aangepast">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_mysql_mysql_connector_j_8_0_32.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/befrank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/befrank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_2_1_214.xml" beforeDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="Datasource voor MySql (casebefrank) ingesteld. &#10;SQL-script (data) aangepast en geïntegreerd.&#10;H2 in POM uitgeschakeld en MySQL connector toegevoegd.">
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-frontend/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/case-developer-java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/case-developer-java.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/ControllerDeelnemer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/ControllerDeelnemer.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/DeelnemerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/DeelnemerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/DeelnemerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Adres.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Adres.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Deelnemer.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Deelnemer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/DeelnemerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/DeelnemerRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Deelnemer.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Deelnemer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/TEST-com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/TEST-com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-scripts/mySQL/createDatatbase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-scripts/mySQL/createDatatbase.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/test-classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/test-classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-scripts/mySQL/createDatatbase.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +75,10 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -110,7 +115,7 @@
       <recent name="com.befrank.casedeveloperjava.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CaseDeveloperJavaApplicationTests">
+  <component name="RunManager" selected="Spring Boot.CaseDeveloperJavaApplication">
     <configuration name="CaseDeveloperJavaApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="case-developer-java" />
       <extension name="coverage">
@@ -122,6 +127,38 @@
       <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
       <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CaseDeveloperJavaApplicationTests.DeelnemerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="case-developer-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.befrank.casedeveloperjava.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
+      <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests" />
+      <option name="METHOD_NAME" value="DeelnemerControllerTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CaseDeveloperJavaApplicationTests.DeelnemerRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="case-developer-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.befrank.casedeveloperjava.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
+      <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests" />
+      <option name="METHOD_NAME" value="DeelnemerRepositoryTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -158,38 +195,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CaseDeveloperJavaApplicationTests.enumGeslachtTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="case-developer-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.befrank.casedeveloperjava.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
-      <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests" />
-      <option name="METHOD_NAME" value="enumGeslachtTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CaseDeveloperJavaApplicationTests.valideerTekenreeksTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="case-developer-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.befrank.casedeveloperjava.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
-      <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests" />
-      <option name="METHOD_NAME" value="valideerTekenreeksTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tests (case-developer-frontend)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/case-developer-frontend/karma.conf.js" />
       <karma-package-dir value="" />
@@ -221,10 +226,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests" />
+        <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.DeelnemerControllerTest" />
+        <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.DeelnemerRepositoryTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.classAdresTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.classDeelnemerTest" />
-        <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.valideerTekenreeksTest" />
-        <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.enumGeslachtTest" />
       </list>
     </recent_temporary>
   </component>
@@ -244,7 +249,8 @@
       <workItem from="1681566137704" duration="9078000" />
       <workItem from="1681596183850" duration="6954000" />
       <workItem from="1681603178147" duration="340000" />
-      <workItem from="1681627038499" duration="11246000" />
+      <workItem from="1681627038499" duration="25513000" />
+      <workItem from="1681664549533" duration="8181000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -295,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681603323065</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Datasource voor MySql (casebefrank) ingesteld. &#10;SQL-script (data) aangepast en geïntegreerd.&#10;H2 in POM uitgeschakeld en MySQL connector toegevoegd.">
+      <created>1681638598361</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681638598361</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +345,8 @@
     <MESSAGE value="YAML-script voor docker MySQL database.&#10;SQL-script voor aanmaken database." />
     <MESSAGE value="JPA connectie tussen Domein- en Database-model gelegd voor tabel 'deelnemer'" />
     <MESSAGE value="Entiteit adres toegevoegd en JPA annotaties aangepast" />
-    <option name="LAST_COMMIT_MESSAGE" value="Entiteit adres toegevoegd en JPA annotaties aangepast" />
+    <MESSAGE value="Datasource voor MySql (casebefrank) ingesteld. &#10;SQL-script (data) aangepast en geïntegreerd.&#10;H2 in POM uitgeschakeld en MySQL connector toegevoegd." />
+    <option name="LAST_COMMIT_MESSAGE" value="Datasource voor MySql (casebefrank) ingesteld. &#10;SQL-script (data) aangepast en geïntegreerd.&#10;H2 in POM uitgeschakeld en MySQL connector toegevoegd." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

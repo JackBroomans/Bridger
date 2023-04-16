@@ -1,11 +1,27 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:mydb;MODE=MSSQLServer
-    username: sa
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/casebefrank
+    username: root
     password: password
-    driverClassName: org.h2.Driver
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: create-drop
+    jpa:
+      dhibernate.ddl-auto: update
+      dhibernate.format_sql: true
+      generate-ddl: true
+      show-sql: true
+
+
+#  datasource:
+#    url: jdbc:h2:mem:mydb;MODE=MSSQLServer
+#    username: sa
+#    password: password
+#    driverClassName: org.h2.Driver
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    defer-datasource-initialization: true
+#    hibernate:
+#      ddl-auto: create-drop
+#  autoconfigure:
+#    exclude:
+#      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+

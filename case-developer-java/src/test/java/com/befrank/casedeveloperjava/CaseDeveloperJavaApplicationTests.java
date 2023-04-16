@@ -21,6 +21,8 @@ class CaseDeveloperJavaApplicationTests {
 	private static final DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern("d-MM-yyyy");
 	private static final String STANDAARD_LAND = "Nederland";
 
+	private DeelnemerRepository repository;
+
 	@Test
 	void contextLoads() {
 	}
@@ -96,11 +98,16 @@ class CaseDeveloperJavaApplicationTests {
 	}
 
 	@Test
+	public void DeelnemerControllerTest() {
+
+	}
+
+	@Test
 	public void classAdresTest() {
 		// Test of standaard land is ingesteld bij instantieëren van een adres
 		Adres adres = new Adres();
 		assertEquals(adres.getLand(), STANDAARD_LAND);
-		assertFalse(adres.getActive());
+		assertFalse(adres.getActief());
 	}
 
 	// Todo: Verplaats unit-test naar test voor utiliteitsklassen
