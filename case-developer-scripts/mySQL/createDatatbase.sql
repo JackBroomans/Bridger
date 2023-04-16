@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS adres (
     plaatsnaam VARCHAR(127) NOT NULL,
     land VARCHAR(127) DEFAULT 'Nederland',
     isActief BOOLEAN NOT NULL DEFAULT false,
-    FOREIGN KEY (deelnemer)
+    FOREIGN KEY fDeelnemerAdres(deelnemer)
         REFERENCES deelnemer (id)
         ON UPDATE RESTRICT
         ON DELETE CASCADE
