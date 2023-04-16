@@ -1,19 +1,22 @@
 package com.befrank.casedeveloperjava.model;
 
 import com.befrank.casedeveloperjava.util.interfaces.IValidaties;
-import static com.befrank.casedeveloperjava.util.interfaces.IValidaties.valideerTekenreeks;
 
 import javax.persistence.*;
-import static javax.persistence.GenerationType.IDENTITY;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Set;
+
+import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
+import static com.befrank.casedeveloperjava.util.interfaces.IValidaties.valideerTekenreeks;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * <strong>Deelnemer</strong><br>
- * Entiteit waarin de persoonsgegevens betreffen een deelnemer worden ondergebrach en waarvan de velden corresponderen
- * met die in de tabel in de database.<br>
+ * Entiteit waarin de persoonsgegevens betreffende een deelnemer worden ondergebracht en waarvan de velden
+ * corresponderen met die in de tabel in de database.<br>
  * De volgende elementen dienen gespecificieerd te zijn, de overige zijn optioneel:
  * <ul>
  *     <li>Kenmerk (Id)</li>
@@ -50,6 +53,9 @@ public class Deelnemer implements Serializable, IValidaties {
     private String email;
     private String telefoonVast;
     private String telefoonMobiel;
+
+    @OneToMany(mappedBy = "deelnemer", fetch = FetchType.EAGER)
+    private Set<Adres> adres;
 
     // Getters en Setters
     public Integer getId() {
@@ -229,16 +235,5 @@ public class Deelnemer implements Serializable, IValidaties {
             // Todo: Implementeer logging en log 'Fout bij het presenteren van de persoonsgegevens.'
             return "";
         }
-    }
-
-    /**
-     * <strong>presentatie</strong>
-     * Controleert de specificatie van een tekst of deze null, leeg of uitsluitend uit spaties bestaat. De metode wordt
-     * alleen door de methode 'toString()' gebruikt.<be></be>
-     * @param tekst De tekenreeks die wordt gecontroleerd.
-     * @return De gecontroleerde tekenreeks of indien deze niet aan de voorwaarden voldoet, een lege tekenreeks
-     */
-    private String presentatie(String tekst) {
-        return valideerTekenreeks(tekst) ? tekst : "";
     }
 }
