@@ -6,7 +6,7 @@ spring:
     password: password
     jpa:
       dhibernate.ddl-auto: update
-      dhibernate.dialect: MySQL
+      dhibernate.format_sql: true
       generate-ddl: true
       show-sql: true
 
