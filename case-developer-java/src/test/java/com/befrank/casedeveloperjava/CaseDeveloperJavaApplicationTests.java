@@ -1,5 +1,6 @@
 package com.befrank.casedeveloperjava;
 
+import com.befrank.casedeveloperjava.model.Adres;
 import com.befrank.casedeveloperjava.model.Deelnemer;
 import com.befrank.casedeveloperjava.model.Geslacht;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,7 @@ class CaseDeveloperJavaApplicationTests {
 	// Todo: Variabelen opnemen in resources-bestand om externe configuratie mogelijk te maken
 	private static final String STANDAARD_OPTIE_GESLACHT = "Onbekend";
 	private static final DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern("d-MM-yyyy");
+	private static final String STANDAARD_LAND = "Nederland";
 
 	@Test
 	void contextLoads() {
@@ -91,6 +93,14 @@ class CaseDeveloperJavaApplicationTests {
 		deelnemer.setGeslacht(Geslacht.MAN);
 		assertEquals(deelnemer.getGeslacht().getCode(), "M");
 
+	}
+
+	@Test
+	public void classAdresTest() {
+		// Test of standaard land is ingesteld bij instantieëren van een adres
+		Adres adres = new Adres();
+		assertEquals(adres.getLand(), STANDAARD_LAND);
+		assertFalse(adres.getActive());
 	}
 
 	// Todo: Verplaats unit-test naar test voor utiliteitsklassen
