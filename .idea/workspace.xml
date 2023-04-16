@@ -4,20 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="JPA connectie tussen Domein- en Database-model gelegd voor tabel 'deelnemer'">
-      <change afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Adres.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/util/TekstFuncties.java" afterDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="Entiteit adres toegevoegd en JPA annotaties aangepast">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_mysql_mysql_connector_j_8_0_32.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/befrank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/befrank.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_2_1_214.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/case-developer-java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/case-developer-java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/ControllerDeelnemer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Adres.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Adres.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Deelnemer.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Deelnemer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/case-developer-java-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/Controller.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Deelnemer.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/model/Deelnemer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/TEST-com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/TEST-com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/test-classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/test-classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-scripts/mySQL/createDatatbase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-scripts/mySQL/createDatatbase.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +110,7 @@
       <recent name="com.befrank.casedeveloperjava.model" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Angular CLI Server (case-developer-frontend)">
+  <component name="RunManager" selected="JUnit.CaseDeveloperJavaApplicationTests">
     <configuration name="CaseDeveloperJavaApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="case-developer-java" />
       <extension name="coverage">
@@ -181,6 +192,7 @@
     </configuration>
     <configuration name="Tests (case-developer-frontend)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/case-developer-frontend/karma.conf.js" />
+      <karma-package-dir value="" />
       <working-directory value="$PROJECT_DIR$/case-developer-frontend" />
       <node-interpreter value="project" />
       <envs />
@@ -208,8 +220,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.classAdresTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests" />
+        <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.classAdresTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.classDeelnemerTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.valideerTekenreeksTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.enumGeslachtTest" />
@@ -231,6 +243,8 @@
       <workItem from="1681457362016" duration="34356000" />
       <workItem from="1681566137704" duration="9078000" />
       <workItem from="1681596183850" duration="6954000" />
+      <workItem from="1681603178147" duration="340000" />
+      <workItem from="1681627038499" duration="11246000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -274,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681580568823</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Entiteit adres toegevoegd en JPA annotaties aangepast">
+      <created>1681603323065</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681603323065</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +331,8 @@
     <MESSAGE value="Entiteit Deelnemer afgerond incl. unit-testen" />
     <MESSAGE value="YAML-script voor docker MySQL database.&#10;SQL-script voor aanmaken database." />
     <MESSAGE value="JPA connectie tussen Domein- en Database-model gelegd voor tabel 'deelnemer'" />
-    <option name="LAST_COMMIT_MESSAGE" value="JPA connectie tussen Domein- en Database-model gelegd voor tabel 'deelnemer'" />
+    <MESSAGE value="Entiteit adres toegevoegd en JPA annotaties aangepast" />
+    <option name="LAST_COMMIT_MESSAGE" value="Entiteit adres toegevoegd en JPA annotaties aangepast" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

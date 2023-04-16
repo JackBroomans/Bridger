@@ -4,6 +4,7 @@ import com.befrank.casedeveloperjava.util.interfaces.IValidaties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -37,7 +38,7 @@ public class Deelnemer implements Serializable, IValidaties {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
+    private BigInteger id;
 
     private String deelnemersnummer;
     private String familienaam;
@@ -58,7 +59,7 @@ public class Deelnemer implements Serializable, IValidaties {
     private Set<Adres> adres;
 
     // Getters en Setters
-    public Integer getId() {
+    public BigInteger getId() {
         return id;
     }
 

@@ -1,6 +1,7 @@
 package com.befrank.casedeveloperjava.model;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 
 import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
 import com.befrank.casedeveloperjava.util.interfaces.IValidaties;
@@ -33,9 +34,9 @@ public class Adres implements Serializable, IValidaties {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
+    private BigInteger id;
     private int volgnummer;
-    private Integer deelnemer;
+    private BigInteger deelnemer;
     private String straatnaam;
     private String huisnummer;
     private String postcode;
@@ -44,7 +45,7 @@ public class Adres implements Serializable, IValidaties {
     private Boolean isActive = false;
 
     // Getters en Setters
-    public Integer getId() {
+    public BigInteger getId() {
         return id;
     }
 
@@ -55,10 +56,10 @@ public class Adres implements Serializable, IValidaties {
         this.volgnummer = volgnummer;
     }
 
-    public Integer getDeelknemr() {
+    public BigInteger getDeelknemr() {
         return deelnemer;
     }
-    public void setDeelknemr(Integer deelnemer) {
+    public void setDeelknemr(BigInteger deelnemer) {
         this.deelnemer = deelnemer;
     }
 
