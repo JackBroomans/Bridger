@@ -1,8 +1,10 @@
 package com.befrank.casedeveloperjava.model;
 
+import com.befrank.casedeveloperjava.DeelnemerRepository;
 import com.befrank.casedeveloperjava.util.interfaces.IValidaties;
 
 import javax.persistence.*;
+import java.awt.geom.Arc2D;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
@@ -28,6 +30,10 @@ import static javax.persistence.GenerationType.IDENTITY;
  * </ul>
  */
 
+//@NamedStoredProcedureQuery( name = "getSomBeleggingen", procedureName = "PSomBeleggingenDeelnemer", parameters = {
+//        @StoredProcedureParameter (mode=ParameterMode.IN,name = "deelnemer_id", type = Long.class),
+//        @StoredProcedureParameter(mode=ParameterMode.OUT, name = "huidigeWaarde", type = Float.class)
+//        })
 @Entity
 @Table(name="deelnemer")
 public class Deelnemer implements Serializable, IValidaties {

@@ -4,6 +4,10 @@ CREATE DATABASE IF NOT EXISTS casebefrank COLLATE latin1_general_cs;
 
 USE casebefrank;
 
+DROP PROCEDURE IF EXISTS PSomBeleggingenDeelnemer;
+
+DROP TABLE IF EXISTS belegging;
+DROP TABLE IF EXISTS premie;
 DROP TABLE IF EXISTS adres;
 DROP TABLE IF EXISTS deelnemer;
 
@@ -20,8 +24,8 @@ CREATE TABLE  deelnemer
     geslachtscode    VARCHAR(1)   NOT NULL,
     geboortedatum    DATE         NOT NULL,
     email            VARCHAR(255) NOT NULL,
-    telefoon_vast     VARCHAR(15),
-    telefoon_mobiel   VARCHAR(15)  NOT NULL
+    telefoon_vast    VARCHAR(15),
+    telefoon_mobiel  VARCHAR(15)  NOT NULL
 ) ENGINE = INNODB;
 
 CREATE UNIQUE INDEX iDeelnemersnummer ON deelnemer (deelnemersnummer);
@@ -38,7 +42,7 @@ CREATE TABLE  adres
     postcode   VARCHAR(15),
     plaatsnaam VARCHAR(127) NOT NULL,
     land       VARCHAR(127)          DEFAULT 'Nederland',
-    actief   BOOLEAN      NOT NULL DEFAULT false,
+    actief     BOOLEAN      NOT NULL DEFAULT false,
     FOREIGN KEY fDeelnemerAdres (deelnemer)
         REFERENCES deelnemer (id)
         ON UPDATE RESTRICT
@@ -47,6 +51,38 @@ CREATE TABLE  adres
 
 CREATE INDEX iDeelnemerAdres ON adres (deelnemer);
 CREATE INDEX iPostcode ON adres (postcode);
+
+CREATE TABLE  premie
+(
+    id                            BIGINT AUTO_INCREMENT PRIMARY KEY,
+    deelnemer                     BIGINT NOT NULL,
+    fulltime_salaris              FLOAT  NOT NULL DEFAULT 0,
+    parttime_percentage           FLOAT  NOT NULL DEFAULT 0,
+    francise_actueel              FLOAT  NOT NULL DEFAULT 0,
+    percentage_beschikbare_premie FLOAT  NOT NULL DEFAULT 0,
+    FOREIGN KEY fDeelnemerPremie (deelnemer)
+        REFERENCES deelnemer (id)
+        ON UPDATE RESTRICT
+        ON DELETE CASCADE
+) ENGINE = INNODB;
+
+CREATE INDEX iDeelnemerPremie ON premie (deelnemer);
+
+CREATE TABLE belegging
+(
+  id             BIGINT AUTO_INCREMENT PRIMARY KEY,
+  deelnemer      BIGINT       NOT NULL,
+  instituut      VARCHAR(63)  NOT NULL,
+  fonds          VARCHAR(255) NOT NULL,
+  huidige_waarde FLOAT        NOT NULL DEFAULT 0,
+  FOREIGN KEY fDeelnemerPremie (deelnemer)
+      REFERENCES deelnemer (id)
+      ON UPDATE RESTRICT
+      ON DELETE CASCADE
+
+) ENGINE = INNODB;
+
+CREATE INDEX iDeelnemerBelegging ON belegging (deelnemer);
 
 # Deelnemers
 INSERT INTO deelnemer (deelnemersnummer, familienaam, voornamen, initialen, titelsprefix, geslachtscode,
@@ -76,4 +112,41 @@ VALUES (1, 3, 'Girafverblijf', '1', '3456 EF', 'Artis', 'Nederland', 1);
 INSERT INTO adres (volgnummer, deelnemer, straatnaam, huisnummer, postcode, plaatsnaam, land, actief)
 VALUES (2, 1, 'Thuisstraat', '91-I', '4567 GH', 'Ergens', 'Nederland', 0);
 
+# Actuele premies van deelnemers
+INSERT INTO premie(deelnemer, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+VALUES (1, 49000, 100, 12600, 3);
+
+INSERT INTO premie(deelnemer, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+VALUES (2, 63500, 80, 16000, 3);
+
+INSERT INTO premie(deelnemer, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+VALUES (3, 11000, 5, 2000, 3);
+
+# Beleggingen per deelnener
+INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+VALUES (1, 'Nationale Nederlanden', 'BlackRock Sustainable Energy', 1723);
+INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+VALUES (1, 'ASN', 'Groenprojectenfonds', 831);
+INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+VALUES (1, 'Triodos', 'Impact Mixed Fund - Defensive', 37887);
+INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+VALUES (2, 'BNP Parisbas', 'KBC-Life S Dynamic Responsible Investing Comfort', 0);
+INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+VALUES (2, 'Nationale Nederlanden', 'Aanvullende PensioenOpbouw', 11299);
+INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+VALUES (2, 'Nationale Nederlanden', 'Beheerd Beleggen ', 32664);
+INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+VALUES (2, 'ABN-Amro', 'Begeleid Beleggen Matig Defensief', 24301);
+INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+VALUES (3, 'KBC', 'Life S Defensive Balanced Responsible Investing Comfort', 10688);
+INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+VALUES (3, 'Triodos', 'Triodos Global Equities', 466);
+
+# Bepaal de totale huidige waarde van alle, onder een bepaalde deelnemer geregistreerde, beleggingen.
+CREATE PROCEDURE PSomBeleggingenDeelnemer(IN deelnemer_id BIGINT, OUT huidigeWaarde NUMERIC)
+    BEGIN
+        SELECT SUM(huidige_waarde) INTO huidigeWaarde
+        FROM belegging
+        WHERE deelnemer = deelnemer_id;
+    END
 

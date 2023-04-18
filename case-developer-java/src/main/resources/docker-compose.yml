@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  mysql-casebefrank:
+    image: mysql:8.0.28
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=casebefrank
+    ports:
+      - 3308:3306
+
