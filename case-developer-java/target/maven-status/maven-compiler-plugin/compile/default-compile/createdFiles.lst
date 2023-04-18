@@ -1,9 +1,10 @@
+com\befrank\casedeveloperjava\DeelnemerRepository.class
+com\befrank\casedeveloperjava\util\TekstFuncties.class
+com\befrank\casedeveloperjava\DeelnemerController.class
+com\befrank\casedeveloperjava\model\PremieDeelnemer.class
 com\befrank\casedeveloperjava\CaseDeveloperJavaApplication.class
 com\befrank\casedeveloperjava\util\interfaces\IValidaties.class
 com\befrank\casedeveloperjava\model\Geslacht.class
-com\befrank\casedeveloperjava\DeelnemerRepository.class
-com\befrank\casedeveloperjava\util\TekstFuncties.class
 com\befrank\casedeveloperjava\model\Adres.class
 com\befrank\casedeveloperjava\model\Deelnemer.class
-com\befrank\casedeveloperjava\DeelnemerController.class
 com\befrank\casedeveloperjava\util\DatumTijdFuncties.class

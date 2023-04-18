@@ -4,6 +4,8 @@ import com.befrank.casedeveloperjava.model.Adres;
 import com.befrank.casedeveloperjava.model.Deelnemer;
 import com.befrank.casedeveloperjava.model.Geslacht;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
@@ -21,7 +23,9 @@ class CaseDeveloperJavaApplicationTests {
 	private static final DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern("d-MM-yyyy");
 	private static final String STANDAARD_LAND = "Nederland";
 
-	private DeelnemerRepository repository;
+	@Autowired
+	DeelnemerRepository repository;
+
 
 	@Test
 	void contextLoads() {
@@ -123,4 +127,10 @@ class CaseDeveloperJavaApplicationTests {
 		assertTrue(valideerTekenreeks(testTekst.toString()));
 	}
 
+	@Test
+	public void classBeleggingTest() {
+		// Haal het totaal van de beleggingen op
+
+		assertEquals(40441, repository.getSomBeleggingenDeelnemer(1));
+	}
 }
