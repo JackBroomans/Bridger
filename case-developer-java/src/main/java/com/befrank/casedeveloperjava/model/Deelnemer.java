@@ -1,10 +1,8 @@
 package com.befrank.casedeveloperjava.model;
 
-import com.befrank.casedeveloperjava.DeelnemerRepository;
 import com.befrank.casedeveloperjava.util.interfaces.IValidaties;
 
 import javax.persistence.*;
-import java.awt.geom.Arc2D;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
@@ -15,25 +13,7 @@ import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
 import static com.befrank.casedeveloperjava.util.interfaces.IValidaties.valideerTekenreeks;
 import static javax.persistence.GenerationType.IDENTITY;
 
-/**
- * <strong>Deelnemer</strong><br>
- * Entiteit waarin de persoonsgegevens betreffende een deelnemer worden ondergebracht en waarvan de velden
- * corresponderen met die in de tabel in de database.<br>
- * De volgende elementen dienen gespecificieerd te zijn, de overige zijn optioneel:
- * <ul>
- *     <li>Kenmerk (Id)</li>
- *     <li>Deelnemersnummer</li>
- *     <li>Familienaam</li>
- *     <li>Voornamen</li>
- *     <li>Emailadres</li>
- *     <li>Mobiel telefoonnummer</li>
- * </ul>
- */
 
-//@NamedStoredProcedureQuery( name = "getSomBeleggingen", procedureName = "PSomBeleggingenDeelnemer", parameters = {
-//        @StoredProcedureParameter (mode=ParameterMode.IN,name = "deelnemer_id", type = Long.class),
-//        @StoredProcedureParameter(mode=ParameterMode.OUT, name = "huidigeWaarde", type = Float.class)
-//        })
 @Entity
 @Table(name="deelnemer")
 public class Deelnemer implements Serializable, IValidaties {
@@ -46,16 +26,16 @@ public class Deelnemer implements Serializable, IValidaties {
     @Column(name="id")
     private long id;
 
-    @Column(name="deelnemersnummer")
+    @Column(name="deelnemersnummer", nullable = false, unique = true)
     private String deelnemersnummer;
 
-    @Column(name="familienaam")
+    @Column(name="familienaam", nullable = false)
     private String familienaam;
 
     @Column(name="voorvoegsels")
     private String voorvoegsels;
 
-    @Column(name="voornamen")
+    @Column(name="voornamen", nullable = false)
     private String voornamen;
 
     @Column(name="initialen")
@@ -70,21 +50,25 @@ public class Deelnemer implements Serializable, IValidaties {
     @Transient
     private Geslacht geslacht = Geslacht.getStandaardOptie();
 
-    @Column(name="geslachtscode")
+    @Column(name="geslachtscode", nullable = false)
     private String geslachtscode = Geslacht.getStandaardOptie().getCode();
 
-    @Column(name = "geboortedatum")
+    @Column(name = "geboortedatum", nullable = false)
     private LocalDate geboortedatum;
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
     @Column(name="telefoon_vast")
     private String telefoonVast;
 
-    @Column(name="telefoon_mobiel")
+    @Column(name="telefoon_mobiel", nullable = false)
     private String telefoonMobiel;
 
-    @OneToMany(mappedBy = "deelnemer", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "deelnemer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Adres> adres;
+
+    @OneToOne(mappedBy = "deelnemer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private PremieDeelnemer premieDeelnemer;
+
 
     // Getters en Setters
     public long getId() {
@@ -213,13 +197,20 @@ public class Deelnemer implements Serializable, IValidaties {
         this.telefoonMobiel = telefoonMobiel;
     }
 
+    public PremieDeelnemer getPremieDeelnemer() {
+        return premieDeelnemer;
+    }
+    public void setPremieDeelnemer(PremieDeelnemer premieDeelnemer) {
+        this.premieDeelnemer = premieDeelnemer;
+    }
+
     /**
      * <strong>stelCorrespondentienaamSamen()</strong><br>
      * De methode stelt uit de afzonderlijke componenten de volledige naam van de deelnemer samen voor gebruik in
      * correspondentie.<br>
      * @return De samengestelde naam voor gebruik bij correspondentie
      */
-    public String stelCorrespondentienaamSamen() {
+    public String getCorrespondentieRegel() {
         StringBuilder tekst = new StringBuilder()
                 .append(valideerTekenreeks(this.prefixTitels) ? this.prefixTitels : "")
                 .append(valideerTekenreeks(this.initialen) ? " " + this.initialen : "")
@@ -231,6 +222,7 @@ public class Deelnemer implements Serializable, IValidaties {
 
     /**
      * <strong>getLeeftijd()</strong><br>
+     *
      * Bepaalt de actuele leeftijd van de deelnemer gebaseerd op de geboortedatum.<br>
      * @return  De actuele leeftijd van de deelnemer.
      */

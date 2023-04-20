@@ -1,6 +1,7 @@
 package com.befrank.casedeveloperjava;
 
 import com.befrank.casedeveloperjava.model.Deelnemer;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +39,7 @@ public class DeelnemerController {
      * @return een instantie van de gezochte Deelnemer
      * @throws NoSuchElementException indien de deelnemer niet is gevonden.
      */
-    @GetMapping("/dellnemers/{id}")
+    @GetMapping("/deelnemer/{id}")
     Deelnemer getDeelnemerOpId(@PathVariable long id) {
 
         try {
@@ -50,19 +51,23 @@ public class DeelnemerController {
         }
     }
 
-//    @GetMapping("/dellnemers/{email}")
-//    Deelnemer getDeelnemerOpEmailAdres(@PathVariable String email) {
-//
-//        try {
-//            List<Deelnemer> deelnemers findByEmail(String email);
-//
-//            return this.repository.findAll().stream().map().;
-//        }
-//        catch(Exception ex) {
-//            // Todo implement logging en log 'Deelnmeer niet gevonden op basis van id.'
-//            return null;
-//        }
-//    }
+    @GetMapping("/deelnemer/{beleggingen}")
+    public float getSomBeleggingenDeelnemer(long id) {
+        return  repository.getSomBeleggingenDeelnemer(id);
+    }
+
+    @GetMapping("/dellnemers/{email}")
+    Deelnemer getDeelnemerOpEmailAdres(@PathVariable String email) {
+
+        try {
+            Deelnemer deelnemer = repository.findByEmail(email);
+            return deelnemer;
+        }
+        catch(Exception ex) {
+            // Todo implement logging en log 'Deelnmeer niet gevonden op basis van id.'
+            return null;
+        }
+    }
 
 
 

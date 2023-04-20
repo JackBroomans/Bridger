@@ -14,6 +14,8 @@ public interface DeelnemerRepository extends JpaRepository<Deelnemer, Long> {
     List<Deelnemer> findAll();
     Deelnemer findById(long id);
 
+    Deelnemer findByEmail(String email);
+
     @Procedure(procedureName = "PSomBeleggingenDeelnemer")
-    float getSomBeleggingenDeelnemer(long id);
+    Float getSomBeleggingenDeelnemer(long id);
 }
