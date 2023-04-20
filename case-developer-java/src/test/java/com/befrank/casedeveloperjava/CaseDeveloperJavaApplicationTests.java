@@ -3,6 +3,7 @@ package com.befrank.casedeveloperjava;
 import com.befrank.casedeveloperjava.model.Adres;
 import com.befrank.casedeveloperjava.model.Deelnemer;
 import com.befrank.casedeveloperjava.model.Geslacht;
+import com.befrank.casedeveloperjava.model.PremieDeelnemer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -36,8 +37,6 @@ class CaseDeveloperJavaApplicationTests {
 		// Test zoeken en selecteren als standaard ingestelde optie
 		Geslacht geslacht = Geslacht.getStandaardOptie();
 		assertEquals(geslacht.getTekst(), STANDAARD_OPTIE_GESLACHT);
-		// Todo: Implementeer logging en schrijf teksten naar het logbestand i.p.v. naar de console
-		System.out.println(geslacht.toString());
 
 		// Test zoeken van een geslacht op basis van haar code
 		assertEquals(Geslacht.zoekOpCode(null), null);
@@ -46,7 +45,6 @@ class CaseDeveloperJavaApplicationTests {
 		assertEquals(Geslacht.zoekOpCode("X"), null);
 		// Happy flow zoeken op code
 		assertEquals(Geslacht.zoekOpCode("M"), Geslacht.MAN);
-
 	}
 
 	@Test
@@ -79,25 +77,35 @@ class CaseDeveloperJavaApplicationTests {
 		assertNull(deelnemer.getFamilienaam());
 
 		// Test happy flow specificaties deelnemer
-		deelnemer.setFamilienaam("Botje");
-		deelnemer.setVoornamen("Berend");
-		deelnemer.setInitialen("B.");
+		deelnemer.setFamilienaam("Duck");
+		deelnemer.setVoornamen("Donald");
+		deelnemer.setInitialen("D.");
 		deelnemer.setPrefixTitels("dhr.");
-		deelnemer.setEmail("b.botje@zeilboot.nl");
+		deelnemer.setEmail("d.duck@duckstad.nl");
 
-		assertEquals(deelnemer.stelCorrespondentienaamSamen(), "dhr. B. Botje");
+		assertEquals(deelnemer.getCorrespondentieRegel(), "dhr. D. Duck");
 
-		// Test wissen van verplichte velden is onmogelijk, de oude waarde blijft behouden
+		// Test wissen van verplichte velden is onmogelijk, de oude waarden blijven behouden
 		deelnemer.setFamilienaam(null);
-		assertTrue(deelnemer.getFamilienaam().equals("Botje"));
+		assertTrue(deelnemer.getFamilienaam().equals("Duck"));
 		deelnemer.setGeslacht(null);
 		assertTrue(deelnemer.getGeslacht().equals(Geslacht.ONBEKEND));
 		deelnemer.setEmail("");
-		assertTrue(deelnemer.getEmail().equals("b.botje@zeilboot.nl"));
+		assertTrue(deelnemer.getEmail().equals("d.duck@duckstad.nl"));
 
 		// Test de synchronisatie van de code voor het geslacht met het actueel ingestelde geslacht
 		deelnemer.setGeslacht(Geslacht.MAN);
 		assertEquals(deelnemer.getGeslacht().getCode(), "M");
+
+		// Test toevoegen van de premie-gegevens aan de deelnemer
+		PremieDeelnemer premie = new PremieDeelnemer();
+		premie.setFullTimeSalaris(65244);
+		premie.setParttimePercentage(80);
+		premie.setFranciseActueel(15693);
+		premie.setPercentageBeschikbarePremie(5);
+		premie.setDeelnemr(deelnemer);
+		deelnemer.setPremieDeelnemer(premie);
+		assertEquals(deelnemer.getPremieDeelnemer().getFullTimeSalaris(),65244);
 
 	}
 
@@ -129,8 +137,19 @@ class CaseDeveloperJavaApplicationTests {
 
 	@Test
 	public void classBeleggingTest() {
-		// Haal het totaal van de beleggingen op
+
+		// Test ophalen van gegevens van en bewerkingen op gebruikers
+		long valsId = 0L;
+		assertNull(repository.findById(valsId));
+		assertNull(repository.findByEmail("email.adres.bestaat@niet"));
+		assertEquals(repository.getSomBeleggingenDeelnemer(valsId), null);
+
+		long geldigId = 2L;
+		Deelnemer deelnemer = repository.findByEmail("petteflet@flatgebouw.nl");
+		assertEquals(deelnemer.getId(), geldigId);
 
 		assertEquals(40441, repository.getSomBeleggingenDeelnemer(1));
+
 	}
+
 }

@@ -23,7 +23,10 @@ public class PremieDeelnemer {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private long deelnemr;
+    private long id;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id", nullable = false, unique = true)
+    private Deelnemer deelnemer;
     @Column(name = "fulltime_salaris")
     private float fullTimeSalaris;
     @Column(name = "parttime_percentage")
@@ -43,12 +46,11 @@ public class PremieDeelnemer {
 
 
     // Getters en Setters
-    public long getDeelnemr() {
-        return deelnemr;
+    public Deelnemer getDeelnemr() {
+        return this.deelnemer;
     }
-
-    public void setDeelnemr(long deelnemr) {
-        this.deelnemr = deelnemr;
+    public void setDeelnemr(Deelnemer deelnemer) {
+        this.deelnemer = deelnemer;
     }
 
     public float getFullTimeSalaris() {
