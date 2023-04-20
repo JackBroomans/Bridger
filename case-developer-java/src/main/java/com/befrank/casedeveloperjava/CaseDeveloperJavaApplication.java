@@ -20,13 +20,4 @@ public class CaseDeveloperJavaApplication {
 		SpringApplication.run(CaseDeveloperJavaApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner initDatabase(DeelnemerRepository repository) {
-
-		return args -> {
-			log.info("Laden alle deelnemers:\n" + repository.findAll());
-			log.info("Laden deelnemer:\n" + repository.findById(1));
-		};
-	}
-
 }

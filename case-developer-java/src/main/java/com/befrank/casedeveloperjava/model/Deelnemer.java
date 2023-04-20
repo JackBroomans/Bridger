@@ -19,7 +19,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Deelnemer implements Serializable, IValidaties {
     // Todo: Variabele opnemen in resources-bestand om externe configuratie mogelijk te maken
     @Transient
-    private static final DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern("d-MM-yyyy");
+    private static final DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
