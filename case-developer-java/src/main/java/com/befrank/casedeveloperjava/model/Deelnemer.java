@@ -63,10 +63,11 @@ public class Deelnemer implements Serializable, IValidaties {
     @Column(name="telefoon_mobiel", nullable = false)
     private String telefoonMobiel;
 
-    @OneToMany(mappedBy = "deelnemer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Adres> adres;
+//    @OneToMany(mappedBy = "deelnemer", fetch = FetchType.LAZY)
+//    private Set<Adres> adres;
 
-    @OneToOne(mappedBy = "deelnemer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", nullable = false, unique = true)
     private PremieDeelnemer premieDeelnemer;
 
 

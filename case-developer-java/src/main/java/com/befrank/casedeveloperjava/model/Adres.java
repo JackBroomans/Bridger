@@ -11,11 +11,11 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * <strong>Deelnemer</strong><br>
+ * <strong>Adres</strong><br>
  * Entiteit waarin de adresgegevens betreffende een deelnemer worden ondergebracht en waarvan de velden corresponderen
  * met die in de tabel in de database. Aan een deelnemer kunnen meerdere adressen worden gekoppeld om de historie te
  * kunnen bijhouden. Echter slechts één adres kan als het actieve adres zijn ingesteld.<br>
- * De volgende eigenschappen dienen gespecificieerd te zijn, de overige zijn optioneel:
+ * De volgende eigenschappen zijn verplicht, de overige zijn optioneel:
  * <ul>
  *     <li>Kenmerk (Id)</li>
  *     <li>Volgnummer</li>

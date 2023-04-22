@@ -13,19 +13,19 @@ DROP TABLE IF EXISTS deelnemer;
 
 CREATE TABLE  deelnemer
 (
-    id               BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id  BIGINT AUTO_INCREMENT PRIMARY KEY,
     deelnemersnummer VARCHAR(15)  NOT NULL,
-    familieNaam      VARCHAR(131) NOT NULL,
-    voorvoegsels     VARCHAR(31),
-    voornamen        VARCHAR(255) NOT NULL,
-    initialen        VARCHAR(31),
-    titelsprefix     VARCHAR(63),
-    titelssuffix     VARCHAR(63),
-    geslachtscode    VARCHAR(1)   NOT NULL,
-    geboortedatum    DATE         NOT NULL,
-    email            VARCHAR(255) NOT NULL,
-    telefoon_vast    VARCHAR(15),
-    telefoon_mobiel  VARCHAR(15)  NOT NULL
+    familieNaam VARCHAR(131) NOT NULL,
+    voorvoegsels VARCHAR(31),
+    voornamen VARCHAR(255) NOT NULL,
+    initialen VARCHAR(31),
+    titelsprefix VARCHAR(63),
+    titelssuffix VARCHAR(63),
+    geslachtscode VARCHAR(1) NOT NULL,
+    geboortedatum DATE NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    telefoon_vast VARCHAR(15),
+    telefoon_mobiel VARCHAR(15) NOT NULL
 ) ENGINE = INNODB;
 
 CREATE UNIQUE INDEX iDeelnemersnummer ON deelnemer (deelnemersnummer);
@@ -34,55 +34,54 @@ CREATE INDEX iEmail ON deelnemer (email);
 
 CREATE TABLE  adres
 (
-    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
-    volgnummer SMALLINT     NOT NULL DEFAULT 0,
-    deelnemer  BIGINT       NOT NULL,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    volgnummer SMALLINT NOT NULL DEFAULT 0,
+    deelnemer_id BIGINT,
     straatnaam VARCHAR(127) NOT NULL,
     huisnummer VARCHAR(15),
-    postcode   VARCHAR(15),
+    postcode VARCHAR(15),
     plaatsnaam VARCHAR(127) NOT NULL,
-    land       VARCHAR(127)          DEFAULT 'Nederland',
-    actief     BOOLEAN      NOT NULL DEFAULT false,
-    FOREIGN KEY fDeelnemerAdres (deelnemer)
+    land VARCHAR(127) DEFAULT 'Nederland',
+    actief BOOLEAN  NOT NULL DEFAULT false,
+    FOREIGN KEY fDeelnemerAdres (deelnemer_id)
         REFERENCES deelnemer (id)
         ON UPDATE RESTRICT
         ON DELETE CASCADE
 ) ENGINE = INNODB;
 
-CREATE INDEX iDeelnemerAdres ON adres (deelnemer);
+CREATE INDEX iDeelnemerAdres ON adres (deelnemer_id);
 CREATE INDEX iPostcode ON adres (postcode);
 
 CREATE TABLE  premie
 (
-    id                            BIGINT AUTO_INCREMENT PRIMARY KEY,
-    deelnemer                     BIGINT NOT NULL,
-    fulltime_salaris              FLOAT  NOT NULL DEFAULT 0,
-    parttime_percentage           FLOAT  NOT NULL DEFAULT 0,
-    francise_actueel              FLOAT  NOT NULL DEFAULT 0,
-    percentage_beschikbare_premie FLOAT  NOT NULL DEFAULT 0,
-    FOREIGN KEY fDeelnemerPremie (deelnemer)
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    deelnemer_id BIGINT,
+    fulltime_salaris  DOUBLE NOT NULL DEFAULT 0,
+    parttime_percentage FLOAT NOT NULL DEFAULT 0,
+    francise_actueel DOUBLE NOT NULL DEFAULT 0,
+    percentage_beschikbare_premie FLOAT NOT NULL DEFAULT 0,
+    FOREIGN KEY fDeelnemerPremie (deelnemer_id)
         REFERENCES deelnemer (id)
         ON UPDATE RESTRICT
         ON DELETE CASCADE
 ) ENGINE = INNODB;
 
-CREATE INDEX iDeelnemerPremie ON premie (deelnemer);
+CREATE INDEX iDeelnemerPremie ON premie (deelnemer_id);
 
 CREATE TABLE belegging
 (
-  id             BIGINT AUTO_INCREMENT PRIMARY KEY,
-  deelnemer      BIGINT       NOT NULL,
-  instituut      VARCHAR(63)  NOT NULL,
-  fonds          VARCHAR(255) NOT NULL,
-  huidige_waarde FLOAT        NOT NULL DEFAULT 0,
-  FOREIGN KEY fDeelnemerPremie (deelnemer)
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  deelnemer_id BIGINT       NOT NULL,
+  instituut VARCHAR(63)  NOT NULL,
+  fonds VARCHAR(255) NOT NULL,
+  huidige_waarde DOUBLE NOT NULL DEFAULT 0,
+  FOREIGN KEY fDeelnemerPremie (deelnemer_id)
       REFERENCES deelnemer (id)
       ON UPDATE RESTRICT
       ON DELETE CASCADE
-
 ) ENGINE = INNODB;
 
-CREATE INDEX iDeelnemerBelegging ON belegging (deelnemer);
+CREATE INDEX iDeelnemerBelegging ON belegging (deelnemer_id);
 
 # Deelnemers
 INSERT INTO deelnemer (deelnemersnummer, familienaam, voornamen, initialen, titelsprefix, geslachtscode,
@@ -100,53 +99,53 @@ VALUES ('20220416-00003', 'Dap', 'Dikkertje', 'D.', 'M', '2001-05-03', 'dikkertj
         '06-9911223344');
 
 # Adressen (Gekoppeld aan deelnemers)
-INSERT INTO adres (volgnummer, deelnemer, straatnaam, huisnummer, postcode, plaatsnaam, land, actief)
+INSERT INTO adres (volgnummer, deelnemer_id, straatnaam, huisnummer, postcode, plaatsnaam, land, actief)
 VALUES (1, 1, 'Dorpstraat', '2a', '1234 AB', 'Zuidlaren', 'Nederland', 1);
 
-INSERT INTO adres(volgnummer, deelnemer, straatnaam, huisnummer, postcode, plaatsnaam, land, actief)
+INSERT INTO adres(volgnummer, deelnemer_id, straatnaam, huisnummer, postcode, plaatsnaam, land, actief)
 VALUES (1, 2, 'Brink', '23', '2345 CD', 'Ons Dorp', 'Nederland', 1);
 
-INSERT INTO adres(volgnummer, deelnemer, straatnaam, huisnummer, postcode, plaatsnaam, land, actief)
+INSERT INTO adres(volgnummer, deelnemer_id, straatnaam, huisnummer, postcode, plaatsnaam, land, actief)
 VALUES (1, 3, 'Girafverblijf', '1', '3456 EF', 'Artis', 'Nederland', 1);
 
-INSERT INTO adres (volgnummer, deelnemer, straatnaam, huisnummer, postcode, plaatsnaam, land, actief)
+INSERT INTO adres (volgnummer, deelnemer_id, straatnaam, huisnummer, postcode, plaatsnaam, land, actief)
 VALUES (2, 1, 'Thuisstraat', '91-I', '4567 GH', 'Ergens', 'Nederland', 0);
 
 # Actuele premies van deelnemers
-INSERT INTO premie(deelnemer, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO premie(deelnemer_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (1, 49000, 100, 12600, 3);
 
-INSERT INTO premie(deelnemer, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO premie(deelnemer_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (2, 63500, 80, 16000, 3);
 
-INSERT INTO premie(deelnemer, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO premie(deelnemer_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (3, 11000, 5, 2000, 3);
 
 # Beleggingen per deelnener
-INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+INSERT INTO belegging(deelnemer_id, instituut, fonds, huidige_waarde)
 VALUES (1, 'Nationale Nederlanden', 'BlackRock Sustainable Energy', 1723);
-INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+INSERT INTO belegging(deelnemer_id, instituut, fonds, huidige_waarde)
 VALUES (1, 'ASN', 'Groenprojectenfonds', 831);
-INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+INSERT INTO belegging(deelnemer_id, instituut, fonds, huidige_waarde)
 VALUES (1, 'Triodos', 'Impact Mixed Fund - Defensive', 37887);
-INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+INSERT INTO belegging(deelnemer_id, instituut, fonds, huidige_waarde)
 VALUES (2, 'BNP Parisbas', 'KBC-Life S Dynamic Responsible Investing Comfort', 0);
-INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+INSERT INTO belegging(deelnemer_id, instituut, fonds, huidige_waarde)
 VALUES (2, 'Nationale Nederlanden', 'Aanvullende PensioenOpbouw', 11299);
-INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+INSERT INTO belegging(deelnemer_id, instituut, fonds, huidige_waarde)
 VALUES (2, 'Nationale Nederlanden', 'Beheerd Beleggen ', 32664);
-INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+INSERT INTO belegging(deelnemer_id, instituut, fonds, huidige_waarde)
 VALUES (2, 'ABN-Amro', 'Begeleid Beleggen Matig Defensief', 24301);
-INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+INSERT INTO belegging(deelnemer_id, instituut, fonds, huidige_waarde)
 VALUES (3, 'KBC', 'Life S Defensive Balanced Responsible Investing Comfort', 10688);
-INSERT INTO belegging(deelnemer, instituut, fonds, huidige_waarde)
+INSERT INTO belegging(deelnemer_id, instituut, fonds, huidige_waarde)
 VALUES (3, 'Triodos', 'Triodos Global Equities', 466);
 
 # Bepaal de totale huidige waarde van alle, onder een bepaalde deelnemer geregistreerde, beleggingen.
-CREATE PROCEDURE PSomBeleggingenDeelnemer(IN deelnemer_id BIGINT, OUT huidigeWaarde NUMERIC)
+CREATE PROCEDURE PSomBeleggingenDeelnemer(IN id BIGINT, OUT huidigeWaarde NUMERIC)
     BEGIN
         SELECT SUM(huidige_waarde) INTO huidigeWaarde
         FROM belegging
-        WHERE deelnemer = deelnemer_id;
+        WHERE deelnemer_id = id;
     END
 

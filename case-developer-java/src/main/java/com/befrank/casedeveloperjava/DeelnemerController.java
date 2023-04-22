@@ -27,47 +27,66 @@ public class DeelnemerController {
      * @return Een List waarin alle gevonden deelnemers zijn opgenomen.
      */
     @GetMapping("/deelnemers")
-    List<Deelnemer> getDeelnemers() {
+    List<Deelnemer> haalAlleDeelnemers() {
         return new ArrayList<>(this.repository.findAll());
-
     }
 
     /**
-     * <strong>getDeelnemerOpId(<i>long</i>)</strong><br>
+     * <strong>haalDeelnemerOpId(<i>long</i>)</strong><br>
      * Haalt een deelnemer op uit de database op basis van de Id van die deelnemer.<br>
      * @param id Het kenmerk (id) van de deelnemer waarnaar wordt gezocht.
      * @return een instantie van de gezochte Deelnemer
      * @throws NoSuchElementException indien de deelnemer niet is gevonden.
      */
     @GetMapping("/deelnemer/{id}")
-    Deelnemer getDeelnemerOpId(@PathVariable long id) {
-
-        try {
-            return this.repository.findById(id);
-        }
-        catch(Exception ex) {
-            // Todo implement logging en log 'Deelnmeer niet gevonden op basis van id.'
-            return null;
-        }
+    Deelnemer haalDeelnemerOpId(@PathVariable long id) {
+        return this.repository.findById(id);
     }
 
-    @GetMapping("/deelnemer/{beleggingen}")
-    public float getSomBeleggingenDeelnemer(long id) {
-        return  repository.getSomBeleggingenDeelnemer(id);
+    /**
+     * <strong>haalDeelnemerOpEmailAdres(<i>String</i>)</strong><br>
+     * Zoek een deelnemer op basis van het email-adress.<br>
+     * @param email Het email-adres van de deelnemer die wordt gezocht.
+     * @return De deelnemer met het betreffende email-adres
+     */
+    @GetMapping("/deelnemr/{email}")
+    Deelnemer haalDeelnemerOpEmailAdres(@PathVariable String email) {
+        return this.repository.findByEmail(email);
     }
 
-    @GetMapping("/dellnemers/{email}")
-    Deelnemer getDeelnemerOpEmailAdres(@PathVariable String email) {
-
-        try {
-            Deelnemer deelnemer = repository.findByEmail(email);
-            return deelnemer;
-        }
-        catch(Exception ex) {
-            // Todo implement logging en log 'Deelnmeer niet gevonden op basis van id.'
-            return null;
-        }
+    /**
+     * <strong>haalDeelnemerOpDeelnemersnummer(<i>String</i>)</strong><br>
+     * Zoek een deelnemer op basis van diens deelnemersnummer.<br>
+     * @param deelnemersnummer Het deelnemersnummer van de deelnemer waarnaar wordt gezocht.
+     * @return De deelnemer met het betreffende email-adres
+     */
+    @GetMapping("/deelnemer/{deelnemersnummer}")
+    Deelnemer haalDeelnemerOpDeelnemersnummer(@PathVariable String deelnemersnummer) {
+        return this.repository.findByDeelnemersnummer(deelnemersnummer);
     }
+
+    /**
+     * <strong>berekenJaarlijksePremieDeelnemer(String)</strong><br>
+     * Berekend de jaarlijks (te beleggen) premie uit de (vastgelegde) premiegegevens van een bepaalde deelnemer.<br>
+     * (Full-time salaris – Franchise) * Parttime percentage * Beschikbare premie percentage<br>
+     * @param deelnemersnummer
+     * @return
+     */
+    @GetMapping("/premie/{deelnemersnummer}")
+    public double berekenJaarlijksePremieDeelnemer(String deelnemersnummer) {
+
+        // Haal deelnemer en de bijbehorende premiegegevens op.
+        Deelnemer deelnemer = repository.findByDeelnemersnummer(deelnemersnummer);
+
+        // Bepaal de som de huidide beleggingen (-> stored procedure)
+        double waardeHuidigeBeleggingen = repository.getSomBeleggingenDeelnemer(deelnemer.getId());
+
+        // Bereken de premie en retourneer deze
+        return (deelnemer.getPremieDeelnemer().getFullTimeSalaris() - deelnemer.getPremieDeelnemer().getFranciseActueel())
+                * (deelnemer.getPremieDeelnemer().getParttimePercentage() / 100)
+                * (deelnemer.getPremieDeelnemer().getPercentageBeschikbarePremie()/100);
+    }
+
 
 
 
