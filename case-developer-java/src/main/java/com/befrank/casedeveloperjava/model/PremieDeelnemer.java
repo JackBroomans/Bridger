@@ -24,8 +24,9 @@ public class PremieDeelnemer {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private long id;
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id", nullable = false, unique = true)
+
+    // Field name in the 'deelnemer' class
+    @OneToOne(mappedBy = "premieDeelnemer", fetch = FetchType.EAGER)
     private Deelnemer deelnemer;
     @Column(name = "fulltime_salaris")
     private float fullTimeSalaris;
@@ -49,7 +50,7 @@ public class PremieDeelnemer {
     public Deelnemer getDeelnemr() {
         return this.deelnemer;
     }
-    public void setDeelnemr(Deelnemer deelnemer) {
+    public void setDeelnemer(Deelnemer deelnemer) {
         this.deelnemer = deelnemer;
     }
 

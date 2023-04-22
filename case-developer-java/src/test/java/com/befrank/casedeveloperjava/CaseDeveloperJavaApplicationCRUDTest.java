@@ -1,6 +1,7 @@
 package com.befrank.casedeveloperjava;
 
 import com.befrank.casedeveloperjava.model.Deelnemer;
+import com.befrank.casedeveloperjava.model.PremieDeelnemer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,8 +10,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class CaseDeveloperJavaApplicationCRUDTest {
@@ -46,8 +46,9 @@ public class CaseDeveloperJavaApplicationCRUDTest {
 
         // Happy flow toevoegen deelnemer
         repository.save(deelnemer);
+        assertEquals(repository.findByDeelnemersnummer("20230420").getEmail(), "d.duck@duckstad.nl");
 
-        // Lees gegevens van de nieuwe delnemer terug
+        // Lees gegevens van de nieuwe deelnemer terug
         Deelnemer nieuweDeelnemer = new Deelnemer();
         nieuweDeelnemer = repository.findByEmail("d.duck@duckstad.nl");
         assertEquals(nieuweDeelnemer.getEmail(), "d.duck@duckstad.nl");
@@ -55,8 +56,31 @@ public class CaseDeveloperJavaApplicationCRUDTest {
         // corrigeer het deelnemersnummer
         nieuweDeelnemer.setDeelnemersnummer("20230420-00001");
         repository.save(nieuweDeelnemer);
-        assertEquals(repository.findById(deelnemer.getId()).getDeelnemersnummer(), "20230420-00001");
+        assertEquals(repository.findById(nieuweDeelnemer.getId()).getDeelnemersnummer(), "20230420-00001");
         assertEquals(repository.findByDeelnemersnummer(nieuweDeelnemer.getDeelnemersnummer()).getFamilienaam(), "Duck");
+
+
+        // Test zoeken op niet bestaande of ongeldige argumenten
+        assertDoesNotThrow( () -> repository.findByDeelnemersnummer("Ik-bestaa-niet") );
+        // Todo: Test uitbreiden voor andere attributen
+
+        // Todo: test bij het dubbel opvoeren van unieke velden
+
+
+        // Voeg premiegegevens toe aan de nieuwe deelnemer
+        PremieDeelnemer premie = new PremieDeelnemer();
+        premie.setFullTimeSalaris(51770);
+        premie.setParttimePercentage(100);
+        premie.setFranciseActueel(7354);
+        premie.setPercentageBeschikbarePremie(5);
+        premie.setDeelnemer(nieuweDeelnemer);
+        nieuweDeelnemer.setPremieDeelnemer(premie);
+
+
+        repository.save(nieuweDeelnemer);
+
+        assertEquals(repository.findByDeelnemersnummer(nieuweDeelnemer.getDeelnemersnummer()).getPremieDeelnemer().getFullTimeSalaris(), 51770) ;
+
 
         repository.delete(deelnemer);
     }

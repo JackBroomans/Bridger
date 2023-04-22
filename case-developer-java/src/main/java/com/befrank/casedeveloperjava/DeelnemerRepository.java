@@ -6,20 +6,13 @@ import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
 import java.util.List;
 
 @Repository
-public interface DeelnemerRepository extends JpaRepository<Deelnemer, Long> {
+public interface DeelnemerRepository extends CrudRepository<Deelnemer, Long> {
     List<Deelnemer> findAll();
     Deelnemer findById(long id);
 
-    /**
-     * <strong>findByEmail(<i>String</i>)</strong><br>
-     * Zoek een deelnemer op basis van het email-adress.<br>
-     * @param email Het email-adres van de deelnemer die wordt gezocht.
-     * @return De deelnemer met het betreffende email-adres
-     */
     Deelnemer findByEmail(String email);
 
     /**
@@ -30,12 +23,6 @@ public interface DeelnemerRepository extends JpaRepository<Deelnemer, Long> {
      */
     Deelnemer findByDeelnemersnummer(String deelnemersnummer);
 
-    /**
-     * <strong>getSomBeleggingenDeelnemer(<i>long</i>)</strong><br>
-     * Bepaald de waarde van alle actuele beleggingen van een bepaalde deelnemer gebaseerd op diens id.<br>
-     * @param id Het unieke identificatienummer van de deelnemer.
-     * @return Het totale actuele waarde van alle beleggening van de deelnemer
-     */
     @Procedure(procedureName = "PSomBeleggingenDeelnemer")
     Float getSomBeleggingenDeelnemer(long id);
 }

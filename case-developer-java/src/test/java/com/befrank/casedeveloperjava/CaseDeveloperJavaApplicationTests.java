@@ -27,7 +27,6 @@ class CaseDeveloperJavaApplicationTests {
 	@Autowired
 	DeelnemerRepository repository;
 
-
 	@Test
 	void contextLoads() {
 	}
@@ -97,15 +96,9 @@ class CaseDeveloperJavaApplicationTests {
 		deelnemer.setGeslacht(Geslacht.MAN);
 		assertEquals(deelnemer.getGeslacht().getCode(), "M");
 
-		// Test toevoegen van de premie-gegevens aan de deelnemer
-		PremieDeelnemer premie = new PremieDeelnemer();
-		premie.setFullTimeSalaris(65244);
-		premie.setParttimePercentage(80);
-		premie.setFranciseActueel(15693);
-		premie.setPercentageBeschikbarePremie(5);
-		premie.setDeelnemr(deelnemer);
-		deelnemer.setPremieDeelnemer(premie);
-		assertEquals(deelnemer.getPremieDeelnemer().getFullTimeSalaris(),65244);
+
+		// Test het berekenen van de jaarlijkse premie
+//		berekenJaarlijksePremieDeelnemer()
 
 	}
 
