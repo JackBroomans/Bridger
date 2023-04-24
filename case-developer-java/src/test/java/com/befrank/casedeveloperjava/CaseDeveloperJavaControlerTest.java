@@ -1,6 +1,7 @@
 package com.befrank.casedeveloperjava;
 
 import com.befrank.casedeveloperjava.model.Deelnemer;
+import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

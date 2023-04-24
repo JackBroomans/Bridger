@@ -1,13 +1,12 @@
 package com.befrank.casedeveloperjava.model;
 
-import java.io.Serializable;
-import java.math.BigInteger;
-
-import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
 import com.befrank.casedeveloperjava.util.interfaces.IValidaties;
-import static com.befrank.casedeveloperjava.util.interfaces.IValidaties.valideerTekenreeks;
 
 import javax.persistence.*;
+import java.io.Serializable;
+
+import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
+import static com.befrank.casedeveloperjava.util.interfaces.IValidaties.valideerTekenreeks;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**

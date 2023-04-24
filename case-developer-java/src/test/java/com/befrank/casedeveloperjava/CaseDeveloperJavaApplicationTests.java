@@ -3,10 +3,9 @@ package com.befrank.casedeveloperjava;
 import com.befrank.casedeveloperjava.model.Adres;
 import com.befrank.casedeveloperjava.model.Deelnemer;
 import com.befrank.casedeveloperjava.model.Geslacht;
-import com.befrank.casedeveloperjava.model.PremieDeelnemer;
+import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;

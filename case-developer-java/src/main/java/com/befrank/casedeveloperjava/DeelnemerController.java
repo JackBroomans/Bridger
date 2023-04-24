@@ -2,6 +2,7 @@ package com.befrank.casedeveloperjava;
 
 import com.befrank.casedeveloperjava.model.Deelnemer;
 
+import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

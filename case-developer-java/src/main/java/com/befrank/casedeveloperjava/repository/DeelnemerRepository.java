@@ -1,4 +1,4 @@
-package com.befrank.casedeveloperjava;
+package com.befrank.casedeveloperjava.repository;
 
 import com.befrank.casedeveloperjava.model.Deelnemer;
 import org.springframework.data.jpa.repository.JpaRepository;
