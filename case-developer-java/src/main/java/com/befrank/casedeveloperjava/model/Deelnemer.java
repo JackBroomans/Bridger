@@ -13,6 +13,21 @@ import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
 import static com.befrank.casedeveloperjava.util.interfaces.IValidaties.valideerTekenreeks;
 import static javax.persistence.GenerationType.IDENTITY;
 
+/**
+ * <strong>Deelnemer</strong><br>
+ * Entiteit waarin de basisgegevens van een deelnemer worden ondergebracht. Daarnaast zijn er een aantal methoden
+ * beschikbaar waarin frequent gebruikte functionaliteit is opgenomen.<br>
+ * Voor de specificatie van een deelnemer zijn de volgende velden zijn verplicht:
+ * <ul>
+ *     <li>Deelnemersnummer (Id)</li>
+ *     <li>Familienaam</li>
+ *     <li>Voornamen (Id)</li>
+ *     <li>Geboortedatum</li>
+ *     <li>Code van het geslacht (standaard 'O')</li>
+ *     <li>Emailadres</li>
+ *     <li>Mobiel telefoonnummer.</li>
+ * </ul>
+ */
 
 @Entity
 @Table(name="deelnemer")
