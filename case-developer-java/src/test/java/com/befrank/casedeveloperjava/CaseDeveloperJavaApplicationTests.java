@@ -36,7 +36,7 @@ class CaseDeveloperJavaApplicationTests {
 
 		// Test zoeken en selecteren als standaard ingestelde optie
 		Gender gender = Gender.getByCode(appVar.standaardGeslacht);
-		assertTrue(gender.getCode().equals(appVar.standaardGeslacht));
+		assertEquals(true, gender.getCode().equals(appVar.standaardGeslacht));
 
 		// Test zoeken van een geslacht op basis van haar code
 		assertNull(Gender.getByCode(null));
@@ -114,7 +114,7 @@ class CaseDeveloperJavaApplicationTests {
 		// Test of standaard land is ingesteld bij instantieëren van een adres
 		Adres adres = new Adres();
 		adres.setLand(appVar.standaardLand);
-		assertTrue(adres.getLand().equals(appVar.standaardLand));
+		assertEquals(adres.getLand(), appVar.standaardLand);
 		assertFalse(adres.getActief());
 	}
 

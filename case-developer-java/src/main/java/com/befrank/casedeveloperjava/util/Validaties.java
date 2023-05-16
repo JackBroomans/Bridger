@@ -14,7 +14,7 @@ public class Validaties {
 
     @Autowired
     public Validaties(AppVariabelenDeelnemer appVar) {
-        this.appVar = appVar;
+        Validaties.appVar = appVar;
     }
 
     /**
@@ -50,12 +50,8 @@ public class Validaties {
                 return false;
             }
             int leeftijd = DatumTijdFuncties.getLeeftijd(geboortedatum);
-            if (leeftijd < appVar.minLeeftijdDeelnemer ||
-                    leeftijd > appVar.maxLeeftijdDeelnemer) {
-                // Todo: Implementeer logging en log 'Ongeldige leeftijd deelnemer'
-                return false;
-            }
-            return true;
+            return leeftijd >= appVar.minLeeftijdDeelnemer &&
+                    leeftijd <= appVar.maxLeeftijdDeelnemer;
         }
         catch(DateTimeParseException ex) {
             // Todo: Implementeer logging en log 'Ongeldig datumformaat'

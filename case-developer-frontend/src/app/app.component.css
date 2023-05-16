@@ -18,7 +18,6 @@ input{
   height: 26px;
   font-weight: lighter;
   font-size: inherit;
-  font-weight: lighter;
   color: darkblue;
   background-color: whitesmoke;
   border-color: darkblue;
@@ -92,5 +91,5 @@ label input {
   width: 50%;
   border: 1px solid darkblue;
   border-radius: 4px;
-  padding: 0px 10px 10px 10px
+  padding: 0 10px 10px 10px
 }

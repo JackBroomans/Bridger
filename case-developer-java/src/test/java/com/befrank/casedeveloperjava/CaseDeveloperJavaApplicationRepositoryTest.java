@@ -106,6 +106,7 @@ public class CaseDeveloperJavaApplicationRepositoryTest {
 
         Deelnemer nieuweDeelnemer = appVar.deelnemer();
         assertEquals(nieuweDeelnemer.getGeslacht(), appVar.deelnemer().getGeslacht());
+
         nieuweDeelnemer.setFamilienaam("Duck");
         nieuweDeelnemer.setVoornamen("Donald");
         nieuweDeelnemer.setInitialen("D.");

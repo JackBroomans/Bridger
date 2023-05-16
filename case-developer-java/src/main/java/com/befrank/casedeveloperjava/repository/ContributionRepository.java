@@ -1,6 +1,5 @@
 package com.befrank.casedeveloperjava.repository;
 
-import com.befrank.casedeveloperjava.model.Deelnemer;
 import com.befrank.casedeveloperjava.model.PremieDeelnemer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

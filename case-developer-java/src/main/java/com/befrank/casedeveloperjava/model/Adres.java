@@ -32,7 +32,7 @@ public class Adres implements Serializable {
     @Column(name = "volgnummer")
     private int volgnummer;
 
-    @Column(name = "deelnemer_id")
+    @Column(name = "participant_id")
     private long deelnemer;
 
     @Column(name = "straatnaam")
