@@ -1,5 +1,95 @@
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+html{overflow-x:hidden}
+
+html,body {
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  color: darkblue;
+}
+
+
+h1{font-size:36px}
+h2{font-size:30px}
+h3{font-size:24px}
+h4{font-size:20px}
+h5{font-size:18px;}
+h6{font-size:16px}
+
+input{
+  height: 26px;
+  font-weight: lighter;
+  font-size: inherit;
+  color: darkblue;
+  background-color: whitesmoke;
+  border-color: darkblue;
+  border-radius: 4px;
+  border-width: thin;
+  padding-left: 5px;
+  margin-bottom: 5px;
+}
+label {
+  display: inline-block;
+}
+
+label input {
+  margin-bottom: 5px;
+}
+
+.button {
+  display: inline-block;
+  width: 140px;
+  height: 32px;
+  color: darkblue;
+  font-size: inherit;
+  border-color: gray;
+  border-radius: 4px;
+  border-width: thin;
+  background-color: whitesmoke;
+  cursor: pointer;
+  transition-duration: 0.1s;
+}
+.button:hover {
+  border-width: medium;
+}
+.button:active {
+  transform: translateY(2px);
+}
+
+.extra-small {
+  width: 60px;
+}
+.small {
+  width: 120px;
+}
+.middle {
+  width: 160px;
+}
+.large {
+  width: 220px;
+}
+.extra-large {
+  width: 300px;
+}
+
+.w3-container,.w3-panel{
+  padding:0.01em 16px;
+  margin-left: 0;
+}
+.panel {
+  margin: 8px;
+}
+.panel-title{
+  margin-top:16px;
+  margin-bottom:16px
+}
+.w3-blue,.w3-hover-blue:hover{
+  color:#fff!important;
+  background-color:#2196F3!important
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 1px solid darkblue;
+  border-radius: 4px;
+  padding: 0 10px 10px 10px
 }

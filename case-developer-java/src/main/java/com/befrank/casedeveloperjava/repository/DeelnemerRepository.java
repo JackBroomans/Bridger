@@ -1,7 +1,6 @@
 package com.befrank.casedeveloperjava.repository;
 
 import com.befrank.casedeveloperjava.model.Deelnemer;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -16,7 +15,7 @@ public interface DeelnemerRepository extends CrudRepository<Deelnemer, Long> {
     Deelnemer findByEmail(String email);
 
     /**
-     * <strong>findByEmail(<i>String</i>)</strong><br>
+     * <strong>findByDeelnemersnummer(<i>String</i>)</strong><br>
      * Zoek een deelnemer op basis van diens deelnemersnummers.<br>
      * @param deelnemersnummer Het deelnemersnummer van de deelnemer die wordt gezocht.
      * @return De deelnemer met het betreffende deelnemersnummer

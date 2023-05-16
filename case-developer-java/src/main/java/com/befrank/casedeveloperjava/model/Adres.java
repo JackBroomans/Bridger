@@ -1,47 +1,56 @@
 package com.befrank.casedeveloperjava.model;
 
-import com.befrank.casedeveloperjava.util.interfaces.IValidaties;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
-import static com.befrank.casedeveloperjava.util.interfaces.IValidaties.valideerTekenreeks;
+import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * <strong>Adres</strong><br>
- * Entiteit waarin de adresgegevens betreffende een deelnemer worden ondergebracht en waarvan de velden corresponderen
- * met die in de tabel in de database. Aan een deelnemer kunnen meerdere adressen worden gekoppeld om de historie te
- * kunnen bijhouden. Echter slechts één adres kan als het actieve adres zijn ingesteld.<br>
- * De volgende eigenschappen zijn verplicht, de overige zijn optioneel:
+ * Entiteit waarin de basisgegevens van een deelnemer worden ondergebracht. Daarnaast zijn er een aantal methoden
+ * beschikbaar waarin frequent gebruikte functionaliteit is opgenomen.<br>
+ * Voor de specificatie van een deelnemer zijn de volgende velden zijn verplicht:
  * <ul>
- *     <li>Kenmerk (Id)</li>
- *     <li>Volgnummer</li>
- *     <li>Deelnemer (Id)</li>
- *     <li>Straatnaam</li>
- *     <li>Plaatsnaam</li>
+ *     <li>volgnummer</li>
+ *     <li>deelnemer</li>
+ *     <li>land</li>
+ *     <li>actief</li>
  * </ul>
  */
 
 @Entity
 @Table(name = "adres")
-public class Adres implements Serializable, IValidaties {
-    // Todo: Variabele opnemen in resources-bestand om externe configuratie mogelijk te maken
-    @Transient
-    private static final String STANDAARD_LAND = "Nederland";
+public class Adres implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id")
     private long id;
+
+    @Column(name = "volgnummer")
     private int volgnummer;
+
+    @Column(name = "participant_id")
     private long deelnemer;
+
+    @Column(name = "straatnaam")
     private String straatnaam;
+
+    @Column(name= "huisnummer")
     private String huisnummer;
 
+    @Column(name = "postcode")
     private String postcode;
+
+    @Column(name = "plaatsnaam")
     private String plaatsnaam;
-    private String land = STANDAARD_LAND;
+
+    @Column(name = "land")
+    private String land;
+
+    @Column(name = "actief", nullable = false)
     private Boolean actief = false;
 
     // Getters en Setters
@@ -114,8 +123,6 @@ public class Adres implements Serializable, IValidaties {
                 .append(valideerTekenreeks(this.huisnummer) ? " " + this.huisnummer : "").append("\n")
                 .append(valideerTekenreeks(this.postcode) ? " " + this.postcode : "")
                 .append(valideerTekenreeks(this.plaatsnaam) ?  " " + this.plaatsnaam : " ");
-        if (!this.land.equals(STANDAARD_LAND)) { tekst.append("\n").append(this.land); }
-
         return tekst.toString();
     }
 
@@ -146,5 +153,4 @@ public class Adres implements Serializable, IValidaties {
             return "";
         }
     }
-
 }

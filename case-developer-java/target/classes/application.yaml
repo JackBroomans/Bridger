@@ -1,4 +1,5 @@
 spring:
+# Database
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3308/casebefrank
@@ -9,5 +10,3 @@ spring:
       dhibernate.format_sql: true
       generate-ddl: true
       show-sql: true
-
-

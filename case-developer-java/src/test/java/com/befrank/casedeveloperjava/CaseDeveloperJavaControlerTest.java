@@ -1,5 +1,6 @@
 package com.befrank.casedeveloperjava;
 
+import com.befrank.casedeveloperjava.configuration.AppVariabelenDeelnemer;
 import com.befrank.casedeveloperjava.model.Deelnemer;
 import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
 import org.junit.jupiter.api.Test;
@@ -12,10 +13,13 @@ public class CaseDeveloperJavaControlerTest {
     @Autowired
     DeelnemerRepository repository;
 
+    @Autowired
+    AppVariabelenDeelnemer appVar;
+
     @Test
     public void berekenJaarlijksePremieTest() {
 
-        Deelnemer deelnemer = new Deelnemer();
+        Deelnemer deelnemer = appVar.deelnemer();
         deelnemer = repository.findByDeelnemersnummer("20220416-00001");
         double waardeHuidigeBeleggingen = repository.getSomBeleggingenDeelnemer(deelnemer.getId());
         System.out.println();

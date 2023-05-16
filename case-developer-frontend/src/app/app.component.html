@@ -1,22 +1,32 @@
-<div class="container">
-  <div>
-    <div>Hoi! Succes met het maken van de case</div>
-    <div>Maak hier een frontend waarmee verbinding kan worden gemaakt met de applicaties</div>
-  </div>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="app.component.css">
+  <title>Login</title>
+</head>
+<body>
+<script src="app.component.js"></script>
+
+<div class="w3-container panel-title w3-blue">
+  <h1>BeFrank Demo</h1>
+  <p>Login Pensioenoverzicht</p>
 </div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="card bg-dark my-5">
-      <div class="card-body">
-        <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
-        <ul class="text-center list-inline py-3">
-          <li class="list-inline-item">
-            <a routerLink="/users" class="btn btn-info">List Users</a>
-          </li>
-          <li class="list-inline-item">
-            <a routerLink="/adduser" class="btn btn-info">Add User</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-<router-outlet></router-outlet>
+
+<div class="center">
+  <form class="panel">
+    <h5>Inloggen</h5>
+    <label for="inpEmail" class="middle">Email-adres:</label>
+    <input type="text" id="inpEmail" name="inpEmail" class="extra-large">
+    <br>
+    <label for="inpWachtwoord" class="middle">Wachtwoord:</label>
+    <input type="password" id="inpWachtwoord" name="inpWachtwoord" class="middle">
+    <br><br><br>
+    <button id="btnVerzenden" name="btnVerzenden" class="button">Verzenden</button>
+  </form>
+</div>
+
+</body>
+</html>
