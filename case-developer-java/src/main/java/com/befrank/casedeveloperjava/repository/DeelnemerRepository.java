@@ -16,7 +16,7 @@ public interface DeelnemerRepository extends CrudRepository<Deelnemer, Long> {
     Deelnemer findByEmail(String email);
 
     /**
-     * <strong>findByEmail(<i>String</i>)</strong><br>
+     * <strong>findByDeelnemersnummer(<i>String</i>)</strong><br>
      * Zoek een deelnemer op basis van diens deelnemersnummers.<br>
      * @param deelnemersnummer Het deelnemersnummer van de deelnemer die wordt gezocht.
      * @return De deelnemer met het betreffende deelnemersnummer

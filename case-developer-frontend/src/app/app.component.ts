@@ -11,6 +11,4 @@ export class AppComponent {
   constructor() {
     this.title = 'Case Developer - Be Frank';
   }
-
-
 }

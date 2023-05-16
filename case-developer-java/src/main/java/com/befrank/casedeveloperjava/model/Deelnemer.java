@@ -1,16 +1,16 @@
 package com.befrank.casedeveloperjava.model;
 
-import com.befrank.casedeveloperjava.util.interfaces.IValidaties;
+import com.befrank.casedeveloperjava.model.enums.Gender;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.util.Set;
 
 import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
-import static com.befrank.casedeveloperjava.util.interfaces.IValidaties.valideerTekenreeks;
+import static com.befrank.casedeveloperjava.util.Validaties.valideerGeboortedatum;
+import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
@@ -28,13 +28,10 @@ import static javax.persistence.GenerationType.IDENTITY;
  *     <li>Mobiel telefoonnummer.</li>
  * </ul>
  */
-
+@Component
 @Entity
 @Table(name="deelnemer")
-public class Deelnemer implements Serializable, IValidaties {
-    // Todo: Variabele opnemen in resources-bestand om externe configuratie mogelijk te maken
-    @Transient
-    private static final DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+public class Deelnemer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -63,10 +60,10 @@ public class Deelnemer implements Serializable, IValidaties {
     private String suffixTitels;
 
     @Transient
-    private Geslacht geslacht = Geslacht.getStandaardOptie();
+    private Gender gender;
 
     @Column(name="geslachtscode", nullable = false)
-    private String geslachtscode = Geslacht.getStandaardOptie().getCode();
+    private String geslachtscode;
 
     @Column(name = "geboortedatum", nullable = false)
     private LocalDate geboortedatum;
@@ -78,13 +75,9 @@ public class Deelnemer implements Serializable, IValidaties {
     @Column(name="telefoon_mobiel", nullable = false)
     private String telefoonMobiel;
 
-//    @OneToMany(mappedBy = "deelnemer", fetch = FetchType.LAZY)
-//    private Set<Adres> adres;
-
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id", nullable = false, unique = true)
     private PremieDeelnemer premieDeelnemer;
-
 
     // Getters en Setters
     public long getId() {
@@ -152,16 +145,17 @@ public class Deelnemer implements Serializable, IValidaties {
         this.suffixTitels = suffixTitels;
     }
 
-    public Geslacht getGeslacht() {
-        return geslacht;
+    public Gender getGeslacht() {
+        return this.gender;
     }
-    public void setGeslacht(Geslacht geslacht) {
-        if (geslacht == null) {
-            // Todo: Implementeer logging en log 'Geen specificate van het geslacht'
-            return;
+    public void setGeslacht(Gender gender) {
+        if (gender != null) {
+            this.gender = gender;
+            this.geslachtscode = gender.getCode();
         }
-        this.geslacht = geslacht;
-        this.geslachtscode = geslacht.getCode();
+        else {
+            // Todo: Implementeer logging en log 'Geen specificate van het geslacht'
+        }
     }
 
     public String getGeslachtscode() {
@@ -174,12 +168,14 @@ public class Deelnemer implements Serializable, IValidaties {
     public LocalDate getGeboortedatum() {
         return geboortedatum;
     }
-    public void setGeboortedatum(String geboortedatum) {
-        if (IValidaties.valideerGeboortedatumUitTekenreeks(geboortedatum)) {
-            this.geboortedatum = LocalDate.parse(geboortedatum, KORTE_DATUM_FORMAAT);
-        }
-        else {
-            // Todo: Implementeer logging en log 'Ongeldig geboortedatum. Niet ingesteld.'
+
+    /**
+     * Indien de geboortedatum ongeldig of niet gespecificeerd is, dan blijft deze ongewijzigd. De logging hiervan
+     * vindt tijdens de validatie plaats.
+     */
+    public void setGeboortedatum(LocalDate geboortedatum) {
+        if (valideerGeboortedatum(geboortedatum)) {
+            this.geboortedatum = geboortedatum;
         }
     }
 
@@ -227,13 +223,11 @@ public class Deelnemer implements Serializable, IValidaties {
      * @return De samengestelde naam voor gebruik bij correspondentie
      */
     public String getCorrespondentieRegel() {
-        StringBuilder tekst = new StringBuilder()
-                .append(valideerTekenreeks(this.prefixTitels) ? this.prefixTitels : "")
-                .append(valideerTekenreeks(this.initialen) ? " " + this.initialen : "")
-                .append(valideerTekenreeks(this.voorvoegsels) ? " " + this.voorvoegsels : "")
-                .append(valideerTekenreeks(this.familienaam) ?  " " + this.familienaam : " ")
-                .append(valideerTekenreeks(this.suffixTitels) ? " " + this.suffixTitels : "");
-        return tekst.toString();
+        return (valideerTekenreeks(this.prefixTitels) ? this.prefixTitels : "") +
+               (valideerTekenreeks(this.initialen) ? " " + this.initialen : "") +
+               (valideerTekenreeks(this.voorvoegsels) ? " " + this.voorvoegsels : "") +
+               (valideerTekenreeks(this.familienaam) ? " " + this.familienaam : " ") +
+               (valideerTekenreeks(this.suffixTitels) ? " " + this.suffixTitels : "");
     }
 
     /**
@@ -268,7 +262,7 @@ public class Deelnemer implements Serializable, IValidaties {
             tekst.append("\n\tInitialen: ").append(presentatie(this.initialen));
             tekst.append("\n\tTitels (prefix): ").append(presentatie(this.prefixTitels));
             tekst.append("\n\tTitels (suffix): ").append(presentatie(this.suffixTitels));
-            tekst.append("\n\tGeslacht: ").append(this.geslacht.getTekst());
+            tekst.append("\n\tGeslacht: ").append(this.gender.getDescription());
             tekst.append("\n\tEmail: ").append(presentatie(this.email));
             tekst.append("\n\tTelefoon vast: ").append(presentatie(this.telefoonVast));
             tekst.append("\n\tTelefoon mobiel: ").append(presentatie(this.telefoonMobiel)).append("\n");

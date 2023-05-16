@@ -1,0 +1,19 @@
+deelnemer:
+
+# Reguliere expressies
+  regex_deelnemersnummer: /^([1-2]{1}[0-9]{3})([0-1]{1}[0-2]{1})([0-3]{1}[\d]{1})-([\d]{5})$/i
+  regex_emailadres: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+
+# Datum- en tijdnotaies
+  korte_datumNotatie: dd-MM-yyyy
+  korte_datum_tijd_notatie: dd-MM-yyyy hh:mm:ss
+
+# Enum standaardwaarden
+  standaard_geslacht: U
+
+# Overige standaardwaarden
+  standaard_land: Nederland
+
+# Validatieregels
+  minimum_leeftijd_deelnemer: 18
+  maximum_leeftijd_deelnemer: 120

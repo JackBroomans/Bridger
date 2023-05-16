@@ -1,5 +1,7 @@
 package com.befrank.casedeveloperjava.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,6 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 /**
  *
  */
+@Component
 @Entity
 @Table(name = "premie")
 public class PremieDeelnemer {
@@ -25,9 +28,11 @@ public class PremieDeelnemer {
     @GeneratedValue(strategy = IDENTITY)
     private long id;
 
-    // Field name in the 'deelnemer' class
+    // Field name in the 'premie' class
     @OneToOne(mappedBy = "premieDeelnemer", fetch = FetchType.EAGER)
     private Deelnemer deelnemer;
+    @Column(name = "participant_id")
+    private long participantId;
     @Column(name = "fulltime_salaris")
     private float fullTimeSalaris;
     @Column(name = "parttime_percentage")
@@ -52,6 +57,7 @@ public class PremieDeelnemer {
     }
     public void setDeelnemer(Deelnemer deelnemer) {
         this.deelnemer = deelnemer;
+        this.participantId = deelnemer.getId();
     }
 
     public float getFullTimeSalaris() {
