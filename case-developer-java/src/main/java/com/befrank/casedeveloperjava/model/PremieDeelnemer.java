@@ -2,11 +2,8 @@ package com.befrank.casedeveloperjava.model;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-import static javax.persistence.GenerationType.IDENTITY;
+import jakarta.persistence.*;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
  *

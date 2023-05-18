@@ -1,7 +1,7 @@
 package com.befrank.casedeveloperjava;
 
 import com.befrank.casedeveloperjava.configuration.AppVariabelenDeelnemer;
-import com.befrank.casedeveloperjava.model.Adres;
+import com.befrank.casedeveloperjava.model.Address;
 import com.befrank.casedeveloperjava.model.Deelnemer;
 import com.befrank.casedeveloperjava.model.enums.Gender;
 import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
@@ -112,10 +112,10 @@ class CaseDeveloperJavaApplicationTests {
 	@Test
 	public void classAdresTest() {
 		// Test of standaard land is ingesteld bij instantieëren van een adres
-		Adres adres = new Adres();
-		adres.setLand(appVar.standaardLand);
-		assertEquals(adres.getLand(), appVar.standaardLand);
-		assertFalse(adres.getActief());
+		Address adres = new Address();
+		adres.setCountry(appVar.standaardLand);
+		assertEquals(adres.getCountry(), appVar.standaardLand);
+		assertFalse(adres.getCurrentActive());
 	}
 
 	// Todo: Verplaats unit-test naar test voor utiliteitsklassen
