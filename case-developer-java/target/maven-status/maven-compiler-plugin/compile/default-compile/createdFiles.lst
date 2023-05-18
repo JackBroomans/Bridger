@@ -1,12 +1,12 @@
 com\befrank\casedeveloperjava\model\enums\Gender.class
 com\befrank\casedeveloperjava\configuration\AppVariabelenDeelnemer.class
+com\befrank\casedeveloperjava\model\Address.class
 com\befrank\casedeveloperjava\util\TekstFuncties.class
 com\befrank\casedeveloperjava\DeelnemerController.class
 META-INF\spring-configuration-metadata.json
 com\befrank\casedeveloperjava\model\PremieDeelnemer.class
 com\befrank\casedeveloperjava\CaseDeveloperJavaApplication.class
 com\befrank\casedeveloperjava\repository\ContributionRepository.class
-com\befrank\casedeveloperjava\model\Adres.class
 com\befrank\casedeveloperjava\model\Deelnemer.class
 com\befrank\casedeveloperjava\util\DatumTijdFuncties.class
 com\befrank\casedeveloperjava\repository\DeelnemerRepository.class

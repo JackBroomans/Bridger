@@ -1,9 +1,11 @@
 package com.befrank.casedeveloperjava.model;
 
 import com.befrank.casedeveloperjava.model.enums.Gender;
+import jakarta.persistence.*;
+import static jakarta.persistence.GenerationType.IDENTITY;
+
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
@@ -11,7 +13,6 @@ import java.time.Period;
 import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
 import static com.befrank.casedeveloperjava.util.Validaties.valideerGeboortedatum;
 import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
-import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * <strong>Deelnemer</strong><br>
