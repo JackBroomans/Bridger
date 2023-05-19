@@ -1,0 +1,103 @@
+2023-05-19 12:02:05,415 INFO [AnnotationConfigContextLoaderUtils.java:83] Could not detect default configuration classes for test class [com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests]: CaseDeveloperJavaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-05-19 12:02:05,560 INFO [SpringBootTestContextBootstrapper.java:248] Found @SpringBootConfiguration com.befrank.casedeveloperjava.CaseDeveloperJavaApplication for test class com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests
+2023-05-19 12:02:06,096 INFO [Version.java:21] HV000001: Hibernate Validator 8.0.0.Final
+2023-05-19 12:02:06,142 INFO [StartupInfoLogger.java:51] Starting CaseDeveloperJavaApplicationTests using Java 17.0.7 with PID 10800 (started by jackb in C:\Users\jackb\IdeaProjects\befrank\case-developer-java)
+2023-05-19 12:02:06,155 INFO [SpringApplication.java:632] No active profile set, falling back to 1 default profile: "default"
+2023-05-19 12:02:06,829 INFO [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-19 12:02:06,889 INFO [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
+2023-05-19 12:02:07,694 INFO [HikariDataSource.java:110] HikariPool-1 - Starting...
+2023-05-19 12:02:08,304 INFO [HikariPool.java:565] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f6b53ed
+2023-05-19 12:02:08,307 INFO [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2023-05-19 12:02:08,411 INFO [LogHelper.java:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-19 12:02:08,512 INFO [Version.java:44] HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-19 12:02:09,120 INFO [DialectFactoryImpl.java:66] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-05-19 12:02:09,886 INFO [JtaPlatformInitiator.java:51] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-19 12:02:09,896 INFO [AbstractEntityManagerFactoryBean.java:437] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:02:10,593 WARN [JpaBaseConfiguration.java:231] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-19 12:02:11,191 INFO [StartupInfoLogger.java:57] Started CaseDeveloperJavaApplicationTests in 5.404 seconds (process running for 6.729)
+2023-05-19 12:02:11,480 WARN [CaseDeveloperJavaApplicationTests.java:157] Test passed when found in logging file!
+2023-05-19 12:02:11,506 INFO [AbstractEntityManagerFactoryBean.java:650] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:02:11,513 INFO [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2023-05-19 12:02:11,538 INFO [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2023-05-19 12:07:55,725 INFO [AnnotationConfigContextLoaderUtils.java:83] Could not detect default configuration classes for test class [com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests]: CaseDeveloperJavaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-05-19 12:07:55,863 INFO [SpringBootTestContextBootstrapper.java:248] Found @SpringBootConfiguration com.befrank.casedeveloperjava.CaseDeveloperJavaApplication for test class com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests
+2023-05-19 12:07:56,510 INFO [Version.java:21] HV000001: Hibernate Validator 8.0.0.Final
+2023-05-19 12:07:56,550 INFO [StartupInfoLogger.java:51] Starting CaseDeveloperJavaApplicationTests using Java 17.0.7 with PID 21656 (started by jackb in C:\Users\jackb\IdeaProjects\befrank\case-developer-java)
+2023-05-19 12:07:56,551 INFO [SpringApplication.java:632] No active profile set, falling back to 1 default profile: "default"
+2023-05-19 12:07:57,193 INFO [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-19 12:07:57,257 INFO [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2023-05-19 12:07:58,044 INFO [HikariDataSource.java:110] HikariPool-1 - Starting...
+2023-05-19 12:07:58,708 INFO [HikariPool.java:565] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@457a5b2d
+2023-05-19 12:07:58,710 INFO [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2023-05-19 12:07:58,828 INFO [LogHelper.java:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-19 12:07:59,046 INFO [Version.java:44] HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-19 12:07:59,670 INFO [DialectFactoryImpl.java:66] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-05-19 12:08:00,421 INFO [JtaPlatformInitiator.java:51] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-19 12:08:00,433 INFO [AbstractEntityManagerFactoryBean.java:437] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:08:01,078 WARN [JpaBaseConfiguration.java:231] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-19 12:08:01,585 INFO [StartupInfoLogger.java:57] Started CaseDeveloperJavaApplicationTests in 5.434 seconds (process running for 6.931)
+2023-05-19 12:08:01,889 WARN [CaseDeveloperJavaApplicationTests.java:157] Laatste test!
+2023-05-19 12:08:01,924 INFO [AbstractEntityManagerFactoryBean.java:650] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:08:01,928 INFO [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2023-05-19 12:08:01,953 INFO [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2023-05-19 12:09:39,972 INFO [AnnotationConfigContextLoaderUtils.java:83] Could not detect default configuration classes for test class [com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationRepositoryTest]: CaseDeveloperJavaApplicationRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-05-19 12:09:40,106 INFO [SpringBootTestContextBootstrapper.java:248] Found @SpringBootConfiguration com.befrank.casedeveloperjava.CaseDeveloperJavaApplication for test class com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationRepositoryTest
+2023-05-19 12:09:40,645 INFO [Version.java:21] HV000001: Hibernate Validator 8.0.0.Final
+2023-05-19 12:09:40,688 INFO [StartupInfoLogger.java:51] Starting CaseDeveloperJavaApplicationRepositoryTest using Java 17.0.7 with PID 5948 (started by jackb in C:\Users\jackb\IdeaProjects\befrank\case-developer-java)
+2023-05-19 12:09:40,690 INFO [SpringApplication.java:632] No active profile set, falling back to 1 default profile: "default"
+2023-05-19 12:09:41,389 INFO [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-19 12:09:41,438 INFO [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 41 ms. Found 2 JPA repository interfaces.
+2023-05-19 12:09:42,259 INFO [HikariDataSource.java:110] HikariPool-1 - Starting...
+2023-05-19 12:09:42,797 INFO [HikariPool.java:565] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6d0290d8
+2023-05-19 12:09:42,799 INFO [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2023-05-19 12:09:42,895 INFO [LogHelper.java:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-19 12:09:42,969 INFO [Version.java:44] HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-19 12:09:43,581 INFO [DialectFactoryImpl.java:66] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-05-19 12:09:44,317 INFO [JtaPlatformInitiator.java:51] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-19 12:09:44,327 INFO [AbstractEntityManagerFactoryBean.java:437] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:09:45,030 WARN [JpaBaseConfiguration.java:231] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-19 12:09:45,571 INFO [StartupInfoLogger.java:57] Started CaseDeveloperJavaApplicationRepositoryTest in 5.251 seconds (process running for 6.605)
+2023-05-19 12:09:45,947 WARN [SqlExceptionHelper.java:133] SQL Error: 1048, SQLState: 23000
+2023-05-19 12:09:45,947 ERROR [SqlExceptionHelper.java:138] Column 'deelnemersnummer' cannot be null
+2023-05-19 12:09:45,971 WARN [SqlExceptionHelper.java:133] SQL Error: 1048, SQLState: 23000
+2023-05-19 12:09:45,972 ERROR [SqlExceptionHelper.java:138] Column 'email' cannot be null
+2023-05-19 12:09:45,983 WARN [SqlExceptionHelper.java:133] SQL Error: 1048, SQLState: 23000
+2023-05-19 12:09:45,984 ERROR [SqlExceptionHelper.java:138] Column 'email' cannot be null
+2023-05-19 12:09:46,318 INFO [AnnotationConfigContextLoaderUtils.java:83] Could not detect default configuration classes for test class [com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests]: CaseDeveloperJavaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-05-19 12:09:46,321 INFO [SpringBootTestContextBootstrapper.java:248] Found @SpringBootConfiguration com.befrank.casedeveloperjava.CaseDeveloperJavaApplication for test class com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests
+2023-05-19 12:09:46,326 WARN [CaseDeveloperJavaApplicationTests.java:157] Laatste test!
+2023-05-19 12:09:46,519 INFO [AnnotationConfigContextLoaderUtils.java:83] Could not detect default configuration classes for test class [com.befrank.casedeveloperjava.CaseDeveloperJavaControlerTest]: CaseDeveloperJavaControlerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-05-19 12:09:46,523 INFO [SpringBootTestContextBootstrapper.java:248] Found @SpringBootConfiguration com.befrank.casedeveloperjava.CaseDeveloperJavaApplication for test class com.befrank.casedeveloperjava.CaseDeveloperJavaControlerTest
+2023-05-19 12:09:46,601 INFO [AbstractEntityManagerFactoryBean.java:650] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:09:46,604 INFO [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2023-05-19 12:09:46,633 INFO [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2023-05-19 12:11:19,193 INFO [AnnotationConfigContextLoaderUtils.java:83] Could not detect default configuration classes for test class [com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationRepositoryTest]: CaseDeveloperJavaApplicationRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-05-19 12:11:19,331 INFO [SpringBootTestContextBootstrapper.java:248] Found @SpringBootConfiguration com.befrank.casedeveloperjava.CaseDeveloperJavaApplication for test class com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationRepositoryTest
+2023-05-19 12:11:19,856 INFO [Version.java:21] HV000001: Hibernate Validator 8.0.0.Final
+2023-05-19 12:11:19,904 INFO [StartupInfoLogger.java:51] Starting CaseDeveloperJavaApplicationRepositoryTest using Java 17.0.7 with PID 19140 (started by jackb in C:\Users\jackb\IdeaProjects\befrank\case-developer-java)
+2023-05-19 12:11:19,906 INFO [SpringApplication.java:632] No active profile set, falling back to 1 default profile: "default"
+2023-05-19 12:11:20,607 INFO [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-19 12:11:20,657 INFO [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 41 ms. Found 2 JPA repository interfaces.
+2023-05-19 12:11:21,443 INFO [HikariDataSource.java:110] HikariPool-1 - Starting...
+2023-05-19 12:11:21,996 INFO [HikariPool.java:565] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@296edc75
+2023-05-19 12:11:21,998 INFO [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2023-05-19 12:11:22,079 INFO [LogHelper.java:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-19 12:11:22,156 INFO [Version.java:44] HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-19 12:11:22,780 INFO [DialectFactoryImpl.java:66] HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-05-19 12:11:23,568 INFO [JtaPlatformInitiator.java:51] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-19 12:11:23,583 INFO [AbstractEntityManagerFactoryBean.java:437] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:11:24,320 WARN [JpaBaseConfiguration.java:231] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-19 12:11:24,857 INFO [StartupInfoLogger.java:57] Started CaseDeveloperJavaApplicationRepositoryTest in 5.314 seconds (process running for 6.626)
+2023-05-19 12:11:25,392 WARN [SqlExceptionHelper.java:133] SQL Error: 1048, SQLState: 23000
+2023-05-19 12:11:25,392 ERROR [SqlExceptionHelper.java:138] Column 'deelnemersnummer' cannot be null
+2023-05-19 12:11:25,414 WARN [SqlExceptionHelper.java:133] SQL Error: 1048, SQLState: 23000
+2023-05-19 12:11:25,415 ERROR [SqlExceptionHelper.java:138] Column 'email' cannot be null
+2023-05-19 12:11:25,427 WARN [SqlExceptionHelper.java:133] SQL Error: 1048, SQLState: 23000
+2023-05-19 12:11:25,427 ERROR [SqlExceptionHelper.java:138] Column 'email' cannot be null
+2023-05-19 12:11:25,780 INFO [AnnotationConfigContextLoaderUtils.java:83] Could not detect default configuration classes for test class [com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests]: CaseDeveloperJavaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-05-19 12:11:25,783 INFO [SpringBootTestContextBootstrapper.java:248] Found @SpringBootConfiguration com.befrank.casedeveloperjava.CaseDeveloperJavaApplication for test class com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests
+2023-05-19 12:11:25,946 INFO [AnnotationConfigContextLoaderUtils.java:83] Could not detect default configuration classes for test class [com.befrank.casedeveloperjava.CaseDeveloperJavaControlerTest]: CaseDeveloperJavaControlerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-05-19 12:11:25,949 INFO [SpringBootTestContextBootstrapper.java:248] Found @SpringBootConfiguration com.befrank.casedeveloperjava.CaseDeveloperJavaApplication for test class com.befrank.casedeveloperjava.CaseDeveloperJavaControlerTest
+2023-05-19 12:11:26,016 INFO [AbstractEntityManagerFactoryBean.java:650] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-19 12:11:26,019 INFO [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2023-05-19 12:11:26,045 INFO [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.

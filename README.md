@@ -1,4 +1,9 @@
-# Case BeFrank
+# Case Bridger
+
+### Logging
+https://www.javaguides.net/2018/09/spring-boot-2-logging-slf4j-logback-and-log4j-example.html
+#### Logback https://www.baeldung.com/logback
+#### SLF4J https://www.baeldung.com/log4j2-appenders-layouts-filters
 
 ### De opdracht :page_facing_up:
 Je levert een front-end op voor een deelnemer bij BeFrank. Hierop is de verwachte waarde van de pensioenpot op de geplande pensioendatum te zien.

@@ -15,18 +15,16 @@ import static com.befrank.casedeveloperjava.util.Validaties.valideerGeboortedatu
 import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
 
 /**
- * <strong>Deelnemer</strong><br>
- * Entiteit waarin de basisgegevens van een deelnemer worden ondergebracht. Daarnaast zijn er een aantal methoden
- * beschikbaar waarin frequent gebruikte functionaliteit is opgenomen.<br>
- * Voor de specificatie van een deelnemer zijn de volgende velden zijn verplicht:
+ * <strong>Participant</strong><br>
+ * Entity which describes the base properties of a participant in the pension fund. This entity also contains the k
+ * following non persistable functionality methods:
  * <ul>
- *     <li>Deelnemersnummer (Id)</li>
- *     <li>Familienaam</li>
- *     <li>Voornamen (Id)</li>
- *     <li>Geboortedatum</li>
- *     <li>Code van het geslacht (standaard 'O')</li>
- *     <li>Emailadres</li>
- *     <li>Mobiel telefoonnummer.</li>
+ *     <li>
+ *         <strong>composeFullName()</strong>
+ *     </li>
+ *     <li>
+ *         <strong>calculateAge()</strong>
+ *     </li>
  * </ul>
  */
 @Component
@@ -218,12 +216,11 @@ public class Deelnemer implements Serializable {
     }
 
     /**
-     * <strong>stelCorrespondentienaamSamen()</strong><br>
-     * De methode stelt uit de afzonderlijke componenten de volledige naam van de deelnemer samen voor gebruik in
-     * correspondentie.<br>
-     * @return De samengestelde naam voor gebruik bij correspondentie
+     * <strong>composeFullName()</strong><br>
+     * Assembles the individual elements of the name to one string formatted which is commonly (readable) used. <br>
+     * @return The composed name.
      */
-    public String getCorrespondentieRegel() {
+    public String composeFullName() {
         return (valideerTekenreeks(this.prefixTitels) ? this.prefixTitels : "") +
                (valideerTekenreeks(this.initialen) ? " " + this.initialen : "") +
                (valideerTekenreeks(this.voorvoegsels) ? " " + this.voorvoegsels : "") +
@@ -232,12 +229,11 @@ public class Deelnemer implements Serializable {
     }
 
     /**
-     * <strong>getLeeftijd()</strong><br>
-     *
-     * Bepaalt de actuele leeftijd van de deelnemer gebaseerd op de geboortedatum.<br>
-     * @return  De actuele leeftijd van de deelnemer.
+     * <strong>calculateAge()</strong><br>
+     * Calculates the age of a participant based on the date of birth.<br>
+     * @return  The age of the participant.
      */
-    public int getLeeftijd() {
+    public int calculateAge() {
         if (this.geboortedatum == null) {
             // Todo: Implementeer logging en log 'Geboortedatum niet gespecificeerd, kan leeftijd niet berekenen'
             return 0;

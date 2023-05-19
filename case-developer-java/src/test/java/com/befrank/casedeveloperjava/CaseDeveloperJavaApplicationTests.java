@@ -6,8 +6,11 @@ import com.befrank.casedeveloperjava.model.Deelnemer;
 import com.befrank.casedeveloperjava.model.enums.Gender;
 import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Example;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -18,6 +21,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class CaseDeveloperJavaApplicationTests {
+
+	private static final Logger logger
+			= LoggerFactory.getLogger(Example.class);
 
 	@Autowired
 	private DeelnemerRepository repository;
@@ -72,7 +78,7 @@ class CaseDeveloperJavaApplicationTests {
 
 		// Test bepalen van de leeftijd op basis van geboortedatum
 		assertEquals(getLeeftijd(null), 0);
-		assertTrue(deelnemer.getLeeftijd() > 0 && deelnemer.getLeeftijd() < 120);
+		assertTrue(deelnemer.calculateAge() > 0 && deelnemer.calculateAge() < 120);
 
 		deelnemer.setFamilienaam(null);
 		assertNull(deelnemer.getFamilienaam());
@@ -84,7 +90,7 @@ class CaseDeveloperJavaApplicationTests {
 		deelnemer.setPrefixTitels("dhr.");
 		deelnemer.setEmail("d.duck@duckstad.nl");
 
-		assertEquals(deelnemer.getCorrespondentieRegel(), "dhr. D. Duck");
+		assertEquals(deelnemer.composeFullName(), "dhr. D. Duck");
 
 		// Test wissen van verplichte velden is onmogelijk, de oude waarden blijven behouden
 		deelnemer.setFamilienaam(null);
@@ -144,4 +150,5 @@ class CaseDeveloperJavaApplicationTests {
 
 		assertEquals(40441, repository.getSomBeleggingenDeelnemer(1));
 	}
+
 }

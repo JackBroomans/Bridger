@@ -7,6 +7,25 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
+/**
+ * <strong>Validations</strong><br>
+ * Contains methods which performs all kinds of validations based on either formats or business rules..
+ * The implemented methods are:
+ * <ul>
+ *     <li>
+ *         <strong>validateString()</strong>
+ *     </li>
+ *     <li>
+ *         <strong>validateDateOfBirth()</strong>
+ *     </li>
+ *      <li>
+ *         <strong>validateEmailAddress()</strong>
+ *     </li>
+ *     <li>
+ *         <strong>vaildateParticipantNumber()</strong>
+ *     </li>
+ * </ul>
+ */
 @Component
 public class Validaties {
 
