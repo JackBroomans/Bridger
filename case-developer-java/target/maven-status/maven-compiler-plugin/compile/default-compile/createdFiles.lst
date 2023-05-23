@@ -8,6 +8,6 @@ META-INF\spring-configuration-metadata.json
 com\befrank\casedeveloperjava\CaseDeveloperJavaApplication.class
 com\befrank\casedeveloperjava\repository\ParticipantRepository.class
 com\befrank\casedeveloperjava\repository\ContributionRepository.class
+com\befrank\casedeveloperjava\util\Validations.class
 com\befrank\casedeveloperjava\model\ParticipantPremium.class
 com\befrank\casedeveloperjava\util\DatumTijdFuncties.class
-com\befrank\casedeveloperjava\util\Validaties.class

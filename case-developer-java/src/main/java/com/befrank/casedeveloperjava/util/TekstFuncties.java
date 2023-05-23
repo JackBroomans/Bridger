@@ -1,6 +1,6 @@
 package com.befrank.casedeveloperjava.util;
 
-import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
+import static com.befrank.casedeveloperjava.util.Validations.valideerTekenreeks;
 
 public class TekstFuncties {
 

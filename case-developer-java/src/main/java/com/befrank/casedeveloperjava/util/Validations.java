@@ -29,14 +29,14 @@ import java.time.format.DateTimeParseException;
  * </ul>
  */
 @Component
-public class Validaties {
+public class Validations {
     private static final Logger logger = LoggerFactory.getLogger(DatumTijdFuncties.class);
 
     private static AppVariablesParticipant appVar;
 
     @Autowired
-    public Validaties(AppVariablesParticipant appVar) {
-        Validaties.appVar = appVar;
+    public Validations(AppVariablesParticipant appVar) {
+        Validations.appVar = appVar;
     }
 
     /**

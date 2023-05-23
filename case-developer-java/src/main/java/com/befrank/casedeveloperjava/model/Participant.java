@@ -15,8 +15,8 @@ import java.time.LocalDate;
 import java.time.Period;
 
 import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
-import static com.befrank.casedeveloperjava.util.Validaties.valideerGeboortedatum;
-import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
+import static com.befrank.casedeveloperjava.util.Validations.valideerGeboortedatum;
+import static com.befrank.casedeveloperjava.util.Validations.valideerTekenreeks;
 
 /**
  * <strong>Participant</strong><br>

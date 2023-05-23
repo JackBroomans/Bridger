@@ -1,6 +1,5 @@
 package com.befrank.casedeveloperjava.model;
 
-import com.befrank.casedeveloperjava.model.enums.Gender;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.io.Serializable;
 
 import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
-import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
+import static com.befrank.casedeveloperjava.util.Validations.valideerTekenreeks;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**

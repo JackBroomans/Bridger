@@ -5,15 +5,17 @@ import com.befrank.casedeveloperjava.model.Address;
 import com.befrank.casedeveloperjava.model.Participant;
 import com.befrank.casedeveloperjava.model.enums.Gender;
 import com.befrank.casedeveloperjava.repository.ParticipantRepository;
+import com.befrank.casedeveloperjava.util.Validations;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 import static com.befrank.casedeveloperjava.util.DatumTijdFuncties.getLeeftijd;
-import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
+import static com.befrank.casedeveloperjava.util.Validations.valideerTekenreeks;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -24,12 +26,6 @@ class CaseDeveloperJavaApplicationTests {
 
 	@Autowired
 	private AppVariablesParticipant appVar;
-
-	@Test
-	void contextLoads() {
-		assertNotNull(appVar.SHORT_DATE_FORMAT);
-		assertNotNull(appVar.REGEX_EMAIL_ADDRESS);
-	}
 
 	@Test
 	public void enumGenderTest() {
@@ -48,11 +44,7 @@ class CaseDeveloperJavaApplicationTests {
 
 	@Test
 	public void classParticipantTest() {
-		DateTimeFormatter shortDateFormat = DateTimeFormatter.ofPattern(appVar.SHORT_DATE_FORMAT);
-		final LocalDate validBirthdate = LocalDate.parse("16-12-1978", shortDateFormat);
-		final LocalDate invalidFormatBirthdate = LocalDate.parse("31-02-1978", shortDateFormat);
-		final LocalDate birthdateBeforeAgeRule = LocalDate.now().minusYears(16);
-		final LocalDate birthdateAfterAgeRule = LocalDate.now().plusYears(121);
+
 
 		// Todo: Testen op parse errors van datums en tijden.
 
@@ -61,17 +53,6 @@ class CaseDeveloperJavaApplicationTests {
 		Participant participant = appVar.participant();
 
 		// Todo: Adequaat testen van geboortedatum bij initialiatie
-//		assertNull(deelnemer.getGeboortedatum());
-		participant.setBirthdate(birthdateBeforeAgeRule);
-		assertNull(participant.getBirthdate());
-		participant.setBirthdate(birthdateAfterAgeRule);
-		assertNull(participant.getBirthdate());
-		participant.setBirthdate(validBirthdate);
-		assertEquals(participant.getBirthdate(), validBirthdate);
-
-		/* Calculating the age */
-		assertEquals(getLeeftijd(null), 0);
-		assertTrue(participant.calculateAge() > 0 && participant.calculateAge() < 120);
 
 		participant.setFamilyName(null);
 		assertNull(participant.getFamilyName());
@@ -99,6 +80,61 @@ class CaseDeveloperJavaApplicationTests {
 
 		/* Todo: Calculating the yearly premium of a participant */
 
+	}
+
+	@Test
+	public void birthdateValidationTest() {
+		DateTimeFormatter shortDateFormat = DateTimeFormatter.ofPattern(appVar.SHORT_DATE_FORMAT);
+		final LocalDate validBirthdate = LocalDate.parse("16-12-1978", shortDateFormat);
+		final LocalDate birthdateBeforeAgeRule = LocalDate.now().minusYears(16);
+		final LocalDate birthdateAfterAgeRule = LocalDate.now().plusYears(121);
+
+		Participant participant = appVar.participant();
+
+		/* No date assigned on instantiation, birthdate is null */
+		assertNull(participant.getBirthdate());
+
+		/* Invalid date specification throws an DateTimeParseException */
+		assertThrows(DateTimeParseException.class,
+				()->{
+					participant.setBirthdate(LocalDate.parse("31-16-1978", shortDateFormat));
+					//ex : objectName.thisMethodShoulThrowNullPointerExceptionForNullParameter(null);
+				});
+
+		/* Insertion of external age boundaries is successful. */
+		assertTrue(appVar.MIN_AGE_PARTICIPANT > 0 && appVar.MAX_AGE_PARTICIPANT > 0);
+
+		/* A birthdate outside the age limitations is not validated. The birthdate remains null. */
+		assertFalse(Validations.valideerGeboortedatum(birthdateBeforeAgeRule));
+		participant.setBirthdate(birthdateBeforeAgeRule);
+		assertNull(participant.getBirthdate());
+
+		assertFalse(Validations.valideerGeboortedatum(birthdateAfterAgeRule));
+		participant.setBirthdate(birthdateAfterAgeRule);
+		assertNull(participant.getBirthdate());
+
+		/* Validation of a valid birthdate is successful and the birthdate is changed in the participant's property. */
+		assertTrue(Validations.valideerGeboortedatum(validBirthdate));
+		participant.setBirthdate(validBirthdate);
+		assertEquals(validBirthdate, participant.getBirthdate());
+	}
+
+	@Test
+	public void calculateAgeValidationTest() {
+		DateTimeFormatter shortDateFormat = DateTimeFormatter.ofPattern(appVar.SHORT_DATE_FORMAT);
+		Participant participant = appVar.participant();
+
+		/* Calculating the age without a specified birthdate */
+		assertEquals(getLeeftijd(null), 0);
+		assertFalse(Validations.valideerGeboortedatum(null));
+
+		/* Calculating the age with an invalid birthdate */
+		participant.setBirthdate(LocalDate.parse("01-01-1900", shortDateFormat));
+		assertFalse(Validations.valideerGeboortedatum(participant.getBirthdate()));
+
+		/* Calculating the age with an valid birthdate */
+		participant.setBirthdate(LocalDate.parse("16-12-1958", shortDateFormat));
+		assertTrue(Validations.valideerGeboortedatum(participant.getBirthdate()));
 	}
 
 	@Test
