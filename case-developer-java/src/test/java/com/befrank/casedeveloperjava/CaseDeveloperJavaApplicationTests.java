@@ -138,6 +138,27 @@ class CaseDeveloperJavaApplicationTests {
 	}
 
 	@Test
+	public void genderTest() {
+		/* On instantiation (by conventional way) the gender isn't set to the default setting. */
+		assertNull(new Participant().getGender());
+
+		/* On instantiation (by configuration method) the gender is set according the external default setting. */
+		Participant particpant = appVar.participant();
+		assertEquals(appVar.DEFAULT_GENDER, particpant.getGenderCode());
+
+		/* When erasing the gender by assigning null to it, its refused and the gender remains the same. */
+		particpant.setGender(null);
+		assertEquals(appVar.DEFAULT_GENDER, particpant.getGenderCode());
+
+		/* When assigning a new valid gender of a participant, the code of the gender is synchronized */
+		Gender newGender = Gender.FEMALE;
+		particpant.setGender(newGender);
+		assertEquals(newGender, particpant.getGender());
+		assertEquals(newGender.getCode(), particpant.getGenderCode());
+
+	}
+
+	@Test
 	public void participantControllerTest() {
 
 	}
