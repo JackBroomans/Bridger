@@ -1,8 +1,8 @@
 package com.befrank.casedeveloperjava;
 
-import com.befrank.casedeveloperjava.model.Deelnemer;
+import com.befrank.casedeveloperjava.model.Participant;
 
-import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
+import com.befrank.casedeveloperjava.repository.ParticipantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +16,9 @@ import java.util.NoSuchElementException;
 public class DeelnemerController {
 
     @Autowired
-    private final DeelnemerRepository repository;
+    private final ParticipantRepository repository;
 
-    DeelnemerController(DeelnemerRepository repository) {
+    DeelnemerController(ParticipantRepository repository) {
         this.repository = repository;
     }
 
@@ -28,7 +28,7 @@ public class DeelnemerController {
      * @return Een List waarin alle gevonden deelnemers zijn opgenomen.
      */
     @GetMapping("/deelnemers")
-    List<Deelnemer> haalAlleDeelnemers() {
+    List<Participant> haalAlleDeelnemers() {
         return new ArrayList<>(this.repository.findAll());
     }
 
@@ -40,7 +40,7 @@ public class DeelnemerController {
      * @throws NoSuchElementException indien de deelnemer niet is gevonden.
      */
     @GetMapping("/deelnemer/{id}")
-    Deelnemer haalDeelnemerOpId(@PathVariable long id) {
+    Participant haalDeelnemerOpId(@PathVariable long id) {
         return this.repository.findById(id);
     }
 
@@ -51,7 +51,7 @@ public class DeelnemerController {
      * @return De deelnemer met het betreffende email-adres
      */
     @GetMapping("/deelnemr/{email}")
-    Deelnemer haalDeelnemerOpEmailAdres(@PathVariable String email) {
+    Participant haalDeelnemerOpEmailAdres(@PathVariable String email) {
         return this.repository.findByEmail(email);
     }
 
@@ -62,8 +62,8 @@ public class DeelnemerController {
      * @return De deelnemer met het betreffende email-adres
      */
     @GetMapping("/deelnemer/{deelnemersnummer}")
-    Deelnemer haalDeelnemerOpDeelnemersnummer(@PathVariable String deelnemersnummer) {
-        return this.repository.findByDeelnemersnummer(deelnemersnummer);
+    Participant haalDeelnemerOpDeelnemersnummer(@PathVariable String deelnemersnummer) {
+        return this.repository.findByParticipantNumber(deelnemersnummer);
     }
 
     /**
@@ -77,15 +77,15 @@ public class DeelnemerController {
     public double berekenJaarlijksePremieDeelnemer(String deelnemersnummer) {
 
         // Haal deelnemer en de bijbehorende premiegegevens op.
-        Deelnemer deelnemer = repository.findByDeelnemersnummer(deelnemersnummer);
+        Participant participant = repository.findByParticipantNumber(deelnemersnummer);
 
         // Bepaal de som de huidide beleggingen (-> stored procedure)
-        double waardeHuidigeBeleggingen = repository.getSomBeleggingenDeelnemer(deelnemer.getId());
+        double waardeHuidigeBeleggingen = repository.getSumInvestmentsParticipant(participant.getId());
 
         // Bereken de premie en retourneer deze
-        return (deelnemer.getPremieDeelnemer().getFullTimeSalaris() - deelnemer.getPremieDeelnemer().getFranciseActueel())
-                * (deelnemer.getPremieDeelnemer().getParttimePercentage() / 100)
-                * (deelnemer.getPremieDeelnemer().getPercentageBeschikbarePremie()/100);
+        return (participant.getParticipantPremium().getFullTimeSalaris() - participant.getParticipantPremium().getFranciseActueel())
+                * (participant.getParticipantPremium().getParttimePercentage() / 100)
+                * (participant.getParticipantPremium().getPercentageBeschikbarePremie()/100);
     }
 
 

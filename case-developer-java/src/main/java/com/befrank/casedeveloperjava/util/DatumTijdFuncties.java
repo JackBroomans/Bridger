@@ -1,9 +1,14 @@
 package com.befrank.casedeveloperjava.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.LocalDate;
 import java.time.Period;
 
 public class DatumTijdFuncties {
+
+    private static final Logger logger = LoggerFactory.getLogger(DatumTijdFuncties.class);
 
     /**
      * <strong>getLeeftijd()</strong><br>
@@ -14,7 +19,7 @@ public class DatumTijdFuncties {
      */
     public static int getLeeftijd(LocalDate geboortedatum) {
         if (geboortedatum == null) {
-            // Todo: Implementeer logging en log 'Geboortedatum ongeldig.'
+            logger.warn("Date of birth not specified.");
             return 0;
         }
         return Period.between(geboortedatum, LocalDate.now()).getYears();

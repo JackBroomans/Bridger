@@ -1,10 +1,10 @@
 package com.befrank.casedeveloperjava;
 
-import com.befrank.casedeveloperjava.configuration.AppVariabelenDeelnemer;
+import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
 import com.befrank.casedeveloperjava.model.Address;
-import com.befrank.casedeveloperjava.model.Deelnemer;
+import com.befrank.casedeveloperjava.model.Participant;
 import com.befrank.casedeveloperjava.model.enums.Gender;
-import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
+import com.befrank.casedeveloperjava.repository.ParticipantRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,128 +20,126 @@ import static org.junit.jupiter.api.Assertions.*;
 class CaseDeveloperJavaApplicationTests {
 
 	@Autowired
-	private DeelnemerRepository repository;
+	private ParticipantRepository repository;
 
 	@Autowired
-	private AppVariabelenDeelnemer appVar;
+	private AppVariablesParticipant appVar;
 
 	@Test
 	void contextLoads() {
-		assertNotNull(appVar.korteDatumNotatie);
-		assertNotNull(appVar.regexEmail);
+		assertNotNull(appVar.SHORT_DATE_FORMAT);
+		assertNotNull(appVar.REGEX_EMAIL_ADDRESS);
 	}
 
 	@Test
-	public void enumGeslachtTest() {
+	public void enumGenderTest() {
 
-		// Test zoeken en selecteren als standaard ingestelde optie
-		Gender gender = Gender.getByCode(appVar.standaardGeslacht);
-		assertEquals(true, gender.getCode().equals(appVar.standaardGeslacht));
+		/* Searching and selecting the default gender */
+		Gender gender = Gender.getByCode(appVar.DEFAULT_GENDER);
+		assertEquals(true, gender.getCode().equals(appVar.DEFAULT_GENDER));
 
-		// Test zoeken van een geslacht op basis van haar code
+		// Searching and selecting a gender based on it's code
 		assertNull(Gender.getByCode(null));
 		assertNull(Gender.getByCode(""));
 		assertNull(Gender.getByCode("XYZ"));
 		assertNull(Gender.getByCode("X"));
-		// Happy flow zoeken op code
 		assertEquals(Gender.getByCode("M"), Gender.MALE);
 	}
 
 	@Test
-	public void classDeelnemerTest() {
-		DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern(appVar.korteDatumNotatie);
-		final LocalDate geboortedatumGeldig = LocalDate.parse("16-12-1978", KORTE_DATUM_FORMAAT);
-		final LocalDate geboortedatumOngeldigFormaat = LocalDate.parse("31-02-1978", KORTE_DATUM_FORMAAT);
-		final LocalDate geboortedatumTeJong = LocalDate.now().minusYears(16);
-		final LocalDate geboortedatumTeOud = LocalDate.now().plusYears(121);
+	public void classParticipantTest() {
+		DateTimeFormatter shortDateFormat = DateTimeFormatter.ofPattern(appVar.SHORT_DATE_FORMAT);
+		final LocalDate validBirthdate = LocalDate.parse("16-12-1978", shortDateFormat);
+		final LocalDate invalidFormatBirthdate = LocalDate.parse("31-02-1978", shortDateFormat);
+		final LocalDate birthdateBeforeAgeRule = LocalDate.now().minusYears(16);
+		final LocalDate birthdateAfterAgeRule = LocalDate.now().plusYears(121);
 
 		// Todo: Testen op parse errors van datums en tijden.
 
+
 		// Todo: Testen toekennnen van standaard geslacht bij initialisatie;
-		Deelnemer deelnemer = appVar.deelnemer();
+		Participant participant = appVar.participant();
 
 		// Todo: Adequaat testen van geboortedatum bij initialiatie
 //		assertNull(deelnemer.getGeboortedatum());
-		deelnemer.setGeboortedatum(geboortedatumTeJong);
-		assertNull(deelnemer.getGeboortedatum());
-		deelnemer.setGeboortedatum(geboortedatumTeOud);
-		assertNull(deelnemer.getGeboortedatum());
-		// Happy flow toekennen geboortedatum
-		deelnemer.setGeboortedatum(geboortedatumGeldig);
-		assertEquals(deelnemer.getGeboortedatum(), geboortedatumGeldig);
+		participant.setBirthdate(birthdateBeforeAgeRule);
+		assertNull(participant.getBirthdate());
+		participant.setBirthdate(birthdateAfterAgeRule);
+		assertNull(participant.getBirthdate());
+		participant.setBirthdate(validBirthdate);
+		assertEquals(participant.getBirthdate(), validBirthdate);
 
-		// Test bepalen van de leeftijd op basis van geboortedatum
+		/* Calculating the age */
 		assertEquals(getLeeftijd(null), 0);
-		assertTrue(deelnemer.getLeeftijd() > 0 && deelnemer.getLeeftijd() < 120);
+		assertTrue(participant.calculateAge() > 0 && participant.calculateAge() < 120);
 
-		deelnemer.setFamilienaam(null);
-		assertNull(deelnemer.getFamilienaam());
+		participant.setFamilyName(null);
+		assertNull(participant.getFamilyName());
 
-		// Test happy flow specificaties deelnemer
-		deelnemer.setFamilienaam("Duck");
-		deelnemer.setVoornamen("Donald");
-		deelnemer.setInitialen("D.");
-		deelnemer.setPrefixTitels("dhr.");
-		deelnemer.setEmail("d.duck@duckstad.nl");
+		/* Happy flow assigning properties of a participant */
+		participant.setFamilyName("Duck");
+		participant.setSurNames("Donald");
+		participant.setInitials("D.");
+		participant.setPrefixTitles("dhr.");
+		participant.setEmail("d.duck@duckstad.nl");
 
-		assertEquals(deelnemer.getCorrespondentieRegel(), "dhr. D. Duck");
+		assertEquals(participant.composeFullName(), "dhr. D. Duck");
 
-		// Test wissen van verplichte velden is onmogelijk, de oude waarden blijven behouden
-		deelnemer.setFamilienaam(null);
-		assertEquals("Duck", deelnemer.getFamilienaam());
-		deelnemer.setGeslacht(null);
-		assertEquals(appVar.standaardGeslacht, deelnemer.getGeslacht().getCode());
-		deelnemer.setEmail("");
-		assertEquals("d.duck@duckstad.nl", deelnemer.getEmail());
+		/* Erasing a mandatory property value results in keeping the original value */
+		participant.setFamilyName(null);
+		assertEquals("Duck", participant.getFamilyName());
+		participant.setGender(null);
+		assertEquals(appVar.DEFAULT_GENDER, participant.getGender().getCode());
+		participant.setEmail("");
+		assertEquals("d.duck@duckstad.nl", participant.getEmail());
 
-		// Test de synchronisatie van de code voor het geslacht met het actueel ingestelde geslacht
-		deelnemer.setGeslacht(Gender.MALE);
-		assertEquals(deelnemer.getGeslacht().getCode(), "M");
+		/* Synchronizing the code of the gender with the gender itself */
+		participant.setGender(Gender.MALE);
+		assertEquals(participant.getGender().getCode(), "M");
 
-
-		// Test het berekenen van de jaarlijkse premie
-//		berekenJaarlijksePremieDeelnemer()
+		/* Todo: Calculating the yearly premium of a participant */
 
 	}
 
 	@Test
-	public void DeelnemerControllerTest() {
+	public void participantControllerTest() {
 
 	}
 
 	@Test
-	public void classAdresTest() {
-		// Test of standaard land is ingesteld bij instantieëren van een adres
-		Address adres = new Address();
-		adres.setCountry(appVar.standaardLand);
-		assertEquals(adres.getCountry(), appVar.standaardLand);
-		assertFalse(adres.getCurrentActive());
+	public void classAddressTest() {
+		/* Setting the default chosen country on instantiation of an address */
+		Address address = new Address();
+		address.setCountry(appVar.DEFAULT_COUNTRY);
+		assertEquals(address.getCountry(), appVar.DEFAULT_COUNTRY);
+		assertFalse(address.getCurrentActive());
 	}
 
 	// Todo: Verplaats unit-test naar test voor utiliteitsklassen
 	@Test
-	public void valideerTekenreeksTest() {
-		StringBuilder testTekst = new StringBuilder();
-		assertFalse(valideerTekenreeks(testTekst.toString()));
-		testTekst.append("     ");
-		assertFalse(valideerTekenreeks(testTekst.toString()));
-		testTekst.delete(0, 255).append("Abc");
-		assertTrue(valideerTekenreeks(testTekst.toString()));
+	public void validateStringTest() {
+		StringBuilder text = new StringBuilder();
+		assertFalse(valideerTekenreeks(text.toString()));
+		text.append("     ");
+		assertFalse(valideerTekenreeks(text.toString()));
+		text.delete(0, 255).append("Abc");
+		assertTrue(valideerTekenreeks(text.toString()));
 	}
 
 	@Test
-	public void classBeleggingTest() {
+	public void classInvestmentTest() {
 
-		// Test ophalen van gegevens van en bewerkingen op gebruikers
+		/* Fetching and processing data  concerning a participant */
 		long valsId = 0L;
 		assertNull(repository.findById(valsId));
 		assertNull(repository.findByEmail("email.adres.bestaat@niet"));
-		assertNull(repository.getSomBeleggingenDeelnemer(valsId));
+		assertNull(repository.getSumInvestmentsParticipant(valsId));
 
-		long geldigId = 2L;
-		Deelnemer deelnemer = repository.findByEmail("petteflet@flatgebouw.nl");
-		assertEquals(deelnemer.getId(), geldigId);
+		long validId = 2L;
+		Participant participant = repository.findByEmail("petteflet@flatgebouw.nl");
+		assertEquals(participant.getId(), validId);
 
-		assertEquals(40441, repository.getSomBeleggingenDeelnemer(1));
+		assertEquals(40441, repository.getSumInvestmentsParticipant(1));
 	}
+
 }

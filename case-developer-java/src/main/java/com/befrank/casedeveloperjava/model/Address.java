@@ -1,6 +1,10 @@
 package com.befrank.casedeveloperjava.model;
 
+import com.befrank.casedeveloperjava.model.enums.Gender;
 import jakarta.persistence.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.Serializable;
 
 import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
@@ -17,6 +21,8 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Table(name = "address")
 public class Address implements Serializable {
 
+    private static final Logger logger = LoggerFactory.getLogger(Address.class);
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
@@ -31,7 +37,7 @@ public class Address implements Serializable {
     @Column(name = "street")
     private String street;
 
-    @Column(name= "housenumber")
+    @Column(name = "housenumber")
     private String houseNumber;
 
     @Column(name = "postalcode")
@@ -54,6 +60,7 @@ public class Address implements Serializable {
     public int getSequence() {
         return sequence;
     }
+
     public void setSequence(int sequence) {
         this.sequence = sequence;
     }
@@ -61,6 +68,7 @@ public class Address implements Serializable {
     public long getParticipantId() {
         return participantId;
     }
+
     public void setParticipantId(long participantId) {
         this.participantId = participantId;
     }
@@ -68,18 +76,23 @@ public class Address implements Serializable {
     public String getStreet() {
         return street;
     }
+
     public void setStreet(String straatnaam) {
         this.street = straatnaam;
     }
+
     public String getHouseNumber() {
         return houseNumber;
     }
+
     public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
     }
+
     public String getPostalcode() {
         return postalcode;
     }
+
     public void setPostalcode(String postalcode) {
         this.postalcode = postalcode;
     }
@@ -87,13 +100,15 @@ public class Address implements Serializable {
     public String getCity() {
         return city;
     }
+
     public void setCity(String city) {
         this.city = city;
     }
 
     public String getCountry() {
-       return country;
+        return country;
     }
+
     public void setCountry(String country) {
         this.country = country;
     }
@@ -101,6 +116,7 @@ public class Address implements Serializable {
     public Boolean getCurrentActive() {
         return currentActive;
     }
+
     public void setCurrentActive(Boolean currentActive) {
         currentActive = currentActive;
     }
@@ -108,6 +124,7 @@ public class Address implements Serializable {
     /**
      * <strong>composeCorrespondenceAddress()</strong><br>
      * Composes the address element to a string which can be used for correspondence purposes.
+     *
      * @return The for correspondence formatted address.
      */
     public String composeCorrespondenceAddress() {
@@ -115,31 +132,24 @@ public class Address implements Serializable {
                 .append(valideerTekenreeks(this.street) ? this.street : "")
                 .append(valideerTekenreeks(this.houseNumber) ? " " + this.houseNumber : "").append("\n")
                 .append(valideerTekenreeks(this.postalcode) ? " " + this.postalcode : "")
-                .append(valideerTekenreeks(this.city) ?  " " + this.city : " ");
+                .append(valideerTekenreeks(this.city) ? " " + this.city : " ");
         return text.toString();
     }
 
     @Override
     public String toString() {
         StringBuilder text = new StringBuilder().append("Deelnemer");
+        text.append("\n\tIdentifier: ").append(this.id);
+        text.append("\n\tSequence: ").append(this.sequence == 0 ? "" : this.sequence);
+        text.append("\n\tParticipant Id: ").append(this.participantId);
+        text.append("\n\tStreet: ").append(presentatie(this.street));
+        text.append("\n\tHouse number: ").append(presentatie(this.houseNumber));
+        text.append("\n\tPostal code: ").append(presentatie(this.postalcode));
+        text.append("\n\tCity: ").append(presentatie(this.city));
+        text.append("\n\tCoutry: ").append(presentatie(this.country));
+        text.append("\n\tCurrent address: ")
+                .append(this.currentActive ? "ja" : "nee").append("\n");
 
-        try {
-            text.append("\n\tIdentifier: ").append(this.id);
-            text.append("\n\tSequence: ").append(this.sequence == 0 ? "" : this.sequence);
-            text.append("\n\tParticipant Id: ").append(this.participantId);
-            text.append("\n\tStreet: ").append(presentatie(this.street));
-            text.append("\n\tHouse number: ").append(presentatie(this.houseNumber));
-            text.append("\n\tPostal code: ").append(presentatie(this.postalcode));
-            text.append("\n\tCity: ").append(presentatie(this.city));
-            text.append("\n\tCoutry: ").append(presentatie(this.country));
-            text.append("\n\tCurrent address: ")
-                    .append(this.currentActive ? "ja" : "nee").append("\n");
-
-            return text.toString();
-        }
-        catch (Exception ex) {
-            // Todo: Implementeer logging en log 'Fout bij het presenteren van de persoonsgegevens.'
-            return "";
-        }
+        return text.toString();
     }
 }

@@ -1,16 +1,21 @@
 package com.befrank.casedeveloperjava.model.enums;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.security.InvalidParameterException;
 
 /**
  * <strong>Gender</strong><br>
- * Enumerates the gender of a person.
+ * Enumerates the genders which can be assigned to a person.
  */
 public enum Gender {
     MALE("M", "Male"),
     FEMALE("F", "Female"),
     INDIFFERENCE("I", "Indifferent"),
     UNKNOWN("U", "Unknown");
+
+    private static final Logger logger = LoggerFactory.getLogger(Gender.class);
 
     private String code;
     private String description;
@@ -45,7 +50,7 @@ public enum Gender {
             }
             throw new InvalidParameterException();
         } catch (InvalidParameterException ex) {
-            // Todo: Implementeer logger en log 'ongeldige code geslacht.'
+            logger.warn("Invalid code of gender passed.");
         }
         return null;
     }

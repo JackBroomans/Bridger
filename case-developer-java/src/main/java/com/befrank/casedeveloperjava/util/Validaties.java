@@ -1,19 +1,41 @@
 package com.befrank.casedeveloperjava.util;
 
-import com.befrank.casedeveloperjava.configuration.AppVariabelenDeelnemer;
+import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
+/**
+ * <strong>Validations</strong><br>
+ * Contains methods which performs all kinds of validations based on either formats or business rules..
+ * The implemented methods are:
+ * <ul>
+ *     <li>
+ *         <strong>validateString()</strong>
+ *     </li>
+ *     <li>
+ *         <strong>validateDateOfBirth()</strong>
+ *     </li>
+ *      <li>
+ *         <strong>validateEmailAddress()</strong>
+ *     </li>
+ *     <li>
+ *         <strong>vaildateParticipantNumber()</strong>
+ *     </li>
+ * </ul>
+ */
 @Component
 public class Validaties {
+    private static final Logger logger = LoggerFactory.getLogger(DatumTijdFuncties.class);
 
-    private static AppVariabelenDeelnemer appVar;
+    private static AppVariablesParticipant appVar;
 
     @Autowired
-    public Validaties(AppVariabelenDeelnemer appVar) {
+    public Validaties(AppVariablesParticipant appVar) {
         Validaties.appVar = appVar;
     }
 
@@ -50,11 +72,11 @@ public class Validaties {
                 return false;
             }
             int leeftijd = DatumTijdFuncties.getLeeftijd(geboortedatum);
-            return leeftijd >= appVar.minLeeftijdDeelnemer &&
-                    leeftijd <= appVar.maxLeeftijdDeelnemer;
+            return leeftijd >= appVar.MIN_AGE_PARTICIPANT &&
+                    leeftijd <= appVar.MAX_AGE_PARTICIPANT;
         }
         catch(DateTimeParseException ex) {
-            // Todo: Implementeer logging en log 'Ongeldig datumformaat'
+            logger.warn("Invalid date format.");
             return false;
         }
     }
