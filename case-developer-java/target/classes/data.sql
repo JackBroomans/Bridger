@@ -5,7 +5,7 @@ USE casebefrank;
 DROP PROCEDURE IF EXISTS sp_SumInvestmentsParticipant;
 
 DROP TABLE IF EXISTS belegging;
-DROP TABLE IF EXISTS premie;
+DROP TABLE IF EXISTS participantPremium;
 DROP TABLE IF EXISTS address;
 DROP TABLE IF EXISTS participant;
 
@@ -50,7 +50,7 @@ CREATE TABLE  address
 CREATE INDEX iParticipantAddress ON address (participant_id);
 CREATE INDEX iPostalCode ON address (postalcode);
 
-CREATE TABLE  premie
+CREATE TABLE participantPremium
 (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     participant_id BIGINT,
@@ -64,7 +64,7 @@ CREATE TABLE  premie
         ON DELETE CASCADE
 ) ENGINE = INNODB;
 
-CREATE INDEX iParticipantPremium ON premie (participant_id);
+CREATE INDEX iParticipantPremium ON participantPremium (participant_id);
 
 CREATE TABLE belegging
 (
@@ -110,13 +110,13 @@ INSERT INTO address (sequence, participant_id, street, housenumber, postalcode, 
 VALUES (2, 1, 'Thuisstraat', '91-I', '4567 GH', 'Ergens', 'Nedercountry', 0);
 
 # Participant's actual premiums
-INSERT INTO premie(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO participantPremium(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (1, 49000, 100, 12600, 3);
 
-INSERT INTO premie(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO participantPremium(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (2, 63500, 80, 16000, 3);
 
-INSERT INTO premie(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO participantPremium(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (3, 11000, 5, 2000, 3);
 
 # Investments of individual participants

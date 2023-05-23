@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests
+Tests run: 7, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.186 s <<< FAILURE! - in com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests
+classInvestmentTest  Time elapsed: 0.143 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select p1_0.id,p1_0.francise_actueel,p1_0.fulltime_salaris,p2_0.id,p2_0.birthdate,p2_0.cellphone,p2_0.email,p2_0.familyname,p2_0.gendercode,p2_0.hometelephone,p2_0.initials,p2_0.participantnumber,p2_0.prefixtitles,p2_0.prefixes,p2_0.suffixtitles,p2_0.surnames,p1_0.participant_id,p1_0.parttime_percentage,p1_0.percentage_beschikbare_premie from participant_premium p1_0 left join participant p2_0 on p1_0.id=p2_0.id where p1_0.id=?]; SQL [n/a]
+	at com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.classInvestmentTest(CaseDeveloperJavaApplicationTests.java:139)
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select p1_0.id,p1_0.francise_actueel,p1_0.fulltime_salaris,p2_0.id,p2_0.birthdate,p2_0.cellphone,p2_0.email,p2_0.familyname,p2_0.gendercode,p2_0.hometelephone,p2_0.initials,p2_0.participantnumber,p2_0.prefixtitles,p2_0.prefixes,p2_0.suffixtitles,p2_0.surnames,p1_0.participant_id,p1_0.parttime_percentage,p1_0.percentage_beschikbare_premie from participant_premium p1_0 left join participant p2_0 on p1_0.id=p2_0.id where p1_0.id=?]
+	at com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.classInvestmentTest(CaseDeveloperJavaApplicationTests.java:139)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'casebefrank.participant_premium' doesn't exist
+	at com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.classInvestmentTest(CaseDeveloperJavaApplicationTests.java:139)
+
