@@ -1,6 +1,17 @@
 # Case Bridger
+## Entity classes
+The entity classes are subjected to the (Hibernate) JPA-implementation and are kept as 'clean' as possible, which 
+means that to are associated with the (MySql) database elements rather than other Spring (Boot) components.
+### External configuration classes.
+When applicable (or required) a configuration class is associated to the entity class. Both classes interacting as one
+component while the configuration class controls the external configuration. This practice allows fine-tuning per 
+entity and is analogue to the Angular philosophy. 
+### Instantiation of entities
+To assign the default settings on instantiation of an entity class without using a field assignment of the
+external variables, instantiation of an entity should be done by the method in the configuration class which is 
+attached tot the particular entity class.
 
-### Logging
+## Logging
 https://www.javaguides.net/2018/09/spring-boot-2-logging-slf4j-logback-and-log4j-example.html
 #### Logback https://www.baeldung.com/logback
 #### SLF4J https://www.baeldung.com/log4j2-appenders-layouts-filters

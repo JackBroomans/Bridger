@@ -1,36 +1,34 @@
-# Use this file to populate the tables in the H2 database, remove create table statement and replace by your own script
-
 CREATE DATABASE IF NOT EXISTS casebefrank COLLATE latin1_general_cs;
 
 USE casebefrank;
 
-DROP PROCEDURE IF EXISTS PSomBeleggingenDeelnemer;
+DROP PROCEDURE IF EXISTS sp_SumInvestmentsParticipant;
 
 DROP TABLE IF EXISTS belegging;
-DROP TABLE IF EXISTS premie;
+DROP TABLE IF EXISTS participantPremium;
 DROP TABLE IF EXISTS address;
-DROP TABLE IF EXISTS deelnemer;
+DROP TABLE IF EXISTS participant;
 
-CREATE TABLE  deelnemer
+CREATE TABLE  participant
 (
     id  BIGINT AUTO_INCREMENT PRIMARY KEY,
-    deelnemersnummer VARCHAR(15)  NOT NULL,
-    familieNaam VARCHAR(131) NOT NULL,
-    voorvoegsels VARCHAR(31),
-    voornamen VARCHAR(255) NOT NULL,
-    initialen VARCHAR(31),
-    titelsprefix VARCHAR(63),
-    titelssuffix VARCHAR(63),
-    geslachtscode VARCHAR(1) NOT NULL,
-    geboortedatum DATE NOT NULL,
+    participantnumber VARCHAR(15)  NOT NULL,
+    familyname VARCHAR(131) NOT NULL,
+    prefixes VARCHAR(31),
+    surnames VARCHAR(255) NOT NULL,
+    initials VARCHAR(31),
+    prefixtitles VARCHAR(63),
+    suffixtitles VARCHAR(63),
+    gendercode VARCHAR(1) NOT NULL,
+    birthdate DATE NOT NULL,
     email VARCHAR(255) NOT NULL,
-    telefoon_vast VARCHAR(15),
-    telefoon_mobiel VARCHAR(15) NOT NULL
+    hometelephone VARCHAR(15),
+    cellphone VARCHAR(15) NOT NULL
 ) ENGINE = INNODB;
 
-CREATE UNIQUE INDEX iDeelnemersnummer ON deelnemer (deelnemersnummer);
-CREATE INDEX iFamilienaam ON deelnemer (deelnemersnummer, voornamen);
-CREATE INDEX iEmail ON deelnemer (email);
+CREATE UNIQUE INDEX iParticipantNumber ON participant (participantnumber);
+CREATE INDEX iFamilyName ON participant (familyname);
+CREATE INDEX iEmail ON participant (email);
 
 CREATE TABLE  address
 (
@@ -44,7 +42,7 @@ CREATE TABLE  address
     country VARCHAR(127) DEFAULT 'Nedercountry',
     current BOOLEAN  NOT NULL DEFAULT false,
     FOREIGN KEY fParticipantAddress (participant_id)
-        REFERENCES deelnemer (id)
+        REFERENCES participant (id)
         ON UPDATE RESTRICT
         ON DELETE CASCADE
 ) ENGINE = INNODB;
@@ -52,7 +50,7 @@ CREATE TABLE  address
 CREATE INDEX iParticipantAddress ON address (participant_id);
 CREATE INDEX iPostalCode ON address (postalcode);
 
-CREATE TABLE  premie
+CREATE TABLE participantPremium
 (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     participant_id BIGINT,
@@ -60,13 +58,13 @@ CREATE TABLE  premie
     parttime_percentage FLOAT NOT NULL DEFAULT 0,
     francise_actueel DOUBLE NOT NULL DEFAULT 0,
     percentage_beschikbare_premie FLOAT NOT NULL DEFAULT 0,
-    FOREIGN KEY fDeelnemerPremie (participant_id)
-        REFERENCES deelnemer (id)
+    FOREIGN KEY fkParticipantPremium (participant_id)
+        REFERENCES participant (id)
         ON UPDATE RESTRICT
         ON DELETE CASCADE
 ) ENGINE = INNODB;
 
-CREATE INDEX iDeelnemerPremie ON premie (participant_id);
+CREATE INDEX iParticipantPremium ON participantPremium (participant_id);
 
 CREATE TABLE belegging
 (
@@ -75,30 +73,30 @@ CREATE TABLE belegging
   instituut VARCHAR(63)  NOT NULL,
   fonds VARCHAR(255) NOT NULL,
   huidige_waarde DOUBLE NOT NULL DEFAULT 0,
-  FOREIGN KEY fDeelnemerPremie (participant_id)
-      REFERENCES deelnemer (id)
+  FOREIGN KEY fkParticipantPremium (participant_id)
+      REFERENCES participant (id)
       ON UPDATE RESTRICT
       ON DELETE CASCADE
 ) ENGINE = INNODB;
 
-CREATE INDEX iDeelnemerBelegging ON belegging (participant_id);
+CREATE INDEX iParticipantInvestment ON belegging (participant_id);
 
-# Deelnemers
-INSERT INTO deelnemer (deelnemersnummer, familienaam, voornamen, initialen, titelsprefix, geslachtscode,
-                       geboortedatum, email, telefoon_mobiel)
+# Participants
+INSERT INTO participant (participantnumber, familyname, surnames, initials, prefixtitles, gendercode,
+                         birthdate, email, cellphone)
 VALUES ('20220416-00001', 'Botje', 'Berend', 'B.', 'dhr.', 'M', '1978-04-16', 'b.botje@zeilboot.nl', '06-11223344');
 
-INSERT INTO deelnemer(deelnemersnummer, familienaam, voorvoegsels, voornamen, initialen, titelsprefix, geslachtscode,
-                      geboortedatum, email, telefoon_mobiel)
+INSERT INTO participant(participantnumber, familyname, prefixes, surnames, initials, prefixtitles, gendercode,
+                        birthdate, email, cellphone)
 VALUES ('20220416-00002', 'Petteflet', 'van de', 'Puk', 'P.', 'dhr.', 'M', '1933-11-23', 'petteflet@flatgebouw.nl',
         '06-55667788');
 
-INSERT INTO deelnemer(deelnemersnummer, familienaam, voornamen, initialen, geslachtscode, geboortedatum, email,
-                      telefoon_vast, telefoon_mobiel)
+INSERT INTO participant(participantnumber, familyname, surnames, initials, gendercode, birthdate, email,
+                        hometelephone, cellphone)
 VALUES ('20220416-00003', 'Dap', 'Dikkertje', 'D.', 'M', '2001-05-03', 'dikkertje@dierentuin.nl', '020-12345678',
         '06-9911223344');
 
-# Adressen (Gekoppeld aan deelnemers)
+# Addresses (associated with participants)
 INSERT INTO address (sequence, participant_id, street, housenumber, postalcode, city, country, current)
 VALUES (1, 1, 'Dorpstraat', '2a', '1234 AB', 'Zuidlaren', 'Nedercountry', 1);
 
@@ -111,17 +109,17 @@ VALUES (1, 3, 'Girafverblijf', '1', '3456 EF', 'Artis', 'Nedercountry', 1);
 INSERT INTO address (sequence, participant_id, street, housenumber, postalcode, city, country, current)
 VALUES (2, 1, 'Thuisstraat', '91-I', '4567 GH', 'Ergens', 'Nedercountry', 0);
 
-# Actuele premies van deelnemers
-INSERT INTO premie(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+# Participant's actual premiums
+INSERT INTO participantPremium(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (1, 49000, 100, 12600, 3);
 
-INSERT INTO premie(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO participantPremium(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (2, 63500, 80, 16000, 3);
 
-INSERT INTO premie(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO participantPremium(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (3, 11000, 5, 2000, 3);
 
-# Beleggingen per deelnener
+# Investments of individual participants
 INSERT INTO belegging(participant_id, instituut, fonds, huidige_waarde)
 VALUES (1, 'Nationale Nedercountryen', 'BlackRock Sustainable Energy', 1723);
 INSERT INTO belegging(participant_id, instituut, fonds, huidige_waarde)
@@ -141,8 +139,8 @@ VALUES (3, 'KBC', 'Life S Defensive Balanced Responsible Investing Comfort', 106
 INSERT INTO belegging(participant_id, instituut, fonds, huidige_waarde)
 VALUES (3, 'Triodos', 'Triodos Global Equities', 466);
 
-# Bepaal de totale huidige waarde van alle, onder een bepaalde deelnemer geregistreerde, beleggingen.
-CREATE PROCEDURE PSomBeleggingenDeelnemer(IN id BIGINT, OUT huidigeWaarde NUMERIC)
+# Fetch the sum of de current value of an individual participant, based on the indentifier of that participant.
+CREATE PROCEDURE sp_SumInvestmentsParticipant(IN id BIGINT, OUT huidigeWaarde NUMERIC)
     BEGIN
         SELECT SUM(huidige_waarde) INTO huidigeWaarde
         FROM belegging

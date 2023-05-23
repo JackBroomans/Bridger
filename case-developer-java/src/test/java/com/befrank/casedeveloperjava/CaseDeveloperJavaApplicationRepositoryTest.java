@@ -1,10 +1,10 @@
 package com.befrank.casedeveloperjava;
 
-import com.befrank.casedeveloperjava.configuration.AppVariabelenDeelnemer;
-import com.befrank.casedeveloperjava.model.Deelnemer;
-import com.befrank.casedeveloperjava.model.PremieDeelnemer;
+import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
+import com.befrank.casedeveloperjava.model.Participant;
+import com.befrank.casedeveloperjava.model.ParticipantPremium;
 import com.befrank.casedeveloperjava.repository.ContributionRepository;
-import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
+import com.befrank.casedeveloperjava.repository.ParticipantRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -72,14 +72,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CaseDeveloperJavaApplicationRepositoryTest {
 
     @Autowired
-    DeelnemerRepository repoParticipant;
+    ParticipantRepository repoParticipant;
 
     @Autowired
     ContributionRepository repoContribution;
 
     @Autowired
 
-    AppVariabelenDeelnemer appVar;
+    AppVariablesParticipant appVar;
 
     @Test
     void toevoegenNieuweDeelnemerTest() {
@@ -104,71 +104,71 @@ public class CaseDeveloperJavaApplicationRepositoryTest {
     @Test
     void deelnemerRepositorytest() {
 
-        Deelnemer nieuweDeelnemer = appVar.deelnemer();
-        assertEquals(nieuweDeelnemer.getGeslacht(), appVar.deelnemer().getGeslacht());
+        Participant nieuweParticipant = appVar.participant();
+        assertEquals(nieuweParticipant.getGender(), appVar.participant().getGender());
 
-        nieuweDeelnemer.setFamilienaam("Duck");
-        nieuweDeelnemer.setVoornamen("Donald");
-        nieuweDeelnemer.setInitialen("D.");
-        nieuweDeelnemer.setPrefixTitels("dhr.");
+        nieuweParticipant.setFamilyName("Duck");
+        nieuweParticipant.setSurNames("Donald");
+        nieuweParticipant.setInitials("D.");
+        nieuweParticipant.setPrefixTitles("dhr.");
 
 
         // Niet bestaand of ongeldig deelnemersnummer
-        assertThrows(DataIntegrityViolationException.class, () -> { repoParticipant.save(nieuweDeelnemer); });
-        nieuweDeelnemer.setDeelnemersnummer("20220416-00003");
-        assertThrows(DataIntegrityViolationException.class, () -> { repoParticipant.save(nieuweDeelnemer); });
+        assertThrows(DataIntegrityViolationException.class, () -> { repoParticipant.save(nieuweParticipant); });
+        nieuweParticipant.setParticipantNumber("20220416-00003");
+        assertThrows(DataIntegrityViolationException.class, () -> { repoParticipant.save(nieuweParticipant); });
         // Niet bestaand emailadres
-        assertThrows(DataIntegrityViolationException.class, () -> { repoParticipant.save(nieuweDeelnemer); });
+        assertThrows(DataIntegrityViolationException.class, () -> { repoParticipant.save(nieuweParticipant); });
 
-        nieuweDeelnemer.setDeelnemersnummer("20230420");
-        nieuweDeelnemer.setEmail("d.duck@duckstad.nl");
-        nieuweDeelnemer.setTelefoonMobiel("06 88990011");
+        nieuweParticipant.setParticipantNumber("20230420");
+        nieuweParticipant.setEmail("d.duck@duckstad.nl");
+        nieuweParticipant.setCellphone("06 88990011");
 
         // Todo: Variabele opnemen in resources-bestand om externe configuratie mogelijk te maken
         DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate geboortedatum = LocalDate.parse("16-02-1966", KORTE_DATUM_FORMAAT);
-        nieuweDeelnemer.setGeboortedatum(geboortedatum);
+        nieuweParticipant.setBirthdate(geboortedatum);
 
         // Happy flow toevoegen deelnemer
-        repoParticipant.save(nieuweDeelnemer);
-        assertEquals(repoParticipant.findByDeelnemersnummer("20230420").getEmail(), "d.duck@duckstad.nl");
+        repoParticipant.save(nieuweParticipant);
+        assertEquals(repoParticipant.findByParticipantNumber("20230420").getEmail(), "d.duck@duckstad.nl");
 
         // ToDo: Different CRUD-operation to seperate tests.
         // Lees gegevens van de nieuwe deelnemer terug
-        Deelnemer bestaandeDeelnemer = appVar.deelnemer();
-        bestaandeDeelnemer = repoParticipant.findByEmail("d.duck@duckstad.nl");
-        assertEquals(bestaandeDeelnemer.getEmail(), "d.duck@duckstad.nl");
+        Participant bestaandeParticipant = appVar.participant();
+        bestaandeParticipant = repoParticipant.findByEmail("d.duck@duckstad.nl");
+        assertEquals(bestaandeParticipant.getEmail(), "d.duck@duckstad.nl");
 
         // corrigeer het deelnemersnummer
-        bestaandeDeelnemer.setDeelnemersnummer("20230420-00001");
-        repoParticipant.save(bestaandeDeelnemer);
-        assertEquals(repoParticipant.findById(bestaandeDeelnemer.getId()).getDeelnemersnummer(), "20230420-00001");
-        assertEquals(repoParticipant.findByDeelnemersnummer(bestaandeDeelnemer.getDeelnemersnummer()).getFamilienaam(), "Duck");
+        bestaandeParticipant.setParticipantNumber("20230420-00001");
+        repoParticipant.save(bestaandeParticipant);
+        assertEquals(repoParticipant.findById(bestaandeParticipant.getId()).getParticipantNumber(), "20230420-00001");
+        assertEquals(repoParticipant.findByParticipantNumber(bestaandeParticipant.getParticipantNumber()).getFamilyName(), "Duck");
 
 
         // Test zoeken op niet bestaande of ongeldige argumenten
-        assertDoesNotThrow( () -> repoParticipant.findByDeelnemersnummer("Ik-bestaa-niet") );
+        assertDoesNotThrow( () -> repoParticipant.findByParticipantNumber("Ik-bestaa-niet") );
         // Todo: Test uitbreiden voor andere attributen
 
         // Todo: test bij het dubbel opvoeren van unieke velden
 
 
         // Voeg premiegegevens toe aan de nieuwe deelnemer
-        PremieDeelnemer premie = new PremieDeelnemer();
-        premie.setDeelnemer(bestaandeDeelnemer);
+        ParticipantPremium premie = new ParticipantPremium();
+        premie.setDeelnemer(bestaandeParticipant);
         premie.setFullTimeSalaris(51770);
         premie.setParttimePercentage(100);
         premie.setFranciseActueel(7354);
         premie.setPercentageBeschikbarePremie(5);
-        premie.setDeelnemer(bestaandeDeelnemer);
-        bestaandeDeelnemer.setPremieDeelnemer(premie);
+        premie.setDeelnemer(bestaandeParticipant);
+        bestaandeParticipant.setParticipantPremium(premie);
         repoContribution.save(premie);
-        repoParticipant.save(bestaandeDeelnemer);
+        repoParticipant.save(bestaandeParticipant);
 
-        assertEquals(repoParticipant.findByDeelnemersnummer(bestaandeDeelnemer.getDeelnemersnummer()).getPremieDeelnemer().getFullTimeSalaris(), 51770) ;
+        assertEquals(repoParticipant.findByParticipantNumber(bestaandeParticipant.getParticipantNumber()).getParticipantPremium().getFullTimeSalaris(), 51770) ;
 
 
-        repoParticipant.delete(nieuweDeelnemer);
+        repoParticipant.delete(nieuweParticipant);
     }
 
 }

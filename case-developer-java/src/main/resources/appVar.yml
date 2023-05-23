@@ -1,19 +1,30 @@
-deelnemer:
+general:
+  # Date and time formats
+  short_date_format: dd-MM-yyyy
+  short_date_time_format: dd-MM-yyyy hh:mm:ss
 
-# Reguliere expressies
-  regex_deelnemersnummer: /^([1-2]{1}[0-9]{3})([0-1]{1}[0-2]{1})([0-3]{1}[\d]{1})-([\d]{5})$/i
-  regex_emailadres: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+participant:
+  # Regular expressions
+  regex_participant_number: /^([1-2]{1}[0-9]{3})([0-1]{1}[0-2]{1})([0-3]{1}[\d]{1})-([\d]{5})$/i
+  regex_email_address: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
 
-# Datum- en tijdnotaies
-  korte_datumNotatie: dd-MM-yyyy
-  korte_datum_tijd_notatie: dd-MM-yyyy hh:mm:ss
+  # Default settings
+  default_gender: U
 
-# Enum standaardwaarden
-  standaard_geslacht: U
+  # Validation rules
+  minimum_age_participant: 18
+  maximum_age_participant: 120
 
-# Overige standaardwaarden
-  standaard_land: Nederland
+  # Messages
+  missing_number: Missing (mandatory) or invalid participant number.
+  missing_family_name: Missing (mandatory) or invalid family name.
+  missing_surnames: Missing (mandatory) or invalid surname(s).
+  missing_gender_specification: Gender not specified. Can't specify gender.
+  missing_email_address: Missing (mandatory) email address.
+  missing_cellphone_number: Missing (mandatory) or invalid cellphone number.
+  invalid_email_address: Invalid email format.
+  age_calculation_not_possible: Age calculation not possible because of missing birthdate.
 
-# Validatieregels
-  minimum_leeftijd_deelnemer: 18
-  maximum_leeftijd_deelnemer: 120
+address:
+  # Default settings
+  default_country: Nederland

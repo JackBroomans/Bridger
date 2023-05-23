@@ -1,8 +1,8 @@
 package com.befrank.casedeveloperjava;
 
-import com.befrank.casedeveloperjava.configuration.AppVariabelenDeelnemer;
-import com.befrank.casedeveloperjava.model.Deelnemer;
-import com.befrank.casedeveloperjava.repository.DeelnemerRepository;
+import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
+import com.befrank.casedeveloperjava.model.Participant;
+import com.befrank.casedeveloperjava.repository.ParticipantRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,24 +11,24 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class CaseDeveloperJavaControlerTest {
 
     @Autowired
-    DeelnemerRepository repository;
+    ParticipantRepository repository;
 
     @Autowired
-    AppVariabelenDeelnemer appVar;
+    AppVariablesParticipant appVar;
 
     @Test
     public void berekenJaarlijksePremieTest() {
 
-        Deelnemer deelnemer = appVar.deelnemer();
-        deelnemer = repository.findByDeelnemersnummer("20220416-00001");
-        double waardeHuidigeBeleggingen = repository.getSomBeleggingenDeelnemer(deelnemer.getId());
+        Participant participant = appVar.participant();
+        participant = repository.findByParticipantNumber("20220416-00001");
+        double waardeHuidigeBeleggingen = repository.getSumInvestmentsParticipant(participant.getId());
         System.out.println();
         System.out.println("Waarde huidige beleggingen\t\t: " + waardeHuidigeBeleggingen);
-        System.out.println("\nBruto jaarsalaris\t\t\t\t: " + deelnemer.getPremieDeelnemer().getFullTimeSalaris());
-        System.out.println("Francise\t\t\t\t\t\t: " + deelnemer.getPremieDeelnemer().getFranciseActueel());
-        System.out.println("Deeltijd percentage\t\t\t\t: " + deelnemer.getPremieDeelnemer().getParttimePercentage());
+        System.out.println("\nBruto jaarsalaris\t\t\t\t: " + participant.getParticipantPremium().getFullTimeSalaris());
+        System.out.println("Francise\t\t\t\t\t\t: " + participant.getParticipantPremium().getFranciseActueel());
+        System.out.println("Deeltijd percentage\t\t\t\t: " + participant.getParticipantPremium().getParttimePercentage());
         System.out.println
-                ("Percentage beschikbare premie\t: " + deelnemer.getPremieDeelnemer().getPercentageBeschikbarePremie());
+                ("Percentage beschikbare premie\t: " + participant.getParticipantPremium().getPercentageBeschikbarePremie());
 
         DeelnemerController controller = new DeelnemerController(repository);
         System.out.println
