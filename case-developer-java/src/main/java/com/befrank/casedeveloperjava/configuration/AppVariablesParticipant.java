@@ -43,18 +43,29 @@ public class AppVariablesParticipant {
    /* Messages */
     @Value("${missing_number}")
     public String MSG_MISSING_NUMBER;
+
     @Value("${missing_family_name}")
     public String MSG_MISSING_FAMILY_NAME;
+
     @Value("${missing_surnames}")
     public String MSG_MISSING_SURNAMES;
+
     @Value("${missing_gender_specification}")
     public String MSG_GENDER_NOT_SPECIFIED;
-    @Value("${missing_email_address}")
-    public String MSG_MISSING_EMAIL_ADDRESS;
+
     @Value("${missing_cellphone_number}")
     public String MSG_MISSING_CELLPHONE_NUMBER;
+
+    @Value("${missing_birthdate}")
+    public String MSG_MISSING_BIRTHDATE;
+
+    @Value("${missing_email_address}")
+    public String MSG_MISSING_EMAIL_ADDRESS;
     @Value("${invalid_email_address}")
     public String MSG_INVALID_EMAIL_ADDRESS;
+    @Value("${invalid_regular_expression_email}")
+    public String MSG_INVALID_REGEX_EMAIL;
+
     @Value("${age_calculation_not_possible}")
     public String MSG_AGE_CALCULATION_NOT_POSSIBLE;
 

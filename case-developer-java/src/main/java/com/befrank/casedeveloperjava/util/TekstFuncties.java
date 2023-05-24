@@ -1,6 +1,6 @@
 package com.befrank.casedeveloperjava.util;
 
-import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
+import static com.befrank.casedeveloperjava.util.Validations.validateString;
 
 public class TekstFuncties {
 
@@ -12,6 +12,6 @@ public class TekstFuncties {
      * @return De gecontroleerde tekenreeks of indien deze niet aan de voorwaarden voldoet, een lege tekenreeks
      */
     public static String presentatie(String tekst) {
-        return valideerTekenreeks(tekst) ? tekst : "";
+        return validateString(tekst) ? tekst : "";
     }
 }

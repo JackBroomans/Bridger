@@ -12,7 +12,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
  */
 @Component
 @Entity
-@Table(name = "participantPremium")
+@Table(name = "participantpremium")
 public class ParticipantPremium {
 
     private static final Logger logger = LoggerFactory.getLogger(ParticipantPremium.class);

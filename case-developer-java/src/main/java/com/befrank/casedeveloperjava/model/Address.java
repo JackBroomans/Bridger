@@ -1,6 +1,5 @@
 package com.befrank.casedeveloperjava.model;
 
-import com.befrank.casedeveloperjava.model.enums.Gender;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.io.Serializable;
 
 import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
-import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
+import static com.befrank.casedeveloperjava.util.Validations.validateString;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
@@ -129,10 +128,10 @@ public class Address implements Serializable {
      */
     public String composeCorrespondenceAddress() {
         StringBuilder text = new StringBuilder()
-                .append(valideerTekenreeks(this.street) ? this.street : "")
-                .append(valideerTekenreeks(this.houseNumber) ? " " + this.houseNumber : "").append("\n")
-                .append(valideerTekenreeks(this.postalcode) ? " " + this.postalcode : "")
-                .append(valideerTekenreeks(this.city) ? " " + this.city : " ");
+                .append(validateString(this.street) ? this.street : "")
+                .append(validateString(this.houseNumber) ? " " + this.houseNumber : "").append("\n")
+                .append(validateString(this.postalcode) ? " " + this.postalcode : "")
+                .append(validateString(this.city) ? " " + this.city : " ");
         return text.toString();
     }
 

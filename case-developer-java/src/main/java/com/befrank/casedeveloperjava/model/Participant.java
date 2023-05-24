@@ -4,6 +4,7 @@ import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
 import com.befrank.casedeveloperjava.model.enums.Gender;
 import jakarta.persistence.*;
 
+import static com.befrank.casedeveloperjava.util.Validations.*;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 import org.slf4j.Logger;
@@ -15,8 +16,6 @@ import java.time.LocalDate;
 import java.time.Period;
 
 import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
-import static com.befrank.casedeveloperjava.util.Validaties.valideerGeboortedatum;
-import static com.befrank.casedeveloperjava.util.Validaties.valideerTekenreeks;
 
 /**
  * <strong>Participant</strong><br>
@@ -95,7 +94,7 @@ public class Participant implements Serializable {
     }
 
     public void setParticipantNumber(String participantNumber) {
-        if (!valideerTekenreeks(participantNumber)) {
+        if (!validateString(participantNumber)) {
             logger.warn(appVar.MSG_MISSING_NUMBER);
             return;
         }
@@ -107,7 +106,7 @@ public class Participant implements Serializable {
     }
 
     public void setFamilyName(String familyName) {
-        if (!valideerTekenreeks(familyName)) {
+        if (!validateString(familyName)) {
             logger.warn(appVar.MSG_MISSING_FAMILY_NAME);
             return;
         }
@@ -127,7 +126,7 @@ public class Participant implements Serializable {
     }
 
     public void setSurNames(String surNames) {
-        if (!valideerTekenreeks(surNames)) {
+        if (!validateString(surNames)) {
             logger.warn(appVar.MSG_MISSING_SURNAMES);
             return;
         }
@@ -183,12 +182,8 @@ public class Participant implements Serializable {
         return birthdate;
     }
 
-    /**
-     * If the birthdate is invalid or not specified then it will remain the same. Logging of this exception takes
-     * place during the validation.
-     */
     public void setBirthdate(LocalDate birthdate) {
-        if (valideerGeboortedatum(birthdate)) {
+        if (validateBirthdate(birthdate)) {
             this.birthdate = birthdate;
         }
     }
@@ -198,10 +193,15 @@ public class Participant implements Serializable {
     }
 
     public void setEmail(String email) {
-        // Todo: Controleren op het juiiste formaat van een email adres m.b.v. een reguliere expressie
-        if (!valideerTekenreeks(email)) {
+        if (!validateString(email)) {
             logger.warn(appVar.MSG_MISSING_EMAIL_ADDRESS);
             return;
+        }
+        else {
+            if (!validateEmailAddressFormat(email)) {
+                logger.warn(appVar.MSG_INVALID_EMAIL_ADDRESS);
+                return;
+            }
         }
         this.email = email;
     }
@@ -219,7 +219,7 @@ public class Participant implements Serializable {
     }
 
     public void setCellphone(String cellphone) {
-        if (!valideerTekenreeks(cellphone)) {
+        if (!validateString(cellphone)) {
             logger.warn(appVar.MSG_MISSING_CELLPHONE_NUMBER);
             return;
         }
@@ -240,11 +240,11 @@ public class Participant implements Serializable {
      * @return The composed name.
      */
     public String composeFullName() {
-        return (valideerTekenreeks(this.prefixTitles) ? this.prefixTitles : "") +
-                (valideerTekenreeks(this.initials) ? " " + this.initials : "") +
-                (valideerTekenreeks(this.prefixes) ? " " + this.prefixes : "") +
-                (valideerTekenreeks(this.familyName) ? " " + this.familyName : " ") +
-                (valideerTekenreeks(this.suffixTitles) ? " " + this.suffixTitles : "");
+        return (validateString(this.prefixTitles) ? this.prefixTitles : "") +
+                (validateString(this.initials) ? " " + this.initials : "") +
+                (validateString(this.prefixes) ? " " + this.prefixes : "") +
+                (validateString(this.familyName) ? " " + this.familyName : " ") +
+                (validateString(this.suffixTitles) ? " " + this.suffixTitles : "");
     }
 
     /**
