@@ -13,9 +13,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 
 import static com.befrank.casedeveloperjava.util.DatumTijdFuncties.getLeeftijd;
-import static com.befrank.casedeveloperjava.util.Validations.valideerTekenreeks;
+import static com.befrank.casedeveloperjava.util.Validations.validateString;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -28,31 +29,9 @@ class CaseDeveloperJavaApplicationTests {
 	private AppVariablesParticipant appVar;
 
 	@Test
-	public void enumGenderTest() {
-
-		/* Searching and selecting the default gender */
-		Gender gender = Gender.getByCode(appVar.DEFAULT_GENDER);
-		assertEquals(true, gender.getCode().equals(appVar.DEFAULT_GENDER));
-
-		// Searching and selecting a gender based on it's code
-		assertNull(Gender.getByCode(null));
-		assertNull(Gender.getByCode(""));
-		assertNull(Gender.getByCode("XYZ"));
-		assertNull(Gender.getByCode("X"));
-		assertEquals(Gender.getByCode("M"), Gender.MALE);
-	}
-
-	@Test
 	public void classParticipantTest() {
 
-
-		// Todo: Testen op parse errors van datums en tijden.
-
-
-		// Todo: Testen toekennnen van standaard geslacht bij initialisatie;
 		Participant participant = appVar.participant();
-
-		// Todo: Adequaat testen van geboortedatum bij initialiatie
 
 		participant.setFamilyName(null);
 		assertNull(participant.getFamilyName());
@@ -69,14 +48,8 @@ class CaseDeveloperJavaApplicationTests {
 		/* Erasing a mandatory property value results in keeping the original value */
 		participant.setFamilyName(null);
 		assertEquals("Duck", participant.getFamilyName());
-		participant.setGender(null);
-		assertEquals(appVar.DEFAULT_GENDER, participant.getGender().getCode());
 		participant.setEmail("");
 		assertEquals("d.duck@duckstad.nl", participant.getEmail());
-
-		/* Synchronizing the code of the gender with the gender itself */
-		participant.setGender(Gender.MALE);
-		assertEquals(participant.getGender().getCode(), "M");
 
 		/* Todo: Calculating the yearly premium of a participant */
 
@@ -105,16 +78,16 @@ class CaseDeveloperJavaApplicationTests {
 		assertTrue(appVar.MIN_AGE_PARTICIPANT > 0 && appVar.MAX_AGE_PARTICIPANT > 0);
 
 		/* A birthdate outside the age limitations is not validated. The birthdate remains null. */
-		assertFalse(Validations.valideerGeboortedatum(birthdateBeforeAgeRule));
+		assertFalse(Validations.validateBirthdate(birthdateBeforeAgeRule));
 		participant.setBirthdate(birthdateBeforeAgeRule);
 		assertNull(participant.getBirthdate());
 
-		assertFalse(Validations.valideerGeboortedatum(birthdateAfterAgeRule));
+		assertFalse(Validations.validateBirthdate(birthdateAfterAgeRule));
 		participant.setBirthdate(birthdateAfterAgeRule);
 		assertNull(participant.getBirthdate());
 
 		/* Validation of a valid birthdate is successful and the birthdate is changed in the participant's property. */
-		assertTrue(Validations.valideerGeboortedatum(validBirthdate));
+		assertTrue(Validations.validateBirthdate(validBirthdate));
 		participant.setBirthdate(validBirthdate);
 		assertEquals(validBirthdate, participant.getBirthdate());
 	}
@@ -126,23 +99,38 @@ class CaseDeveloperJavaApplicationTests {
 
 		/* Calculating the age without a specified birthdate */
 		assertEquals(getLeeftijd(null), 0);
-		assertFalse(Validations.valideerGeboortedatum(null));
+		assertFalse(Validations.validateBirthdate(null));
 
 		/* Calculating the age with an invalid birthdate */
 		participant.setBirthdate(LocalDate.parse("01-01-1900", shortDateFormat));
-		assertFalse(Validations.valideerGeboortedatum(participant.getBirthdate()));
+		assertFalse(Validations.validateBirthdate(participant.getBirthdate()));
 
 		/* Calculating the age with an valid birthdate */
 		participant.setBirthdate(LocalDate.parse("16-12-1958", shortDateFormat));
-		assertTrue(Validations.valideerGeboortedatum(participant.getBirthdate()));
+		assertTrue(Validations.validateBirthdate(participant.getBirthdate()));
 	}
 
 	@Test
 	public void genderTest() {
-		/* On instantiation (by conventional way) the gender isn't set to the default setting. */
+		/* Searching and selecting the default gender */
+		Gender gender = Gender.getByCode(appVar.DEFAULT_GENDER);
+		assertEquals(true, gender.getCode().equals(appVar.DEFAULT_GENDER));
+
+		/* Searching and selecting a gender based on it's code */
+		ArrayList<String> invalidCodes =new ArrayList<>();
+		invalidCodes.add(null);
+		invalidCodes.add("");
+		invalidCodes.add("XYZ");
+		invalidCodes.add("X");
+		invalidCodes.forEach(address -> {
+			assertNull(Gender.getByCode(null));
+		});
+		assertEquals(Gender.getByCode("M"), Gender.MALE);
+
+		/* On instantiation by conventional way the gender isn't set to the default setting. */
 		assertNull(new Participant().getGender());
 
-		/* On instantiation (by configuration method) the gender is set according the external default setting. */
+		/* On instantiation by configuration method the gender is set according the external default setting. */
 		Participant particpant = appVar.participant();
 		assertEquals(appVar.DEFAULT_GENDER, particpant.getGenderCode());
 
@@ -155,6 +143,23 @@ class CaseDeveloperJavaApplicationTests {
 		particpant.setGender(newGender);
 		assertEquals(newGender, particpant.getGender());
 		assertEquals(newGender.getCode(), particpant.getGenderCode());
+	}
+
+	@Test
+	public void emailFormatValidationTest() {
+		Participant participant = appVar.participant();
+
+		/* Invalid email-adresses are refused and nothing is changed. */
+		ArrayList<String> invalidEmailAddresses = new ArrayList<>();
+		invalidEmailAddresses.add("username.username");
+		invalidEmailAddresses.add("@domain.com");
+		invalidEmailAddresses.add("username.@domain.com");
+		invalidEmailAddresses.add(".user.name@domain.com");
+		invalidEmailAddresses.add("username@.com");
+		invalidEmailAddresses.forEach(address -> {
+			participant.setEmail(address);
+			assertNull(participant.getEmail());
+		});
 
 	}
 
@@ -176,11 +181,11 @@ class CaseDeveloperJavaApplicationTests {
 	@Test
 	public void validateStringTest() {
 		StringBuilder text = new StringBuilder();
-		assertFalse(valideerTekenreeks(text.toString()));
+		assertFalse(validateString(text.toString()));
 		text.append("     ");
-		assertFalse(valideerTekenreeks(text.toString()));
+		assertFalse(validateString(text.toString()));
 		text.delete(0, 255).append("Abc");
-		assertTrue(valideerTekenreeks(text.toString()));
+		assertTrue(validateString(text.toString()));
 	}
 
 	@Test

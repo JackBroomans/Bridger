@@ -6,7 +6,7 @@ general:
 participant:
   # Regular expressions
   regex_participant_number: /^([1-2]{1}[0-9]{3})([0-1]{1}[0-2]{1})([0-3]{1}[\d]{1})-([\d]{5})$/i
-  regex_email_address: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+  regex_email_address: ^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$
 
   # Default settings
   default_gender: U
@@ -22,8 +22,12 @@ participant:
   missing_gender_specification: Gender not specified. Can't specify gender.
   missing_email_address: Missing (mandatory) email address.
   missing_cellphone_number: Missing (mandatory) or invalid cellphone number.
+  missing_birthdate: Missing (mandatory) birthdate.
+  invalid_date_format: Invalid date format.
   invalid_email_address: Invalid email format.
+  invalid_regular_expression_email: Invalid regular expression, can't check the email address format.
   age_calculation_not_possible: Age calculation not possible because of missing birthdate.
+
 
 address:
   # Default settings

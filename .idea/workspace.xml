@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#28 -&gt; Unit-test 'Birthdate Validation' rewritten.">
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#29 -&gt; Unit-test 'Gender' rewritten.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/configuration/AppVariablesParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/configuration/AppVariablesParticipant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Participant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/util/TekstFuncties.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/util/TekstFuncties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/util/Validations.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/util/Validations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/appVar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/resources/appVar.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/test-classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/test-classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logging/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging/app.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,13 +112,7 @@
       <recent name="com.befrank.casedeveloperjava.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CaseDeveloperJavaApplicationTests.genderTest">
-    <configuration name="data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
-      <script-file value="$PROJECT_DIR$/case-developer-java/src/main/resources/data.sql" />
-      <script-mode>FILE</script-mode>
-      <data-source id="490dbad2-d3bb-4dd5-8810-af8f0770e7e3" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.CaseDeveloperJavaApplicationTests.emailFormatValidationTest">
     <configuration name="CaseDeveloperJavaApplicationTests.birthdateValidationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="case-developer-java" />
       <extension name="coverage">
@@ -155,6 +156,22 @@
       <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
       <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests" />
       <option name="METHOD_NAME" value="classParticipantTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CaseDeveloperJavaApplicationTests.emailFormatValidationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="case-developer-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.befrank.casedeveloperjava.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
+      <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests" />
+      <option name="METHOD_NAME" value="emailFormatValidationTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -206,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.emailFormatValidationTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.genderTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.birthdateValidationTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.calculateAgeValidationTest" />
         <item itemvalue="JUnit.CaseDeveloperJavaApplicationTests.classParticipantTest" />
-        <item itemvalue="Database Script.data.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -262,7 +279,8 @@
       <workItem from="1684685395553" duration="6165000" />
       <workItem from="1684745725724" duration="3740000" />
       <workItem from="1684749533513" duration="15740000" />
-      <workItem from="1684873236343" duration="1518000" />
+      <workItem from="1684873236343" duration="6226000" />
+      <workItem from="1684900542050" duration="3153000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -411,7 +429,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684865609140</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="#29 -&gt; Unit-test 'Gender' rewritten.">
+      <created>1684874934641</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1684874934641</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,18 +497,8 @@
     <MESSAGE value="Translated Gender and Participant" />
     <MESSAGE value="Bugfix Invalid table name 'participantPremium'" />
     <MESSAGE value="#28 -&gt; Unit-test 'Birthdate Validation' rewritten." />
-    <option name="LAST_COMMIT_MESSAGE" value="#28 -&gt; Unit-test 'Birthdate Validation' rewritten." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Participant.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="#29 -&gt; Unit-test 'Gender' rewritten." />
+    <option name="LAST_COMMIT_MESSAGE" value="#29 -&gt; Unit-test 'Gender' rewritten." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
