@@ -2,22 +2,18 @@ package com.befrank.casedeveloperjava;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
-import java.util.stream.Stream;
 
 @SpringBootApplication
 @EnableJpaRepositories
-public class CaseDeveloperJavaApplication {
+public class BridgerJavaApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(CaseDeveloperJavaApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(BridgerJavaApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(CaseDeveloperJavaApplication.class, args);
+		SpringApplication.run(BridgerJavaApplication.class, args);
 	}
 
 }

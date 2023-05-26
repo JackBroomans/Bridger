@@ -1,20 +1,26 @@
 # Case Bridger
 ## Entity classes
-The entity classes are subjected to the (Hibernate) JPA-implementation and are kept as 'clean' as possible, which 
-means that to are associated with the (MySql) database elements rather than other Spring (Boot) components.
+The entity classes are subjected to the (Hibernate) JPA-implementation and are kept as 'clean' as possible. This 
+means that they are associated only to the (MySql) database tables and not to other components.
 ### External configuration classes.
-When applicable (or required) a configuration class is associated to the entity class. Both classes interacting as one
-component while the configuration class controls the external configuration. This practice allows fine-tuning per 
-entity and is analogue to the Angular philosophy. 
+When applicable (or required) a configuration class is associated to the entity class. The configuration class controls the external configuration. This practice allows fine-tuning per 
+entity. 
 ### Instantiation of entities
-To assign the default settings on instantiation of an entity class without using a field assignment of the
-external variables, instantiation of an entity should be done by the method in the configuration class which is 
+To assign the default settings on instantiation of an entity class (without using field assignment), instantiation of an entity should be done by the method in the configuration class which is 
 attached tot the particular entity class.
+
+## Repository
+The application uses stored procedures alongside the Hibernate repository features. This enables controe over the database's performance (tuning query efficiency).
+### In- and output mapping
+When required, the in and output mapping is covered by the 'mapstruct-processor' library. This allows services (classes) to construct the 
+required structure before returning it to the client. It also enables mapping with dependency inhection.
 
 ## Logging
 https://www.javaguides.net/2018/09/spring-boot-2-logging-slf4j-logback-and-log4j-example.html
 #### Logback https://www.baeldung.com/logback
 #### SLF4J https://www.baeldung.com/log4j2-appenders-layouts-filters
+
+
 
 ### De opdracht :page_facing_up:
 Je levert een front-end op voor een deelnemer bij BeFrank. Hierop is de verwachte waarde van de pensioenpot op de geplande pensioendatum te zien.

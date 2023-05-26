@@ -12,7 +12,7 @@
 	<artifactId>case-developer-java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>case-developer-java</name>
-	<description>Backend BeFrank</description>
+	<description>Backend Bridger</description>
 	<properties>
 		<java.version>17</java.version>
 		<tomcat.version>10.1.8</tomcat.version>
@@ -50,6 +50,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 
 		<!-- YAML serialization and parsing (Required to solve vulnerabilities -->
 		<dependency>
@@ -70,6 +74,13 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<version>8.0.32</version>
 			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Service in- and output mapping -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.5.3.Final</version>
 		</dependency>
 
 		<!-- Logging -->
@@ -93,6 +104,24 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>3.0.6</version>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<source>17</source>
+					<target>17</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>1.5.3.Final</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 

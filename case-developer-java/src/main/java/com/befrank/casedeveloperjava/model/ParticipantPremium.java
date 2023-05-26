@@ -1,14 +1,22 @@
 package com.befrank.casedeveloperjava.model;
 
+import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import jakarta.persistence.*;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
- *
+ * <strong>ParticipantPremium</strong><br>
+ * This entity class describes the properties of the actual premium the participant must contribute in the pension
+ * fund according to the associated database table.<br>
+ * This premium ia calculated from the property values by a (non persistable) method:
+ * <ul>
+ *     <li>
+ *         <strong>composeFullName()</strong>
+ *     </li>
+ * </ul>
  */
 @Component
 @Entity
@@ -29,11 +37,10 @@ public class ParticipantPremium {
     @GeneratedValue(strategy = IDENTITY)
     private long id;
 
-    // Field name in the 'premie' class
-    @OneToOne(mappedBy = "ParticipantPremium", fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn()
+//    @JoinColumn(name = "id", nullable = false, unique = true)
     private Participant participant;
-    @Column(name = "participant_id")
-    private long participantId;
     @Column(name = "fulltime_salaris")
     private float fullTimeSalaris;
     @Column(name = "parttime_percentage")
@@ -53,12 +60,11 @@ public class ParticipantPremium {
 
 
     // Getters en Setters
-    public Participant getDeelnemr() {
+    public Participant getParticipant() {
         return this.participant;
     }
-    public void setDeelnemer(Participant participant) {
+    public void setParticipant(Participant participant) {
         this.participant = participant;
-        this.participantId = participant.getId();
     }
 
     public float getFullTimeSalaris() {
@@ -103,7 +109,7 @@ public class ParticipantPremium {
      * <i>Indien het parttime percentage op 0 is gezet, dan impliceert dit dat er geen dienstveband meer is en dat de
      * premiestorting is gestaakt.</i>
      */
-    public float berekenPremie() {
+    public float calculatePremium() {
         float premie = 0;
         if (this.parttimePercentage == 0f) {
             logger.info("Contribution not applicable because no active employer assigned.");

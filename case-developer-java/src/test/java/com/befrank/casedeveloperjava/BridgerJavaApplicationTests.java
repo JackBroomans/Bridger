@@ -20,7 +20,7 @@ import static com.befrank.casedeveloperjava.util.Validations.validateString;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class CaseDeveloperJavaApplicationTests {
+class BridgerJavaApplicationTests {
 
 	@Autowired
 	private ParticipantRepository repository;
@@ -160,6 +160,10 @@ class CaseDeveloperJavaApplicationTests {
 			participant.setEmail(address);
 			assertNull(participant.getEmail());
 		});
+	}
+
+	@Test
+	public void participantNumberTest() {
 
 	}
 

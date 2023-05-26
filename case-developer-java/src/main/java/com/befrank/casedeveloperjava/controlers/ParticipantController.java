@@ -1,35 +1,38 @@
-package com.befrank.casedeveloperjava;
+package com.befrank.casedeveloperjava.controlers;
 
 import com.befrank.casedeveloperjava.model.Participant;
-
 import com.befrank.casedeveloperjava.repository.ParticipantRepository;
+import com.befrank.casedeveloperjava.services.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/case")
+@RequestMapping("/bridger")
 @CrossOrigin(origins = "http://localhost:4200")
-public class DeelnemerController {
+public class ParticipantController {
 
     @Autowired
     private final ParticipantRepository repository;
 
-    DeelnemerController(ParticipantRepository repository) {
+    @Autowired
+    ParticipantService service;
+
+    public ParticipantController(ParticipantRepository repository) {
         this.repository = repository;
     }
 
     /**
-     * <strong>getDeelnemers()</strong><br>
-     * Haalt alle deelnemers uit de database op en plaatst deze in een ArrayList.<br>
-     * @return Een List waarin alle gevonden deelnemers zijn opgenomen.
+     * <strong>getAllParticipants</strong><i>()</i><br>
+     * Gets all participants from the 'Participant' table.
+     * @return A list containing all the participants.
      */
-    @GetMapping("/deelnemers")
-    List<Participant> haalAlleDeelnemers() {
-        return new ArrayList<>(this.repository.findAll());
+    @RequestMapping("/participants")
+    public @ResponseBody
+    List<Participant> getAllParticipants() {
+        return service.getAllParticipants();
     }
 
     /**
@@ -39,7 +42,7 @@ public class DeelnemerController {
      * @return een instantie van de gezochte Deelnemer
      * @throws NoSuchElementException indien de deelnemer niet is gevonden.
      */
-    @GetMapping("/deelnemer/{id}")
+    @GetMapping("/participant/{id}")
     Participant haalDeelnemerOpId(@PathVariable long id) {
         return this.repository.findById(id);
     }
@@ -50,7 +53,7 @@ public class DeelnemerController {
      * @param email Het email-adres van de deelnemer die wordt gezocht.
      * @return De deelnemer met het betreffende email-adres
      */
-    @GetMapping("/deelnemr/{email}")
+    @GetMapping("/participant/{email}")
     Participant haalDeelnemerOpEmailAdres(@PathVariable String email) {
         return this.repository.findByEmail(email);
     }
@@ -61,7 +64,7 @@ public class DeelnemerController {
      * @param deelnemersnummer Het deelnemersnummer van de deelnemer waarnaar wordt gezocht.
      * @return De deelnemer met het betreffende email-adres
      */
-    @GetMapping("/deelnemer/{deelnemersnummer}")
+    @GetMapping("/participant/{deelnemersnummer}")
     Participant haalDeelnemerOpDeelnemersnummer(@PathVariable String deelnemersnummer) {
         return this.repository.findByParticipantNumber(deelnemersnummer);
     }
@@ -70,23 +73,23 @@ public class DeelnemerController {
      * <strong>berekenJaarlijksePremieDeelnemer(String)</strong><br>
      * Berekend de jaarlijks (te beleggen) premie uit de (vastgelegde) premiegegevens van een bepaalde deelnemer.<br>
      * (Full-time salaris – Franchise) * Parttime percentage * Beschikbare premie percentage<br>
-     * @param deelnemersnummer
+     * @param paricipationNumber
      * @return
      */
-    @GetMapping("/premie/{deelnemersnummer}")
-    public double berekenJaarlijksePremieDeelnemer(String deelnemersnummer) {
-
-        // Haal deelnemer en de bijbehorende premiegegevens op.
-        Participant participant = repository.findByParticipantNumber(deelnemersnummer);
-
-        // Bepaal de som de huidide beleggingen (-> stored procedure)
-        double waardeHuidigeBeleggingen = repository.getSumInvestmentsParticipant(participant.getId());
-
-        // Bereken de premie en retourneer deze
-        return (participant.getParticipantPremium().getFullTimeSalaris() - participant.getParticipantPremium().getFranciseActueel())
-                * (participant.getParticipantPremium().getParttimePercentage() / 100)
-                * (participant.getParticipantPremium().getPercentageBeschikbarePremie()/100);
-    }
+//    @GetMapping("/premium/{paricipationNumber}")
+//    public double berekenJaarlijksePremieDeelnemer(String paricipationNumber) {
+//
+//        // Haal deelnemer en de bijbehorende premiegegevens op.
+//        Participant participant = repository.findByParticipantNumber(paricipationNumber);
+//
+//        // Bepaal de som de huidide beleggingen (-> stored procedure)
+//        double waardeHuidigeBeleggingen = repository.getSumInvestmentsParticipant(participant.getId());
+//
+//        // Bereken de premie en retourneer deze
+//        return (participant.getParticipantPremium().getFullTimeSalaris() - participant.getParticipantPremium().getFranciseActueel())
+//                * (participant.getParticipantPremium().getParttimePercentage() / 100)
+//                * (participant.getParticipantPremium().getPercentageBeschikbarePremie()/100);
+//    }
 
 
 

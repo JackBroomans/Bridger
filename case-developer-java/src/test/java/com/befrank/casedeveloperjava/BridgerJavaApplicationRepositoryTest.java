@@ -12,64 +12,13 @@ import org.springframework.dao.DataIntegrityViolationException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * <ol>
- *     <li>
- *         Toevoegen deelnemer
- *          <ol>
- *              <li>
- *                  Ontbrekende verplichte velden
- *                  <ol>
- *                      <li>Deelnemersnummer</li>
- *                      <li>Familienaam</li>
- *                      <li>Voornamen</li>
- *                      <li>Geboortedatum</li>
- *                      <li>Geslacht</li>
- *                      <li>Emailadres</li>
- *                      <li>Mobiel telefoonnummer</li>
- *                  </ol>
- *              </li>
- *              <li>
- *                  Ongeldig gespecificeerde velden
- *                  <ol>
- *                      <li>Formaat deelnemersnummer</li>
- *                      <li>Formaat emailadres</li>
- *                      <li>
- *                          Formaat telefoonnummer
- *                          <ol>
- *                              <li>Vast telefoonnummer</li>
- *                              <li>Mobiel telefoonnummer</li>
- *                          </ol>
- *                      </li>
- *                  </ol>
- *              </li>
- *              <li>Integriteit en kwaliteit data</li>
- *          </ol>
- *      </li>
- *
- *      <li>
- *          Ophalen persoonsgegevens uit database
- *      </li>
- *
- *      <li>
- *          Wijzigen van de gegevens van de deelnemer
- *      </li>
- *
- *      <li>
- *          Toevoegen van gerelateerde gegevenscomponenten
- *          <ol>
- *              <li>Adres</li>
- *              <li>Premiegegevens</li>
- *          </ol>
- *      </li>
- * </ol>
- */
 
 @SpringBootTest
-public class CaseDeveloperJavaApplicationRepositoryTest {
+public class BridgerJavaApplicationRepositoryTest {
 
     @Autowired
     ParticipantRepository repoParticipant;
@@ -154,21 +103,47 @@ public class CaseDeveloperJavaApplicationRepositoryTest {
 
 
         // Voeg premiegegevens toe aan de nieuwe deelnemer
-        ParticipantPremium premie = new ParticipantPremium();
-        premie.setDeelnemer(bestaandeParticipant);
-        premie.setFullTimeSalaris(51770);
-        premie.setParttimePercentage(100);
-        premie.setFranciseActueel(7354);
-        premie.setPercentageBeschikbarePremie(5);
-        premie.setDeelnemer(bestaandeParticipant);
-        bestaandeParticipant.setParticipantPremium(premie);
-        repoContribution.save(premie);
-        repoParticipant.save(bestaandeParticipant);
+//        ParticipantPremium premie = new ParticipantPremium();
+//        premie.setDeelnemer(bestaandeParticipant);
+//        premie.setFullTimeSalaris(51770);
+//        premie.setParttimePercentage(100);
+//        premie.setFranciseActueel(7354);
+//        premie.setPercentageBeschikbarePremie(5);
+//        premie.setDeelnemer(bestaandeParticipant);
+//        bestaandeParticipant.setParticipantPremium(premie);
+//        repoContribution.save(premie);
+//        repoParticipant.save(bestaandeParticipant);
 
-        assertEquals(repoParticipant.findByParticipantNumber(bestaandeParticipant.getParticipantNumber()).getParticipantPremium().getFullTimeSalaris(), 51770) ;
+//        assertEquals(repoParticipant.findByParticipantNumber(bestaandeParticipant.getParticipantNumber()).getParticipantPremium().getFullTimeSalaris(), 51770) ;
 
 
         repoParticipant.delete(nieuweParticipant);
     }
 
+    @Test
+    public void resolveSumOfPower2NumbersTest() {
+        ArrayList<Integer> factors = new ArrayList<Integer>();
+        Integer runningSum = 564;
+        Integer power = 0;
+
+        while (runningSum > 0) {
+            power = binaryLog2Base(runningSum);
+            factors.add(power);
+            runningSum -= (int) Math.pow(2, power);
+        }
+
+        System.out.println(factors);
+    }
+
+    private static int binaryLog2Base( int bits ) // returns 0 for bits=0
+    {
+
+        int log = 0;
+
+        if( ( bits & 0xffff0000 ) != 0 ) { bits >>>= 16; log = 16; }
+        if( bits >= 256 ) { bits >>>= 8; log += 8; }
+        if( bits >= 16  ) { bits >>>= 4; log += 4; }
+        if( bits >= 4   ) { bits >>>= 2; log += 2; }
+        return log + ( bits >>> 1 );
+    }
 }

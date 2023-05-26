@@ -3,6 +3,7 @@ CREATE DATABASE IF NOT EXISTS casebefrank COLLATE latin1_general_cs;
 USE casebefrank;
 
 DROP PROCEDURE IF EXISTS sp_SumInvestmentsParticipant;
+DROP PROCEDURE IF EXISTS sp_GetLastProvidedParticipantNumber;
 
 DROP TABLE IF EXISTS belegging;
 DROP TABLE IF EXISTS participantpremium;
@@ -39,9 +40,9 @@ CREATE TABLE  address
     housenumber VARCHAR(15),
     postalcode VARCHAR(15),
     city VARCHAR(127) NOT NULL,
-    country VARCHAR(127) DEFAULT 'Nedercountry',
+    country VARCHAR(127) DEFAULT 'Nederland',
     current BOOLEAN  NOT NULL DEFAULT false,
-    FOREIGN KEY fParticipantAddress (participant_id)
+    FOREIGN KEY fkParticipantAddress (participant_id)
         REFERENCES participant (id)
         ON UPDATE RESTRICT
         ON DELETE CASCADE
@@ -53,18 +54,18 @@ CREATE INDEX iPostalCode ON address (postalcode);
 CREATE TABLE participantpremium
 (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    participant_id BIGINT,
+    participantid BIGINT,
     fulltime_salaris  DOUBLE NOT NULL DEFAULT 0,
     parttime_percentage FLOAT NOT NULL DEFAULT 0,
     francise_actueel DOUBLE NOT NULL DEFAULT 0,
     percentage_beschikbare_premie FLOAT NOT NULL DEFAULT 0,
-    FOREIGN KEY fkParticipantPremium (participant_id)
+    FOREIGN KEY fkParticipantPremium (participantid)
         REFERENCES participant (id)
         ON UPDATE RESTRICT
         ON DELETE CASCADE
 ) ENGINE = INNODB;
 
-CREATE INDEX iParticipantPremium ON participantpremium (participant_id);
+CREATE INDEX iParticipantPremium ON participantpremium (participantid);
 
 CREATE TABLE belegging
 (
@@ -110,13 +111,13 @@ INSERT INTO address (sequence, participant_id, street, housenumber, postalcode, 
 VALUES (2, 1, 'Thuisstraat', '91-I', '4567 GH', 'Ergens', 'Nedercountry', 0);
 
 # Participant's actual premiums
-INSERT INTO participantpremium(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO participantpremium(participantid, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (1, 49000, 100, 12600, 3);
 
-INSERT INTO participantpremium(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO participantpremium(participantid, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (2, 63500, 80, 16000, 3);
 
-INSERT INTO participantpremium(participant_id, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
+INSERT INTO participantpremium(participantid, fulltime_salaris, parttime_percentage, francise_actueel, percentage_beschikbare_premie)
 VALUES (3, 11000, 5, 2000, 3);
 
 # Investments of individual participants
@@ -139,11 +140,20 @@ VALUES (3, 'KBC', 'Life S Defensive Balanced Responsible Investing Comfort', 106
 INSERT INTO belegging(participant_id, instituut, fonds, huidige_waarde)
 VALUES (3, 'Triodos', 'Triodos Global Equities', 466);
 
-# Fetch the sum of de current value of an individual participant, based on the indentifier of that participant.
-CREATE PROCEDURE sp_SumInvestmentsParticipant(IN id BIGINT, OUT huidigeWaarde NUMERIC)
+# Get the sum of de current value of an individual participant, based on the indentifier of that participant.
+CREATE PROCEDURE sp_SumInvestmentsParticipant(IN id BIGINT, OUT currentValue NUMERIC)
     BEGIN
-        SELECT SUM(huidige_waarde) INTO huidigeWaarde
+        SELECT SUM(huidige_waarde) INTO currentValue
         FROM belegging
         WHERE participant_id = id;
-    END
+    END;
+
+# Get the last provided participant number
+CREATE PROCEDURE sp_GetLastProvidedParticipantNumber(OUT lastNumber TEXT)
+        BEGIN
+            SELECT participantnumber INTO lastNumber
+            FROM participant
+            ORDER BY participantnumber DESC
+            LIMIT 1;
+        END;
 
