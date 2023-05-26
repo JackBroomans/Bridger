@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -19,8 +20,8 @@ import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
 
 /**
  * <strong>Participant</strong><br>
- * Entity which describes the base properties of a participant in the pension fund. This entity also contains the k
- * following non persistable functionality methods:
+ * This entity class describes the properties of a participant in the pension fund according to the associated database
+ * table. The entity also contains the following (non persistable) methods:
  * <ul>
  *     <li>
  *         <strong>composeFullName()</strong>
@@ -80,9 +81,9 @@ public class Participant implements Serializable {
     @Column(name = "cellphone", nullable = false)
     private String cellphone;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", nullable = false, unique = true)
-    private com.befrank.casedeveloperjava.model.ParticipantPremium ParticipantPremium;
+//    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "id", nullable = false, unique = true)
+//    private ParticipantPremium ParticipantPremium;
 
     // Getters en Setters
     public long getId() {
@@ -226,13 +227,13 @@ public class Participant implements Serializable {
         this.cellphone = cellphone;
     }
 
-    public com.befrank.casedeveloperjava.model.ParticipantPremium getParticipantPremium() {
-        return ParticipantPremium;
-    }
-
-    public void setParticipantPremium(com.befrank.casedeveloperjava.model.ParticipantPremium participantPremium) {
-        this.ParticipantPremium = participantPremium;
-    }
+//    public com.befrank.casedeveloperjava.model.ParticipantPremium getParticipantPremium() {
+//        return ParticipantPremium;
+//    }
+//
+//    public void setParticipantPremium(com.befrank.casedeveloperjava.model.ParticipantPremium participantPremium) {
+//        this.ParticipantPremium = participantPremium;
+//    }
 
     /**
      * <strong>composeFullName()</strong><br>

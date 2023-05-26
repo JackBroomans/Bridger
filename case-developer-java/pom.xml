@@ -12,7 +12,7 @@
 	<artifactId>case-developer-java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>case-developer-java</name>
-	<description>Backend BeFrank</description>
+	<description>Backend Bridger</description>
 	<properties>
 		<java.version>17</java.version>
 		<tomcat.version>10.1.8</tomcat.version>
@@ -49,6 +49,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<!-- YAML serialization and parsing (Required to solve vulnerabilities -->
