@@ -1,6 +1,7 @@
 package com.befrank.casedeveloperjava.controlers;
 
 import com.befrank.casedeveloperjava.model.Participant;
+import com.befrank.casedeveloperjava.model.destination_entities.ContactListAllParticipants;
 import com.befrank.casedeveloperjava.repository.ParticipantRepository;
 import com.befrank.casedeveloperjava.services.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,33 +18,42 @@ public class ParticipantController {
     @Autowired
     private final ParticipantRepository repository;
 
-    @Autowired
-    ParticipantService service;
-
     public ParticipantController(ParticipantRepository repository) {
         this.repository = repository;
     }
 
+    @Autowired
+    ParticipantService service;
+
     /**
-     * <strong>getAllParticipants</strong><i>()</i><br>
-     * Gets all participants from the 'Participant' table.
-     * @return A list containing all the participants.
+     * <strong>getAllParticipants<i>()</i></strong><br>
+     * @return A list in JSON-format containing all 'Participants' instances.
      */
     @RequestMapping("/participants")
     public @ResponseBody
     List<Participant> getAllParticipants() {
-        return service.getAllParticipants();
+        return repository.findAll();
     }
 
     /**
-     * <strong>haalDeelnemerOpId(<i>long</i>)</strong><br>
-     * Haalt een deelnemer op uit de database op basis van de Id van die deelnemer.<br>
-     * @param id Het kenmerk (id) van de deelnemer waarnaar wordt gezocht.
-     * @return een instantie van de gezochte Deelnemer
-     * @throws NoSuchElementException indien de deelnemer niet is gevonden.
+     * <strong>getContactListAllParticipants<i>()</i></strong><br>
+     * @return A list in JSON-format containing all 'ContactListAllParticipants' instances.
      */
-    @GetMapping("/participant/{id}")
-    Participant haalDeelnemerOpId(@PathVariable long id) {
+    @RequestMapping("participants/contactlist")
+    public @ResponseBody
+    List<ContactListAllParticipants> getContactListAllParticipants() {
+        return service.getContactListParticipants(repository.findAll());
+    }
+
+    /**
+     * <strong>getParticipantOnId(<i>long</i>)</strong><br>
+     * Fetches an instance of a 'Participant' object from the database based on the identifier.<br>
+     * @param id The identifier of the participant.
+     * @return The instance of the requested 'Participant' object
+     * @throws NoSuchElementException when the participant isn't found.
+     */
+    @GetMapping("/participants/id/{id}")
+    Participant getParticipantOnId(@PathVariable long id) {
         return this.repository.findById(id);
     }
 
@@ -53,7 +63,7 @@ public class ParticipantController {
      * @param email Het email-adres van de deelnemer die wordt gezocht.
      * @return De deelnemer met het betreffende email-adres
      */
-    @GetMapping("/participant/{email}")
+    @GetMapping("/participant/email/{email}")
     Participant haalDeelnemerOpEmailAdres(@PathVariable String email) {
         return this.repository.findByEmail(email);
     }

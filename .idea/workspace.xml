@@ -4,34 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#14 -&gt; Validation format emailaddress">
-      <change afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/services/ParticipantService.java" afterDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#33 -&gt; Introduction Base Service and introduction mapstruct">
+      <change afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/destination_entities/ContactListAllParticipants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-frontend/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/BridgerJavaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/DeelnemerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/controlers/ParticipantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/Participant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/ParticipantPremium.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/model/ParticipantPremium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/repository/ParticipantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/repository/ParticipantRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/resources/sql-scripts/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/BridgerJavaApplicationRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/BridgerJavaApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaControlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/CaseDeveloperJavaControlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/classes/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/controlers/ParticipantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/controlers/ParticipantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/services/ParticipantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/main/java/com/befrank/casedeveloperjava/services/ParticipantService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/BridgerJavaApplicationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/BridgerJavaApplicationRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case-developer-java/target/classes/data.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/TEST-com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/surefire-reports/com.befrank.casedeveloperjava.CaseDeveloperJavaApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/test-classes/com/befrank/casedeveloperjava/CaseDeveloperJavaApplicationTests.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logging/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging/app.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,9 +26,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="spring-beans.schema" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -134,75 +117,20 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.BridgerJavaApplication">
-    <configuration name="data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
-      <script-file value="$PROJECT_DIR$/case-developer-java/src/main/resources/data.sql" />
-      <script-mode>FILE</script-mode>
-      <data-source id="490dbad2-d3bb-4dd5-8810-af8f0770e7e3" />
+    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
     </configuration>
-    <configuration name="BridgerJavaApplicationRepositoryTest.resolveSumOfPower2NumbersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="case-developer-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.befrank.casedeveloperjava.controlers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
-      <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.BridgerJavaApplicationRepositoryTest" />
-      <option name="METHOD_NAME" value="resolveSumOfPower2NumbersTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
     </configuration>
-    <configuration name="BridgerJavaApplicationTests.birthdateValidationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="case-developer-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.befrank.casedeveloperjava.controlers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
-      <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.BridgerJavaApplicationTests" />
-      <option name="METHOD_NAME" value="birthdateValidationTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
     </configuration>
-    <configuration name="BridgerJavaApplicationTests.emailFormatValidationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="case-developer-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.befrank.casedeveloperjava.controlers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
-      <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.BridgerJavaApplicationTests" />
-      <option name="METHOD_NAME" value="emailFormatValidationTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
     </configuration>
-    <configuration name="BridgerJavaApplicationTests.genderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="case-developer-java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.befrank.casedeveloperjava.controlers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.befrank.casedeveloperjava" />
-      <option name="MAIN_CLASS_NAME" value="com.befrank.casedeveloperjava.BridgerJavaApplicationTests" />
-      <option name="METHOD_NAME" value="genderTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" requestIdentifier="#4" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="Tests (case-developer-frontend)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/case-developer-frontend/karma.conf.js" />
@@ -234,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Database Script.data.sql" />
-        <item itemvalue="JUnit.BridgerJavaApplicationRepositoryTest.resolveSumOfPower2NumbersTest" />
-        <item itemvalue="JUnit.BridgerJavaApplicationTests.emailFormatValidationTest" />
-        <item itemvalue="JUnit.BridgerJavaApplicationTests.genderTest" />
-        <item itemvalue="JUnit.BridgerJavaApplicationTests.birthdateValidationTest" />
+        <item itemvalue="HTTP Request.generated-requests | #3" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="HTTP Request.generated-requests | #4" />
+        <item itemvalue="HTTP Request.All in generated-requests" />
       </list>
     </recent_temporary>
   </component>
@@ -295,7 +223,7 @@
       <workItem from="1684942570466" duration="2339000" />
       <workItem from="1684964562737" duration="754000" />
       <workItem from="1685004436315" duration="18718000" />
-      <workItem from="1685086095487" duration="8673000" />
+      <workItem from="1685086095487" duration="26744000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -458,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684903835497</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="#33 -&gt; Introduction Base Service and introduction mapstruct">
+      <created>1685094964940</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1685094964940</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,14 +456,15 @@
     <MESSAGE value="#28 -&gt; Unit-test 'Birthdate Validation' rewritten." />
     <MESSAGE value="#29 -&gt; Unit-test 'Gender' rewritten." />
     <MESSAGE value="#14 -&gt; Validation format emailaddress" />
-    <option name="LAST_COMMIT_MESSAGE" value="#14 -&gt; Validation format emailaddress" />
+    <MESSAGE value="#33 -&gt; Introduction Base Service and introduction mapstruct" />
+    <option name="LAST_COMMIT_MESSAGE" value="#33 -&gt; Introduction Base Service and introduction mapstruct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/case-developer-java/src/test/java/com/befrank/casedeveloperjava/BridgerJavaApplicationRepositoryTest.java</url>
-          <line>131</line>
+          <line>133</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

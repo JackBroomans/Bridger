@@ -3,6 +3,7 @@ package com.befrank.casedeveloperjava;
 import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
 import com.befrank.casedeveloperjava.model.Participant;
 import com.befrank.casedeveloperjava.model.ParticipantPremium;
+import com.befrank.casedeveloperjava.model.destination_entities.ContactListAllParticipants;
 import com.befrank.casedeveloperjava.repository.ContributionRepository;
 import com.befrank.casedeveloperjava.repository.ParticipantRepository;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -146,4 +148,5 @@ public class BridgerJavaApplicationRepositoryTest {
         if( bits >= 4   ) { bits >>>= 2; log += 2; }
         return log + ( bits >>> 1 );
     }
+
 }
