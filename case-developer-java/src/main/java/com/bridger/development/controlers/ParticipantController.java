@@ -1,9 +1,9 @@
-package com.befrank.casedeveloperjava.controlers;
+package com.bridger.development.controlers;
 
-import com.befrank.casedeveloperjava.model.Participant;
-import com.befrank.casedeveloperjava.model.destination_entities.ContactListAllParticipants;
-import com.befrank.casedeveloperjava.repository.ParticipantRepository;
-import com.befrank.casedeveloperjava.services.ParticipantService;
+import com.bridger.development.model.Participant;
+import com.bridger.development.model.destination_entities.ContactListAllParticipants;
+import com.bridger.development.repository.ParticipantRepository;
+import com.bridger.development.services.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -79,13 +79,13 @@ public class ParticipantController {
         return this.repository.findByParticipantNumber(deelnemersnummer);
     }
 
-    /**
-     * <strong>berekenJaarlijksePremieDeelnemer(String)</strong><br>
-     * Berekend de jaarlijks (te beleggen) premie uit de (vastgelegde) premiegegevens van een bepaalde deelnemer.<br>
-     * (Full-time salaris – Franchise) * Parttime percentage * Beschikbare premie percentage<br>
-     * @param paricipationNumber
-     * @return
-     */
+//    /**
+//     * <strong>berekenJaarlijksePremieDeelnemer(String)</strong><br>
+//     * Berekend de jaarlijks (te beleggen) premie uit de (vastgelegde) premiegegevens van een bepaalde deelnemer.<br>
+//     * (Full-time salaris – Franchise) * Parttime percentage * Beschikbare premie percentage<br>
+//     * @param paricipationNumber
+//     * @return
+//     */
 //    @GetMapping("/premium/{paricipationNumber}")
 //    public double berekenJaarlijksePremieDeelnemer(String paricipationNumber) {
 //

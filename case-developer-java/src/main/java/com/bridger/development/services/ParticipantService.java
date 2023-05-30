@@ -1,7 +1,7 @@
-package com.befrank.casedeveloperjava.services;
+package com.bridger.development.services;
 
-import com.befrank.casedeveloperjava.model.Participant;
-import com.befrank.casedeveloperjava.model.destination_entities.ContactListAllParticipants;
+import com.bridger.development.model.Participant;
+import com.bridger.development.model.destination_entities.ContactListAllParticipants;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

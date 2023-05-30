@@ -1,6 +1,6 @@
-package com.befrank.casedeveloperjava.repository;
+package com.bridger.development.repository;
 
-import com.befrank.casedeveloperjava.model.ParticipantPremium;
+import com.bridger.development.model.ParticipantPremium;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

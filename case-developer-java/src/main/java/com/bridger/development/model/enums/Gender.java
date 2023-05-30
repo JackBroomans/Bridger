@@ -1,4 +1,4 @@
-package com.befrank.casedeveloperjava.model.enums;
+package com.bridger.development.model.enums;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

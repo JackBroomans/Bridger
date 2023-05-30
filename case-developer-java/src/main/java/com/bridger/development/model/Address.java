@@ -1,13 +1,13 @@
-package com.befrank.casedeveloperjava.model;
+package com.bridger.development.model;
 
+import com.bridger.development.util.TekstFuncties;
+import com.bridger.development.util.Validations;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
-import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
-import static com.befrank.casedeveloperjava.util.Validations.validateString;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
@@ -128,10 +128,10 @@ public class Address implements Serializable {
      */
     public String composeCorrespondenceAddress() {
         StringBuilder text = new StringBuilder()
-                .append(validateString(this.street) ? this.street : "")
-                .append(validateString(this.houseNumber) ? " " + this.houseNumber : "").append("\n")
-                .append(validateString(this.postalcode) ? " " + this.postalcode : "")
-                .append(validateString(this.city) ? " " + this.city : " ");
+                .append(Validations.validateString(this.street) ? this.street : "")
+                .append(Validations.validateString(this.houseNumber) ? " " + this.houseNumber : "").append("\n")
+                .append(Validations.validateString(this.postalcode) ? " " + this.postalcode : "")
+                .append(Validations.validateString(this.city) ? " " + this.city : " ");
         return text.toString();
     }
 
@@ -141,11 +141,11 @@ public class Address implements Serializable {
         text.append("\n\tIdentifier: ").append(this.id);
         text.append("\n\tSequence: ").append(this.sequence == 0 ? "" : this.sequence);
         text.append("\n\tParticipant Id: ").append(this.participantId);
-        text.append("\n\tStreet: ").append(presentatie(this.street));
-        text.append("\n\tHouse number: ").append(presentatie(this.houseNumber));
-        text.append("\n\tPostal code: ").append(presentatie(this.postalcode));
-        text.append("\n\tCity: ").append(presentatie(this.city));
-        text.append("\n\tCoutry: ").append(presentatie(this.country));
+        text.append("\n\tStreet: ").append(TekstFuncties.presentatie(this.street));
+        text.append("\n\tHouse number: ").append(TekstFuncties.presentatie(this.houseNumber));
+        text.append("\n\tPostal code: ").append(TekstFuncties.presentatie(this.postalcode));
+        text.append("\n\tCity: ").append(TekstFuncties.presentatie(this.city));
+        text.append("\n\tCoutry: ").append(TekstFuncties.presentatie(this.country));
         text.append("\n\tCurrent address: ")
                 .append(this.currentActive ? "ja" : "nee").append("\n");
 

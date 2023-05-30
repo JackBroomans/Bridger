@@ -1,4 +1,4 @@
-package com.befrank.casedeveloperjava.model.destination_entities;
+package com.bridger.development.model.destination_entities;
 
 /**
  * Destination Entity Class to construct the contact list of all Participants from the Participants Entities.

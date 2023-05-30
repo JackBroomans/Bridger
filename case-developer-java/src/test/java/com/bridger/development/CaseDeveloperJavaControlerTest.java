@@ -1,10 +1,7 @@
-package com.befrank.casedeveloperjava;
+package com.bridger.development;
 
-import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
-import com.befrank.casedeveloperjava.controlers.ParticipantController;
-import com.befrank.casedeveloperjava.model.Participant;
-import com.befrank.casedeveloperjava.repository.ParticipantRepository;
-import org.junit.jupiter.api.Test;
+import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
+import com.bridger.development.repository.ParticipantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -15,7 +12,7 @@ public class CaseDeveloperJavaControlerTest {
     ParticipantRepository repository;
 
     @Autowired
-    AppVariablesParticipant appVar;
+    UtilityParticipant appVar;
 
 //    @Test
 //    public void berekenJaarlijksePremieTest() {

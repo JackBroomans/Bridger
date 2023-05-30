@@ -1,4 +1,4 @@
-package com.befrank.casedeveloperjava.model;
+package com.bridger.development.model;
 
 import jakarta.persistence.*;
 import org.slf4j.Logger;

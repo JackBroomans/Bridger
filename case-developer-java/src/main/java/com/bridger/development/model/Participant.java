@@ -1,10 +1,11 @@
-package com.befrank.casedeveloperjava.model;
+package com.bridger.development.model;
 
-import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
-import com.befrank.casedeveloperjava.model.enums.Gender;
+import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
+import com.bridger.development.model.enums.Gender;
+import com.bridger.development.util.TekstFuncties;
 import jakarta.persistence.*;
 
-import static com.befrank.casedeveloperjava.util.Validations.*;
+import static com.bridger.development.util.Validations.*;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 import org.slf4j.Logger;
@@ -12,11 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.Period;
-
-import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
 
 /**
  * <strong>Participant</strong><br>
@@ -37,7 +35,7 @@ import static com.befrank.casedeveloperjava.util.TekstFuncties.presentatie;
 public class Participant implements Serializable {
 
     private static final Logger logger = LoggerFactory.getLogger(Participant.class);
-    private static final AppVariablesParticipant appVar = new AppVariablesParticipant();
+    private static final UtilityParticipant appVar = new UtilityParticipant();
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -80,10 +78,6 @@ public class Participant implements Serializable {
 
     @Column(name = "cellphone", nullable = false)
     private String cellphone;
-
-//    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id", nullable = false, unique = true)
-//    private ParticipantPremium ParticipantPremium;
 
     // Getters en Setters
     public long getId() {
@@ -266,17 +260,17 @@ public class Participant implements Serializable {
         StringBuilder text = new StringBuilder().append("Participant");
 
         text.append("\n\tId: ").append(this.id);
-        text.append("\n\tParticipant number: ").append(presentatie(this.participantNumber));
-        text.append("\n\tFamilyname: ").append(presentatie(this.familyName));
-        text.append("\n\tPrefixes: ").append(presentatie(this.prefixes));
-        text.append("\n\tSurnames: ").append(presentatie(this.surNames));
-        text.append("\n\tInitials: ").append(presentatie(this.initials));
-        text.append("\n\tTitles (prefix): ").append(presentatie(this.prefixTitles));
-        text.append("\n\tTitles (suffix): ").append(presentatie(this.suffixTitles));
+        text.append("\n\tParticipant number: ").append(TekstFuncties.presentatie(this.participantNumber));
+        text.append("\n\tFamilyname: ").append(TekstFuncties.presentatie(this.familyName));
+        text.append("\n\tPrefixes: ").append(TekstFuncties.presentatie(this.prefixes));
+        text.append("\n\tSurnames: ").append(TekstFuncties.presentatie(this.surNames));
+        text.append("\n\tInitials: ").append(TekstFuncties.presentatie(this.initials));
+        text.append("\n\tTitles (prefix): ").append(TekstFuncties.presentatie(this.prefixTitles));
+        text.append("\n\tTitles (suffix): ").append(TekstFuncties.presentatie(this.suffixTitles));
         text.append("\n\tGender: ").append(this.gender.getDescription());
-        text.append("\n\tEmail: ").append(presentatie(this.email));
-        text.append("\n\tTelephone home: ").append(presentatie(this.homeTelephone));
-        text.append("\n\tCellphone: ").append(presentatie(this.cellphone)).append("\n");
+        text.append("\n\tEmail: ").append(TekstFuncties.presentatie(this.email));
+        text.append("\n\tTelephone home: ").append(TekstFuncties.presentatie(this.homeTelephone));
+        text.append("\n\tCellphone: ").append(TekstFuncties.presentatie(this.cellphone)).append("\n");
 
         return text.toString();
     }
