@@ -1,11 +1,9 @@
-package com.befrank.casedeveloperjava;
+package com.bridger.development;
 
-import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
-import com.befrank.casedeveloperjava.model.Participant;
-import com.befrank.casedeveloperjava.model.ParticipantPremium;
-import com.befrank.casedeveloperjava.model.destination_entities.ContactListAllParticipants;
-import com.befrank.casedeveloperjava.repository.ContributionRepository;
-import com.befrank.casedeveloperjava.repository.ParticipantRepository;
+import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
+import com.bridger.development.model.Participant;
+import com.bridger.development.repository.ContributionRepository;
+import com.bridger.development.repository.ParticipantRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +12,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,8 +26,7 @@ public class BridgerJavaApplicationRepositoryTest {
     ContributionRepository repoContribution;
 
     @Autowired
-
-    AppVariablesParticipant appVar;
+    UtilityParticipant appVar;
 
     @Test
     void toevoegenNieuweDeelnemerTest() {
@@ -57,6 +53,7 @@ public class BridgerJavaApplicationRepositoryTest {
 
         Participant nieuweParticipant = appVar.participant();
         assertEquals(nieuweParticipant.getGender(), appVar.participant().getGender());
+        assertTrue(nieuweParticipant.getParticipantNumber().matches(appVar.REGEX_PARTICIPANT_NUMBER));
 
         nieuweParticipant.setFamilyName("Duck");
         nieuweParticipant.setSurNames("Donald");

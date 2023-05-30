@@ -1,6 +1,6 @@
-package com.befrank.casedeveloperjava.util;
+package com.bridger.development.util;
 
-import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
+import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +33,10 @@ import java.util.regex.PatternSyntaxException;
 public class Validations {
     private static final Logger logger = LoggerFactory.getLogger(Validations.class);
 
-    private static AppVariablesParticipant appVar;
+    private static UtilityParticipant appVar;
 
     @Autowired
-    public Validations(AppVariablesParticipant appVar) {
+    public Validations(UtilityParticipant appVar) {
         Validations.appVar = appVar;
     }
 

@@ -1,4 +1,4 @@
-package com.befrank.casedeveloperjava;
+package com.bridger.development;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

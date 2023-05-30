@@ -1,16 +1,20 @@
-package com.befrank.casedeveloperjava.configuration;
+package com.bridger.development.model.entity_utility_classes;
 
-import com.befrank.casedeveloperjava.model.Participant;
-import com.befrank.casedeveloperjava.model.enums.Gender;
+import com.bridger.development.model.Participant;
+import com.bridger.development.model.enums.Gender;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
+
 @Configuration
 @PropertySource("classpath:appVar.yml")
 @ConfigurationProperties(prefix = "participant")
-public class AppVariablesParticipant {
+public class UtilityParticipant {
 
     /* Regular expressions */
     @Value("${regex_participant_number}")
@@ -74,6 +78,27 @@ public class AppVariablesParticipant {
     public Participant participant() {
         Participant participant = new Participant();
         participant.setGender(Gender.getByCode(this.DEFAULT_GENDER));
+        participant.setParticipantNumber(generateParticipantNumber());
         return participant;
+    }
+
+    /**
+     * <strong>generateParticipantNumber<i>()</i></strong><br>
+     * Generates a unique participant number with three components:
+     * <ol>
+     *     <li>A date part from the actual date in the format 'yyMMdd'.</li>
+     *     <li>A time part from the actual time in the format 'mmSSS'.</li>
+     *     <li>A random generate number of three digits.</li>
+     * </ol>
+     * @return The generated participant number.
+     */
+    private String generateParticipantNumber() {
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyMMdd-ssSSS");
+
+        StringBuilder builder = new StringBuilder()
+                .append(LocalDateTime.now().format(dateFormat))
+                .append("-")
+                .append(new Random().nextInt(1000));
+        return builder.toString();
     }
 }

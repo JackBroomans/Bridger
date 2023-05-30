@@ -1,22 +1,24 @@
-package com.befrank.casedeveloperjava;
+package com.bridger.development;
 
-import com.befrank.casedeveloperjava.configuration.AppVariablesParticipant;
-import com.befrank.casedeveloperjava.model.Address;
-import com.befrank.casedeveloperjava.model.Participant;
-import com.befrank.casedeveloperjava.model.enums.Gender;
-import com.befrank.casedeveloperjava.repository.ParticipantRepository;
-import com.befrank.casedeveloperjava.util.Validations;
+import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
+import com.bridger.development.model.Address;
+import com.bridger.development.model.Participant;
+import com.bridger.development.model.enums.Gender;
+import com.bridger.development.repository.ParticipantRepository;
+import com.bridger.development.util.Validations;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Random;
 
-import static com.befrank.casedeveloperjava.util.DatumTijdFuncties.getLeeftijd;
-import static com.befrank.casedeveloperjava.util.Validations.validateString;
+import static com.bridger.development.util.DatumTijdFuncties.getLeeftijd;
+import static com.bridger.development.util.Validations.validateString;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -26,7 +28,7 @@ class BridgerJavaApplicationTests {
 	private ParticipantRepository repository;
 
 	@Autowired
-	private AppVariablesParticipant appVar;
+	private UtilityParticipant appVar;
 
 	@Test
 	public void classParticipantTest() {
@@ -164,7 +166,13 @@ class BridgerJavaApplicationTests {
 
 	@Test
 	public void participantNumberTest() {
-
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyMMdd-ssSSS");
+		StringBuilder builder = new StringBuilder()
+				.append(LocalDateTime.now().format(dateFormat))
+				.append("-");
+		assertFalse(builder.toString().matches(appVar.REGEX_PARTICIPANT_NUMBER));
+		builder.append(new Random().nextInt(1000));
+		assertTrue(builder.toString().matches(appVar.REGEX_PARTICIPANT_NUMBER));
 	}
 
 	@Test

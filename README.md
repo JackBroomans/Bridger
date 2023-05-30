@@ -1,10 +1,14 @@
 # Case Bridger
 ## Entity classes
-The entity classes are subjected to the (Hibernate) JPA-implementation and are kept as 'clean' as possible. This 
-means that they are associated only to the (MySql) database tables and not to other components.
-### External configuration classes.
-When applicable (or required) a configuration class is associated to the entity class. The configuration class controls the external configuration. This practice allows fine-tuning per 
-entity. 
+Entity classes are abstract classes belonging to the persistence layer and subject of the (Hibernate) JPA-implementation.  
+Being part of the persistence layer, no (business) functionality is allowed in these classes. According to the JPA-implementation, the class only describes the structure and the relation(s) of the entity, reflecting the database and other external data sources such as JAXB-implementations for XML-files.
+### Entity utility classes.
+Entity utility classes are extensions of specific (abstract) entity class. They are:
+* Adding functionality to the entity class which doesn't belong to the persistence layer of the application, avoiding transient functional fields or methods.
+* Enabling external configuration of the particular entity.
+* Containing the (external stored) messages applicable in the entity class.
+
+
 ### Instantiation of entities
 To assign the default settings on instantiation of an entity class (without using field assignment), instantiation of an entity should be done by the method in the configuration class which is 
 attached tot the particular entity class.

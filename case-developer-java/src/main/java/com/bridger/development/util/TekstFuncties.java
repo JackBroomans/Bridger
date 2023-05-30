@@ -1,6 +1,6 @@
-package com.befrank.casedeveloperjava.util;
+package com.bridger.development.util;
 
-import static com.befrank.casedeveloperjava.util.Validations.validateString;
+import static com.bridger.development.util.Validations.validateString;
 
 public class TekstFuncties {
 
