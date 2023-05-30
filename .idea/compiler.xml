@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="bridger" />
+        <module name="bridger-backend" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="bridger" options="-parameters" />
+      <module name="bridger-backend" options="-parameters" />
       <module name="case-developer-java" options="-parameters" />
     </option>
   </component>
