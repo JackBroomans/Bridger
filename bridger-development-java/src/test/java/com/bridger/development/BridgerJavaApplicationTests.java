@@ -53,8 +53,6 @@ class BridgerJavaApplicationTests {
 		participant.setEmail("");
 		assertEquals("d.duck@duckstad.nl", participant.getEmail());
 
-		/* Todo: Calculating the yearly premium of a participant */
-
 	}
 
 	@Test
@@ -173,11 +171,6 @@ class BridgerJavaApplicationTests {
 		assertFalse(builder.toString().matches(appVar.REGEX_PARTICIPANT_NUMBER));
 		builder.append(new Random().nextInt(1000));
 		assertTrue(builder.toString().matches(appVar.REGEX_PARTICIPANT_NUMBER));
-	}
-
-	@Test
-	public void participantControllerTest() {
-
 	}
 
 	@Test

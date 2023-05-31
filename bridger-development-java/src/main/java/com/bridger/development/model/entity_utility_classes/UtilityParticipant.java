@@ -2,6 +2,7 @@ package com.bridger.development.model.entity_utility_classes;
 
 import com.bridger.development.model.Participant;
 import com.bridger.development.model.enums.Gender;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -73,6 +74,10 @@ public class UtilityParticipant {
     @Value("${age_calculation_not_possible}")
     public String MSG_AGE_CALCULATION_NOT_POSSIBLE;
 
+    @PostConstruct
+    public void init() {
+    }
+
     /* To assign the default settings on instantiation of an entity class without using a field assignment of the
      external variables, instantiation of an entity should be done by the method in the configuration class. */
     public Participant participant() {
@@ -95,9 +100,6 @@ public class UtilityParticipant {
     private String generateParticipantNumber() {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyMMdd-ssSSS");
 
-        String builder = LocalDateTime.now().format(dateFormat) +
-                "-" +
-                new Random().nextInt(1000);
-        return builder;
+        return LocalDateTime.now().format(dateFormat) +  "-" + new Random().nextInt(1000);
     }
 }

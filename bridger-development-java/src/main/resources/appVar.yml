@@ -3,6 +3,13 @@ general:
   short_date_format: dd-MM-yyyy
   short_date_time_format: dd-MM-yyyy hh:mm:ss
 
+
+security:
+  user:
+    name: JamieOliver
+  password: JamieOliver@2023
+  roles: ADMIN USER
+
 participant:
   # Regular expressions
   regex_email_address: ^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$

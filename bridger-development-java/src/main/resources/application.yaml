@@ -14,9 +14,4 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
         hibernate.format_sql: true
 
-# Base security settings
-  security:
-    user:
-      name: JamieOliver
-      password: JamieOliver@2023
 
