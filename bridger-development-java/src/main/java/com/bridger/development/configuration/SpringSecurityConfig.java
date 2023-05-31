@@ -16,7 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
 /**
  * <strong>SpringSecurityConfig</strong><br>
  * Configuration class for the Spring security settings for the 'Spring WebSecurity' practice.
- * <a href="https://github.com/eugenp/tutorials/blob/master/spring-boot-modules/spring-boot-security/src/main/java/com/baeldung/annotations/websecurity">...</a>
  */
 @Configuration
 @EnableWebSecurity

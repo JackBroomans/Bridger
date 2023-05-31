@@ -14,10 +14,10 @@ public class UtilityUserAccount {
     @Value("${user.name}")
     public String PREDEFINED_USER_NAME;
 
-    @Value("${password}")
+    @Value("${user.password}")
     public String PREDEFINED_USER_PASSWORD;
 
-    @Value("${roles}")
+    @Value("${user.roles}")
     public String PREDEFINED_USER_ROLES;
 
     @PostConstruct

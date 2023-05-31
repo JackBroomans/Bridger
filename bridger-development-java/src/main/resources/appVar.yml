@@ -5,10 +5,9 @@ general:
 
 
 security:
-  user:
-    name: JamieOliver
-  password: JamieOliver@2023
-  roles: ADMIN USER
+  user.name: JamieOliver
+  user.password: JamieOliver@2023
+  user.roles: ADMIN USER
 
 participant:
   # Regular expressions

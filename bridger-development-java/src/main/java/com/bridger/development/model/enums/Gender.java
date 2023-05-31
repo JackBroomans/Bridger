@@ -7,7 +7,7 @@ import java.security.InvalidParameterException;
 
 /**
  * <strong>Gender</strong><br>
- * Enumerates the genders which can be assigned to a person.
+ * Enumerates the genders which can be assigned to a participant.
  */
 public enum Gender {
     MALE("M", "Male"),
@@ -34,7 +34,7 @@ public enum Gender {
     }
 
     /**
-     * <strong>getByCode(<i>String</i></strong><br>
+     * <strong>getByCode(<i>String</i>)</strong><br>
      * Search and selects a gender based on a given code.<br>
      * @return The gender with the given code, if not found, <null> will be returned.
      */
@@ -61,7 +61,7 @@ public enum Gender {
      */
     @Override
     public String toString() {
-        return description = "Gender" +
+        return  "Gender" +
                 "\n\tElement: " + this.name() +
                 "\n\tCode: " + this.code +
                 "\n\tDescription: " + this.description;

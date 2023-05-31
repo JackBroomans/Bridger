@@ -4,6 +4,7 @@ import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.Address;
 import com.bridger.development.model.Participant;
 import com.bridger.development.model.enums.Gender;
+import com.bridger.development.model.enums.UserRole;
 import com.bridger.development.repository.ParticipantRepository;
 import com.bridger.development.util.Validations;
 import org.junit.jupiter.api.Test;
@@ -111,7 +112,7 @@ class BridgerJavaApplicationTests {
 	}
 
 	@Test
-	public void genderTest() {
+	public void genderEnumTest() {
 		/* Searching and selecting the default gender */
 		Gender gender = Gender.getByCode(appVar.DEFAULT_GENDER);
 		assertEquals(true, gender.getCode().equals(appVar.DEFAULT_GENDER));
@@ -143,6 +144,14 @@ class BridgerJavaApplicationTests {
 		particpant.setGender(newGender);
 		assertEquals(newGender, particpant.getGender());
 		assertEquals(newGender.getCode(), particpant.getGenderCode());
+	}
+
+	@Test
+	public void userRoleEnumTest() {
+		UserRole role = UserRole.ADMIN;
+		assertNotEquals(role, role.getDefaultSetting());
+		role = role.getDefaultSetting();
+		assertEquals(role, UserRole.USER);
 	}
 
 	@Test
