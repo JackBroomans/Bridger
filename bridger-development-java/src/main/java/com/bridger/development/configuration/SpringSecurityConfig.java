@@ -27,12 +27,12 @@ public class SpringSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(requests -> requests
-                        .requestMatchers("briger/admin").hasRole("ADMIN")
-                        .requestMatchers("bridger/participant").hasAnyRole("USER", "MODERATOR")
+                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/participant").hasAnyRole("USER", "MODERATOR", "SUPPORT")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login")
+                        .loginPage("/bridger/login")
                         .permitAll()
                 )
                 .logout(LogoutConfigurer::permitAll);

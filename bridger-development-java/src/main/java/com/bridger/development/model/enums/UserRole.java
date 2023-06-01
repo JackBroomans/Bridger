@@ -1,5 +1,7 @@
 package com.bridger.development.model.enums;
 
+import com.bridger.development.util.TextFunctions;
+
 /**
  * <strong>User Role</strong><br>
  * Enumerates the roles which can be assigned to a participant.
@@ -26,6 +28,6 @@ public enum UserRole {
     @Override
     public String toString() {
         return  "User Role" +
-                "\n\tElement: " + this.name();
+                "\n\tElement: " + TextFunctions.presentation(this.name());
     }
 }

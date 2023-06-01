@@ -85,9 +85,9 @@ public class UtilityParticipant {
 
     /**
      * <strong>participant<i>()</i></strong>
-     * To assign the default settings on instantiation of an entity class without using a field assignment of the
-     * external variables, instantiation of an entity should be done by this method.
-     * @return A new instance of teh Participant, including the default settings.
+     * To assign the default settings on instantiation of an entity class without using field assignments,
+     * instantiation of an entity should be done by this method.
+     * @return A new Participant, including the default settings.
      */
     public Participant participant() {
         Participant participant = new Participant();
@@ -109,6 +109,7 @@ public class UtilityParticipant {
     private String generateParticipantNumber() {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyMMdd-ssSSS");
 
-        return LocalDateTime.now().format(dateFormat) +  "-" + new Random().nextInt(1000);
+        return LocalDateTime.now().format(dateFormat) +  "-" +
+                String.format("%03d", new Random().nextInt(1000));
     }
 }

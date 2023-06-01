@@ -3,7 +3,6 @@ general:
   short_date_format: dd-MM-yyyy
   short_date_time_format: dd-MM-yyyy hh:mm:ss
 
-
 security:
   user.name: JamieOliver
   user.password: JamieOliver@2023
@@ -33,6 +32,18 @@ participant:
   invalid_email_address: Invalid email format.
   invalid_regular_expression_email: Invalid regular expression, can't check the email address format.
   age_calculation_not_possible: Age calculation not possible because of missing birthdate.
+
+user-account:
+  # Regular expressions
+  regex_user_name: ^[a-zA-Z]{1}([a-zA-Z0-9_-]{4,16})$
+
+  # Password rules
+  login_attempts: 4
+  days_password_valid: 90
+  maximum_days_not_used: 30
+
+  # Messages
+  invalid_username_format: Invalid format username;
 
 address:
   # Default settings

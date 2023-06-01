@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#38 -&gt; User Account Utility klasse en Security configuratie klasse toegevoegd.">
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" afterDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#40 -&gt; Enumeratie UserRole toegevoegd.">
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/UserAccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/UserAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/services/UserAccountService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/validation/UseraccountValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/configuration/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/configuration/SpringSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityParticipant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityUserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityUserAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/TekstFuncties.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/TextFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/Validations.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/validation/ParticipantValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/resources/appVar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/appVar.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data_1.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logging/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging/app.log" afterDir="false" />
     </list>
@@ -26,8 +36,8 @@
       <list>
         <option value="spring-beans.schema" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,50 +80,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jackb/IdeaProjects/bridger&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.6678161&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;a3ed0584f51aa0f714d056c5d8a86376&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/jackb/IdeaProjects/bridger/bridger-development-java/src/main/resources/sql-scripts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.6678161",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "a3ed0584f51aa0f714d056c5d8a86376",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;RunConfigurationTargetLRU&quot;: [
-      &quot;490dbad2-d3bb-4dd5-8810-af8f0770e7e3&quot;
+    "RunConfigurationTargetLRU": [
+      "490dbad2-d3bb-4dd5-8810-af8f0770e7e3"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
-      &quot;MySQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "MySQL"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;MySQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jackb\IdeaProjects\bridger\bridger-development-java\src\main\resources\sql-scripts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jackb\IdeaProjects\befrank\case-developer-java\src\main\resources\sql-scripts" />
       <recent name="C:\Users\jackb\IdeaProjects\befrank\case-developer-java\src\main\resources\sql-scrips" />
@@ -122,11 +135,11 @@
       <recent name="C:\Users\Jack\IdeaProjects\case-developer\befrank\case-developer-java\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.bridger.development.util.validation" />
       <recent name="com.befrank.casedeveloperjava.model.entity_utility_classes" />
       <recent name="com.befrank.casedeveloperjava.controlers" />
       <recent name="com.befrank.casedeveloperjava.repository" />
       <recent name="com.befrank.casedeveloperjava.util" />
-      <recent name="com.befrank.casedeveloperjava.model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -137,6 +150,12 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.BridgerJavaApplicationTests.participantNumberTest">
+    <configuration name="data_1.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data_1.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="490dbad2-d3bb-4dd5-8810-af8f0770e7e3" />
+      <method v="2" />
+    </configuration>
     <configuration name="BridgerJavaApplicationTests.participantNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bridger-backend" />
       <extension name="coverage">
@@ -186,31 +205,6 @@
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/bridger/bridger-development-frontend/src/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="bridger-backend [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="test" />
-              </list>
-            </option>
-            <option name="pomFileName" value="pom.xml" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$/bridger-development-java" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
     <configuration name="BridgerJavaApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="bridger-backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.bridger.development.BridgerJavaApplication" />
@@ -238,10 +232,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BridgerJavaApplicationTests.participantNumberTest" />
+        <item itemvalue="Database Script.data_1.sql" />
         <item itemvalue="JUnit.BridgerJavaApplicationTests.userRoleEnumTest" />
         <item itemvalue="JavaScript Debug.app.component.html" />
         <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="Maven.bridger-backend [test]" />
       </list>
     </recent_temporary>
   </component>
@@ -303,7 +297,9 @@
       <workItem from="1685350906427" duration="1222000" />
       <workItem from="1685439624023" duration="6331000" />
       <workItem from="1685466088482" duration="9362000" />
-      <workItem from="1685514673195" duration="10228000" />
+      <workItem from="1685514673195" duration="21625000" />
+      <workItem from="1685570129419" duration="282000" />
+      <workItem from="1685600451450" duration="14338000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -501,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685521539281</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="#40 -&gt; Enumeratie UserRole toegevoegd.">
+      <created>1685532415554</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1685532415554</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +556,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Entiteit Deelnemer afgerond incl. unit-testen" />
     <MESSAGE value="YAML-script voor docker MySQL database.&#10;SQL-script voor aanmaken database." />
     <MESSAGE value="JPA connectie tussen Domein- en Database-model gelegd voor tabel 'deelnemer'" />
     <MESSAGE value="Entiteit adres toegevoegd en JPA annotaties aangepast" />
@@ -578,7 +580,8 @@
     <MESSAGE value="#13 -&gt; Generating unique participant number." />
     <MESSAGE value="#13 -&gt; Base configuration of WebSecurity added" />
     <MESSAGE value="#38 -&gt; User Account Utility klasse en Security configuratie klasse toegevoegd." />
-    <option name="LAST_COMMIT_MESSAGE" value="#38 -&gt; User Account Utility klasse en Security configuratie klasse toegevoegd." />
+    <MESSAGE value="#40 -&gt; Enumeratie UserRole toegevoegd." />
+    <option name="LAST_COMMIT_MESSAGE" value="#40 -&gt; Enumeratie UserRole toegevoegd." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

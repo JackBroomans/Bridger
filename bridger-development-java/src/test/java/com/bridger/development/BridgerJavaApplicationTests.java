@@ -6,7 +6,7 @@ import com.bridger.development.model.Participant;
 import com.bridger.development.model.enums.Gender;
 import com.bridger.development.model.enums.UserRole;
 import com.bridger.development.repository.ParticipantRepository;
-import com.bridger.development.util.Validations;
+import com.bridger.development.util.validation.ParticipantValidation;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static com.bridger.development.util.DatumTijdFuncties.getLeeftijd;
-import static com.bridger.development.util.Validations.validateString;
+import static com.bridger.development.util.validation.ParticipantValidation.validateString;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -79,16 +79,16 @@ class BridgerJavaApplicationTests {
 		assertTrue(appVar.MIN_AGE_PARTICIPANT > 0 && appVar.MAX_AGE_PARTICIPANT > 0);
 
 		/* A birthdate outside the age limitations is not validated. The birthdate remains null. */
-		assertFalse(Validations.validateBirthdate(birthdateBeforeAgeRule));
+		assertFalse(ParticipantValidation.validateBirthdate(birthdateBeforeAgeRule));
 		participant.setBirthdate(birthdateBeforeAgeRule);
 		assertNull(participant.getBirthdate());
 
-		assertFalse(Validations.validateBirthdate(birthdateAfterAgeRule));
+		assertFalse(ParticipantValidation.validateBirthdate(birthdateAfterAgeRule));
 		participant.setBirthdate(birthdateAfterAgeRule);
 		assertNull(participant.getBirthdate());
 
 		/* Validation of a valid birthdate is successful and the birthdate is changed in the participant's property. */
-		assertTrue(Validations.validateBirthdate(validBirthdate));
+		assertTrue(ParticipantValidation.validateBirthdate(validBirthdate));
 		participant.setBirthdate(validBirthdate);
 		assertEquals(validBirthdate, participant.getBirthdate());
 	}
@@ -100,15 +100,15 @@ class BridgerJavaApplicationTests {
 
 		/* Calculating the age without a specified birthdate */
 		assertEquals(getLeeftijd(null), 0);
-		assertFalse(Validations.validateBirthdate(null));
+		assertFalse(ParticipantValidation.validateBirthdate(null));
 
 		/* Calculating the age with an invalid birthdate */
 		participant.setBirthdate(LocalDate.parse("01-01-1900", shortDateFormat));
-		assertFalse(Validations.validateBirthdate(participant.getBirthdate()));
+		assertFalse(ParticipantValidation.validateBirthdate(participant.getBirthdate()));
 
 		/* Calculating the age with an valid birthdate */
 		participant.setBirthdate(LocalDate.parse("16-12-1958", shortDateFormat));
-		assertTrue(Validations.validateBirthdate(participant.getBirthdate()));
+		assertTrue(ParticipantValidation.validateBirthdate(participant.getBirthdate()));
 	}
 
 	@Test
@@ -173,6 +173,10 @@ class BridgerJavaApplicationTests {
 
 	@Test
 	public void participantNumberTest() {
+		// Test if a (generated random number) gets the required leading zero's to meet tghe format of three digits.
+		assertTrue(String.format("%d03", 4).length() == 3);
+
+		// Test the construction of the participant number
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyMMdd-ssSSS");
 		StringBuilder builder = new StringBuilder()
 				.append(LocalDateTime.now().format(dateFormat))

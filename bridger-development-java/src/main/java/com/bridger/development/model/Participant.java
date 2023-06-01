@@ -2,10 +2,10 @@ package com.bridger.development.model;
 
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.enums.Gender;
-import com.bridger.development.util.TekstFuncties;
+import com.bridger.development.util.TextFunctions;
 import jakarta.persistence.*;
 
-import static com.bridger.development.util.Validations.*;
+import static com.bridger.development.util.validation.ParticipantValidation.*;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 import org.slf4j.Logger;
@@ -168,7 +168,6 @@ public class Participant implements Serializable {
     public String getGenderCode() {
         return this.genderCode;
     }
-
     public void setGenderCode(String genderCode) {
         this.genderCode = genderCode;
     }
@@ -176,7 +175,6 @@ public class Participant implements Serializable {
     public LocalDate getBirthdate() {
         return birthdate;
     }
-
     public void setBirthdate(LocalDate birthdate) {
         if (validateBirthdate(birthdate)) {
             this.birthdate = birthdate;
@@ -221,14 +219,6 @@ public class Participant implements Serializable {
         this.cellphone = cellphone;
     }
 
-//    public com.befrank.casedeveloperjava.model.ParticipantPremium getParticipantPremium() {
-//        return ParticipantPremium;
-//    }
-//
-//    public void setParticipantPremium(com.befrank.casedeveloperjava.model.ParticipantPremium participantPremium) {
-//        this.ParticipantPremium = participantPremium;
-//    }
-
     /**
      * <strong>composeFullName()</strong><br>
      * Assembles the individual elements of the name to one string formatted which is commonly (readable) used. <br>
@@ -260,17 +250,17 @@ public class Participant implements Serializable {
         StringBuilder text = new StringBuilder().append("Participant");
 
         text.append("\n\tId: ").append(this.id);
-        text.append("\n\tParticipant number: ").append(TekstFuncties.presentatie(this.participantNumber));
-        text.append("\n\tFamilyname: ").append(TekstFuncties.presentatie(this.familyName));
-        text.append("\n\tPrefixes: ").append(TekstFuncties.presentatie(this.prefixes));
-        text.append("\n\tSurnames: ").append(TekstFuncties.presentatie(this.surNames));
-        text.append("\n\tInitials: ").append(TekstFuncties.presentatie(this.initials));
-        text.append("\n\tTitles (prefix): ").append(TekstFuncties.presentatie(this.prefixTitles));
-        text.append("\n\tTitles (suffix): ").append(TekstFuncties.presentatie(this.suffixTitles));
+        text.append("\n\tParticipant number: ").append(TextFunctions.presentation(this.participantNumber));
+        text.append("\n\tFamilyname: ").append(TextFunctions.presentation(this.familyName));
+        text.append("\n\tPrefixes: ").append(TextFunctions.presentation(this.prefixes));
+        text.append("\n\tSurnames: ").append(TextFunctions.presentation(this.surNames));
+        text.append("\n\tInitials: ").append(TextFunctions.presentation(this.initials));
+        text.append("\n\tTitles (prefix): ").append(TextFunctions.presentation(this.prefixTitles));
+        text.append("\n\tTitles (suffix): ").append(TextFunctions.presentation(this.suffixTitles));
         text.append("\n\tGender: ").append(this.gender.getDescription());
-        text.append("\n\tEmail: ").append(TekstFuncties.presentatie(this.email));
-        text.append("\n\tTelephone home: ").append(TekstFuncties.presentatie(this.homeTelephone));
-        text.append("\n\tCellphone: ").append(TekstFuncties.presentatie(this.cellphone)).append("\n");
+        text.append("\n\tEmail: ").append(TextFunctions.presentation(this.email));
+        text.append("\n\tTelephone home: ").append(TextFunctions.presentation(this.homeTelephone));
+        text.append("\n\tCellphone: ").append(TextFunctions.presentation(this.cellphone)).append("\n");
 
         return text.toString();
     }
