@@ -128,16 +128,15 @@ public class Address implements Serializable {
      * @return The for correspondence formatted address.
      */
     public String composeCorrespondenceAddress() {
-        String text = (ParticipantValidation.validateString(this.street) ? this.street : "") +
+        return (ParticipantValidation.validateString(this.street) ? this.street : "") +
                 (ParticipantValidation.validateString(this.houseNumber) ? " " + this.houseNumber : "") + "\n" +
                 (ParticipantValidation.validateString(this.postalcode) ? " " + this.postalcode : "") +
                 (ParticipantValidation.validateString(this.city) ? " " + this.city : " ");
-        return text;
     }
 
     @Override
     public String toString() {
-        String text = "Deelnemer" +
+        return "Deelnemer" +
                 "\n\tIdentifier: " + this.id +
                 "\n\tSequence: " + (this.sequence == 0 ? "" : this.sequence) +
                 "\n\tParticipant Id: " + this.participantId +
@@ -148,7 +147,5 @@ public class Address implements Serializable {
                 "\n\tCoutry: " + StringFunctions.presentation(this.country) +
                 "\n\tCurrent address: " +
                 (this.currentActive ? "ja" : "nee") + "\n";
-
-        return text;
     }
 }

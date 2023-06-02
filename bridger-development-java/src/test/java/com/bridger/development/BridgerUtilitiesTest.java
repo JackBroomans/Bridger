@@ -22,16 +22,16 @@ public class BridgerUtilitiesTest {
         assertEquals(veryLongString, StringFunctions.addLeadingZeros(veryLongString, 8));
 
         /* Passing the value null or a string which contains whitespaces throws an IllegalArgumentException */
-        assertThrows(IllegalArgumentException.class, ()->{StringFunctions.addLeadingZeros(null, 8);});
+        assertThrows(IllegalArgumentException.class, ()-> StringFunctions.addLeadingZeros(null, 8));
 
         final String stringWithSpaces = "very long string";
         assertThrows(IllegalArgumentException.class, ()-> StringFunctions.addLeadingZeros(stringWithSpaces,8));
 
         /* An empty string parameter will contain the number of zero's of the length parameter */
-        assertTrue(StringFunctions.addLeadingZeros("",3).equals("000"));
+        assertEquals("000", StringFunctions.addLeadingZeros("", 3));
 
         /* Happy flow */
-        assertTrue("007".equals(StringFunctions.addLeadingZeros("7", 3)));
+        assertEquals("007", StringFunctions.addLeadingZeros("7", 3));
         assertTrue(appVarParticipant.generateParticipantNumber().matches(appVarParticipant.REGEX_PARTICIPANT_NUMBER));
     }
 }

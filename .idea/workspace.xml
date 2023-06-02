@@ -4,30 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#39 en #42 -&gt; Tabel UserAccount aangemaakt inclusief Hibernete annotaties.">
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityGeneral.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/UseraccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/DateTimeFunctions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerUtilitiesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#45 Unit test voor functie 'addLeadingZero's'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/configuration/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/configuration/SpringSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Address.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/UserAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityParticipant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityUserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityUserAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/Gender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/ParticipantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/ParticipantRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/DatumTijdFuncties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/TextFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/StringFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/validation/ParticipantValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/validation/ParticipantValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/validation/UseraccountValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/validation/UseraccountValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/resources/appVar.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/appVar.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data_1.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/UseraccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/UseraccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/DateTimeFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/DateTimeFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/StringFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/StringFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerUtilitiesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerUtilitiesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logging/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging/app.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -332,7 +317,7 @@
       <workItem from="1685570129419" duration="282000" />
       <workItem from="1685600451450" duration="20135000" />
       <workItem from="1685649832066" duration="12082000" />
-      <workItem from="1685687239684" duration="13626000" />
+      <workItem from="1685687239684" duration="15038000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -544,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685626967664</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="#45 Unit test voor functie 'addLeadingZero's'">
+      <created>1685701073677</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1685701073677</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +588,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="JPA connectie tussen Domein- en Database-model gelegd voor tabel 'deelnemer'" />
     <MESSAGE value="Entiteit adres toegevoegd en JPA annotaties aangepast" />
     <MESSAGE value="Datasource voor MySql (casebefrank) ingesteld. &#10;SQL-script (data) aangepast en geïntegreerd.&#10;H2 in POM uitgeschakeld en MySQL connector toegevoegd." />
     <MESSAGE value="Fundament REST-setservices geconfigureerd" />
@@ -621,7 +612,8 @@
     <MESSAGE value="#38 -&gt; User Account Utility klasse en Security configuratie klasse toegevoegd." />
     <MESSAGE value="#40 -&gt; Enumeratie UserRole toegevoegd." />
     <MESSAGE value="#39 en #42 -&gt; Tabel UserAccount aangemaakt inclusief Hibernete annotaties." />
-    <option name="LAST_COMMIT_MESSAGE" value="#39 en #42 -&gt; Tabel UserAccount aangemaakt inclusief Hibernete annotaties." />
+    <MESSAGE value="#45 Unit test voor functie 'addLeadingZero's'" />
+    <option name="LAST_COMMIT_MESSAGE" value="#45 Unit test voor functie 'addLeadingZero's'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,7 +1,5 @@
 package com.bridger.development.util;
 
-import java.util.IllegalFormatException;
-
 import static com.bridger.development.util.validation.ParticipantValidation.validateString;
 
 public class StringFunctions {

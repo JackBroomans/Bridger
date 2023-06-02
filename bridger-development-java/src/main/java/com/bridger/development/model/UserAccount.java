@@ -49,6 +49,10 @@ public class UserAccount implements Serializable {
     @Column(name = "locked")
     private boolean isLocked;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "useraccount_id")
+    Participant participant;
+
     // Getters and setters
     public long getId() {
         return id;
