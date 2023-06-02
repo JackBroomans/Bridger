@@ -1,9 +1,12 @@
 package com.bridger.development;
 
+import com.bridger.development.model.UserAccount;
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.Participant;
+import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
 import com.bridger.development.repository.ContributionRepository;
 import com.bridger.development.repository.ParticipantRepository;
+import com.bridger.development.repository.UseraccountRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class BridgerJavaApplicationRepositoryTest {
+    @Autowired
+    UseraccountRepository repoUserAccount;
 
     @Autowired
     ParticipantRepository repoParticipant;
@@ -26,34 +31,41 @@ public class BridgerJavaApplicationRepositoryTest {
     ContributionRepository repoContribution;
 
     @Autowired
-    UtilityParticipant appVar;
+    UtilityUserAccount appVarUserAccount;
+
+    @Autowired
+    UtilityParticipant appVarParticipant;
 
     @Test
-    void toevoegenNieuweDeelnemerTest() {
+    void addNewParticipantTest() {
 
     }
 
     @Test
-    // 2. Ophalen bestaande deelnemer uit database
-    void ophalenBestaandeDeelnemerTest() {
+    // 2. Search and get the participant from the database, based on different arguments.
+    void getParticipantFromDatabaseTest() {
         // 1.
 
     }
 
 
     @Test
-    void toevoegenGerelateerdeInformatie() {
-        // 1. Adres
-        // 2. Premiegegevens
+    void addRelatedInformation() {
+        // 1. Address
     }
 
 
     @Test
-    void deelnemerRepositorytest() {
+    void participantRepositoryTest() {
 
-        Participant nieuweParticipant = appVar.participant();
-        assertEquals(nieuweParticipant.getGender(), appVar.participant().getGender());
-        assertTrue(nieuweParticipant.getParticipantNumber().matches(appVar.REGEX_PARTICIPANT_NUMBER));
+        /* First we need a user account to link the participant to and fill te required properties. */
+        UserAccount userAccount = appVarUserAccount.userAccount();
+        userAccount.setUserName(appVarUserAccount.PREDEFINED_USER_NAME);
+        userAccount.setPassword(appVarUserAccount.PREDEFINED_USER_PASSWORD);
+
+        Participant nieuweParticipant = appVarParticipant.participant();
+        assertEquals(nieuweParticipant.getGender(), appVarParticipant.participant().getGender());
+        assertTrue(nieuweParticipant.getParticipantNumber().matches(appVarParticipant.REGEX_PARTICIPANT_NUMBER));
 
         nieuweParticipant.setFamilyName("Duck");
         nieuweParticipant.setSurNames("Donald");
@@ -61,7 +73,7 @@ public class BridgerJavaApplicationRepositoryTest {
         nieuweParticipant.setPrefixTitles("dhr.");
 
 
-        // Niet bestaand of ongeldig deelnemersnummer
+        /* Non-existing or invalid content in the participant instance, will throw exceptions. */
         assertThrows(DataIntegrityViolationException.class, () -> { repoParticipant.save(nieuweParticipant); });
         nieuweParticipant.setParticipantNumber("20220416-00003");
         assertThrows(DataIntegrityViolationException.class, () -> { repoParticipant.save(nieuweParticipant); });
@@ -74,16 +86,17 @@ public class BridgerJavaApplicationRepositoryTest {
 
         // Todo: Variabele opnemen in resources-bestand om externe configuratie mogelijk te maken
         DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate geboortedatum = LocalDate.parse("16-02-1966", KORTE_DATUM_FORMAAT);
-        nieuweParticipant.setBirthdate(geboortedatum);
+        LocalDate birthdate = LocalDate.parse("16-02-1966", KORTE_DATUM_FORMAAT);
+        nieuweParticipant.setBirthdate(birthdate);
 
-        // Happy flow toevoegen deelnemer
+        /* Before we save the participant we must set the save the useraccount and link the participant */
+        repoUserAccount.save(userAccount);
+        nieuweParticipant.setUseracccountId(userAccount.getId());
         repoParticipant.save(nieuweParticipant);
         assertEquals(repoParticipant.findByParticipantNumber("20230420").getEmail(), "d.duck@duckstad.nl");
 
-        // ToDo: Different CRUD-operation to seperate tests.
-        // Lees gegevens van de nieuwe deelnemer terug
-        Participant bestaandeParticipant = appVar.participant();
+        /* Search and get the newly added participant from the database on the email-address of the participant */
+        Participant bestaandeParticipant = appVarParticipant.participant();
         bestaandeParticipant = repoParticipant.findByEmail("d.duck@duckstad.nl");
         assertEquals(bestaandeParticipant.getEmail(), "d.duck@duckstad.nl");
 
@@ -115,15 +128,18 @@ public class BridgerJavaApplicationRepositoryTest {
 
 //        assertEquals(repoParticipant.findByParticipantNumber(bestaandeParticipant.getParticipantNumber()).getParticipantPremium().getFullTimeSalaris(), 51770) ;
 
+        final long countBefore = repoParticipant.count();
+        repoUserAccount.delete(userAccount);
 
-        repoParticipant.delete(nieuweParticipant);
+        /* As a result of the cascaded delete, the participant entry is also removed */
+        assertTrue(repoParticipant.count() < countBefore);
     }
 
     @Test
     public void resolveSumOfPower2NumbersTest() {
-        ArrayList<Integer> factors = new ArrayList<Integer>();
-        Integer runningSum = 564;
-        Integer power = 0;
+        ArrayList<Integer> factors = new ArrayList<>();
+        int runningSum = 564;
+        int power = 0;
 
         while (runningSum > 0) {
             power = binaryLog2Base(runningSum);

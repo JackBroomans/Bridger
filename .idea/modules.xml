@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/bridger.iml" filepath="$PROJECT_DIR$/.idea/bridger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bridger-development-java/bridger-backend.iml" filepath="$PROJECT_DIR$/bridger-development-java/bridger-backend.iml" />
     </modules>
   </component>
 </project>

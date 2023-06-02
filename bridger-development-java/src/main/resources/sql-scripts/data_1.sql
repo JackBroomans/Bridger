@@ -28,6 +28,7 @@ CREATE UNIQUE INDEX iUserName ON useraccount (username);
 CREATE TABLE  participant
 (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    useraccount_id BIGINT NOT NULL,
     participantnumber VARCHAR(16)  NOT NULL,
     familyname VARCHAR(131) NOT NULL,
     prefixes VARCHAR(31),
@@ -46,6 +47,10 @@ CREATE UNIQUE INDEX iParticipantNumber ON participant (participantnumber);
 CREATE INDEX iFamilyName ON participant (familyname);
 CREATE INDEX iEmail ON participant (email);
 
+ALTER TABLE participant
+    ADD CONSTRAINT participant_useraccount_id_fk
+    FOREIGN KEY (useraccount_id) REFERENCES useraccount (id) ON DELETE CASCADE;
+
 CREATE TABLE  address
 (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -56,15 +61,15 @@ CREATE TABLE  address
     postalcode VARCHAR(15),
     city VARCHAR(127) NOT NULL,
     country VARCHAR(127) DEFAULT 'Nederland',
-    current BOOLEAN  NOT NULL DEFAULT false,
-    FOREIGN KEY fkParticipantAddress (participant_id)
-        REFERENCES participant (id)
-        ON UPDATE RESTRICT
-        ON DELETE CASCADE
+    current BOOLEAN  NOT NULL DEFAULT false
 ) ENGINE = INNODB;
 
 CREATE INDEX iParticipantAddress ON address (participant_id);
 CREATE INDEX iPostalCode ON address (postalcode);
+
+ALTER TABLE address
+    ADD CONSTRAINT address_participant_id_fk
+    FOREIGN KEY (participant_id) REFERENCES participant (id) ON DELETE CASCADE;
 
 CREATE TABLE participantpremium
 (
@@ -73,14 +78,14 @@ CREATE TABLE participantpremium
     fulltime_salaris  DOUBLE NOT NULL DEFAULT 0,
     parttime_percentage FLOAT NOT NULL DEFAULT 0,
     francise_actueel DOUBLE NOT NULL DEFAULT 0,
-    percentage_beschikbare_premie FLOAT NOT NULL DEFAULT 0,
-    FOREIGN KEY fkParticipantPremium (participantid)
-        REFERENCES participant (id)
-        ON UPDATE RESTRICT
-        ON DELETE CASCADE
+    percentage_beschikbare_premie FLOAT NOT NULL DEFAULT 0
 ) ENGINE = INNODB;
 
 CREATE INDEX iParticipantPremium ON participantpremium (participantid);
+
+ALTER TABLE participantpremium
+    ADD CONSTRAINT participantpremium_participant_id_fk
+    FOREIGN KEY (participantid) REFERENCES participant (id) ON DELETE CASCADE;
 
 CREATE TABLE belegging
 (
@@ -88,12 +93,12 @@ CREATE TABLE belegging
   participant_id BIGINT NOT NULL,
   instituut VARCHAR(63)  NOT NULL,
   fonds VARCHAR(255) NOT NULL,
-  huidige_waarde DOUBLE NOT NULL DEFAULT 0,
-  FOREIGN KEY fkParticipantPremium (participant_id)
-      REFERENCES participant (id)
-      ON UPDATE RESTRICT
-      ON DELETE CASCADE
+  huidige_waarde DOUBLE NOT NULL DEFAULT 0
 ) ENGINE = INNODB;
+
+ALTER TABLE belegging
+    ADD CONSTRAINT belegging_participant_id_fk
+    FOREIGN KEY (participant_id) REFERENCES participant (id) ON DELETE CASCADE;
 
 CREATE INDEX iParticipantInvestment ON belegging (participant_id);
 
@@ -107,18 +112,18 @@ INSERT INTO useraccount (username, password, dateregistered, datelastpasswordres
 VALUES ('Giraffe', '', '2023-06-01', '2023-06-01', 0);
 
 # Participants
-INSERT INTO participant (participantnumber, familyname, surnames, initials, prefixtitles, gendercode,
+INSERT INTO participant (useraccount_id, participantnumber, familyname, surnames, initials, prefixtitles, gendercode,
                          birthdate, email, cellphone)
-VALUES ('220416-00732-834', 'Botje', 'Berend', 'B.', 'dhr.', 'M', '1978-04-16', 'b.botje@zeilboot.nl', '06-11223344');
+VALUES (1, '220416-00732-834', 'Botje', 'Berend', 'B.', 'dhr.', 'M', '1978-04-16', 'b.botje@zeilboot.nl', '06-11223344');
 
-INSERT INTO participant(participantnumber, familyname, prefixes, surnames, initials, prefixtitles, gendercode,
+INSERT INTO participant(useraccount_id, participantnumber, familyname, prefixes, surnames, initials, prefixtitles, gendercode,
                         birthdate, email, cellphone)
-VALUES ('220416-17902-055', 'Petteflet', 'van de', 'Puk', 'P.', 'dhr.', 'M', '1933-11-23', 'petteflet@flatgebouw.nl',
+VALUES (2, '220416-17902-055', 'Petteflet', 'van de', 'Puk', 'P.', 'dhr.', 'M', '1933-11-23', 'petteflet@flatgebouw.nl',
         '06-55667788');
 
-INSERT INTO participant(participantnumber, familyname, surnames, initials, gendercode, birthdate, email,
+INSERT INTO participant(useraccount_id, participantnumber, familyname, surnames, initials, gendercode, birthdate, email,
                         hometelephone, cellphone)
-VALUES ('220416-21495-701', 'Dap', 'Dikkertje', 'D.', 'M', '2001-05-03', 'dikkertje@dierentuin.nl', '020-12345678',
+VALUES (3, '220416-21495-701', 'Dap', 'Dikkertje', 'D.', 'M', '2001-05-03', 'dikkertje@dierentuin.nl', '020-12345678',
         '06-9911223344');
 
 # Addresses (associated with participants)

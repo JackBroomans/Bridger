@@ -1,7 +1,7 @@
 package com.bridger.development.util.validation;
 
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
-import com.bridger.development.util.DatumTijdFuncties;
+import com.bridger.development.util.DateTimeFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import java.util.regex.PatternSyntaxException;
  *         <strong>validateEmailAddress()</strong>
  *     </li>
  *     <li>
- *         <strong>vaildateParticipantNumber()</strong>
+ *         <strong>validateParticipantNumber()</strong>
  *     </li>
  * </ul>
  */
@@ -63,12 +63,12 @@ public class ParticipantValidation {
                 logger.warn(appVar.MSG_MISSING_BIRTHDATE);
                 return false;
             }
-            int leeftijd = DatumTijdFuncties.getLeeftijd(birthdate);
+            int leeftijd = new DateTimeFunctions().calculateAge(birthdate);
             return leeftijd >= appVar.MIN_AGE_PARTICIPANT &&
                     leeftijd <= appVar.MAX_AGE_PARTICIPANT;
         }
         catch(DateTimeParseException ex) {
-            logger.warn("Invalid date format.");
+            logger.warn(appVar.MSG_MISSING_BIRTHDATE);
             return false;
         }
     }

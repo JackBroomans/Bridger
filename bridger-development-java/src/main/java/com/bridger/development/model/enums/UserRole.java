@@ -1,6 +1,6 @@
 package com.bridger.development.model.enums;
 
-import com.bridger.development.util.TextFunctions;
+import com.bridger.development.util.StringFunctions;
 
 /**
  * <strong>User Role</strong><br>
@@ -28,6 +28,6 @@ public enum UserRole {
     @Override
     public String toString() {
         return  "User Role" +
-                "\n\tElement: " + TextFunctions.presentation(this.name());
+                "\n\tElement: " + StringFunctions.presentation(this.name());
     }
 }

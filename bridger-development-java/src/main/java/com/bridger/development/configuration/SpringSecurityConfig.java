@@ -1,6 +1,5 @@
 package com.bridger.development.configuration;
 
-import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

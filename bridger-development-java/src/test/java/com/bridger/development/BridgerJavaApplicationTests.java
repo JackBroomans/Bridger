@@ -1,11 +1,13 @@
 package com.bridger.development;
 
-import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.Address;
 import com.bridger.development.model.Participant;
+import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.enums.Gender;
 import com.bridger.development.model.enums.UserRole;
 import com.bridger.development.repository.ParticipantRepository;
+import com.bridger.development.util.DateTimeFunctions;
+import com.bridger.development.util.StringFunctions;
 import com.bridger.development.util.validation.ParticipantValidation;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,6 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.bridger.development.util.DatumTijdFuncties.getLeeftijd;
 import static com.bridger.development.util.validation.ParticipantValidation.validateString;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,6 +31,8 @@ class BridgerJavaApplicationTests {
 
 	@Autowired
 	private UtilityParticipant appVar;
+
+	private final DateTimeFunctions dateTimeFunctions = new DateTimeFunctions();
 
 	@Test
 	public void classParticipantTest() {
@@ -99,7 +102,7 @@ class BridgerJavaApplicationTests {
 		Participant participant = appVar.participant();
 
 		/* Calculating the age without a specified birthdate */
-		assertEquals(getLeeftijd(null), 0);
+		assertEquals(dateTimeFunctions.calculateAge(null), 0);
 		assertFalse(ParticipantValidation.validateBirthdate(null));
 
 		/* Calculating the age with an invalid birthdate */
@@ -115,7 +118,8 @@ class BridgerJavaApplicationTests {
 	public void genderEnumTest() {
 		/* Searching and selecting the default gender */
 		Gender gender = Gender.getByCode(appVar.DEFAULT_GENDER);
-		assertEquals(true, gender.getCode().equals(appVar.DEFAULT_GENDER));
+		assert gender != null;
+		assertEquals(appVar.DEFAULT_GENDER, gender.getCode());
 
 		/* Searching and selecting a gender based on it's code */
 		ArrayList<String> invalidCodes =new ArrayList<>();
@@ -123,7 +127,7 @@ class BridgerJavaApplicationTests {
 		invalidCodes.add("");
 		invalidCodes.add("XYZ");
 		invalidCodes.add("X");
-		invalidCodes.forEach(address -> {
+		invalidCodes.forEach((String test) -> {
 			assertNull(Gender.getByCode(null));
 		});
 		assertEquals(Gender.getByCode("M"), Gender.MALE);
@@ -149,9 +153,8 @@ class BridgerJavaApplicationTests {
 	@Test
 	public void userRoleEnumTest() {
 		UserRole role = UserRole.ADMIN;
-		assertNotEquals(role, role.getDefaultSetting());
-		role = role.getDefaultSetting();
-		assertEquals(role, UserRole.USER);
+		assertNotEquals(role, UserRole.getDefaultSetting());
+		assertEquals(UserRole.getDefaultSetting(), UserRole.USER);
 	}
 
 	@Test
@@ -174,7 +177,7 @@ class BridgerJavaApplicationTests {
 	@Test
 	public void participantNumberTest() {
 		// Test if a (generated random number) gets the required leading zero's to meet tghe format of three digits.
-		assertTrue(String.format("%d03", 4).length() == 3);
+		assertEquals(3, String.format("%d03", 4).length());
 
 		// Test the construction of the participant number
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyMMdd-ssSSS");
@@ -182,7 +185,8 @@ class BridgerJavaApplicationTests {
 				.append(LocalDateTime.now().format(dateFormat))
 				.append("-");
 		assertFalse(builder.toString().matches(appVar.REGEX_PARTICIPANT_NUMBER));
-		builder.append(new Random().nextInt(1000));
+
+		builder.append(StringFunctions.addLeadingZeros(String.valueOf(new Random().nextInt(1000)), 3));
 		assertTrue(builder.toString().matches(appVar.REGEX_PARTICIPANT_NUMBER));
 	}
 

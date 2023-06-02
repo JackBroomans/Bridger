@@ -1,6 +1,6 @@
 package com.bridger.development.model.enums;
 
-import com.bridger.development.util.TextFunctions;
+import com.bridger.development.util.StringFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,8 +18,8 @@ public enum Gender {
 
     private static final Logger logger = LoggerFactory.getLogger(Gender.class);
 
-    private String code;
-    private String description;
+    private final String code;
+    private final String description;
 
     Gender(String code, String description) {
         this.code = code;
@@ -63,9 +63,9 @@ public enum Gender {
     @Override
     public String toString() {
         return  "Gender" +
-                "\n\tElement: " + TextFunctions.presentation(this.name()) +
-                "\n\tCode: " + TextFunctions.presentation(this.code) +
-                "\n\tDescription: " + TextFunctions.presentation(this.description);
+                "\n\tElement: " + StringFunctions.presentation(this.name()) +
+                "\n\tCode: " + StringFunctions.presentation(this.code) +
+                "\n\tDescription: " + StringFunctions.presentation(this.description);
     }
 }
 

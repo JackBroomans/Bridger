@@ -1,8 +1,6 @@
 package com.bridger.development.model.entity_utility_classes;
 
-import com.bridger.development.model.Participant;
 import com.bridger.development.model.UserAccount;
-import com.bridger.development.model.enums.Gender;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -39,7 +37,7 @@ public class UtilityUserAccount {
 
     @Value("${invalid_username_format}")
     public String MSG_INVALID_USERNAME_FORMAT;
-
+    
     @PostConstruct
     public void init() {
     }

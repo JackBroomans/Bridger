@@ -2,6 +2,7 @@ package com.bridger.development.model.entity_utility_classes;
 
 import com.bridger.development.model.Participant;
 import com.bridger.development.model.enums.Gender;
+import com.bridger.development.util.StringFunctions;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -106,10 +107,10 @@ public class UtilityParticipant {
      * </ol>
      * @return The generated participant number.
      */
-    private String generateParticipantNumber() {
+    public String generateParticipantNumber() {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyMMdd-ssSSS");
 
         return LocalDateTime.now().format(dateFormat) +  "-" +
-                String.format("%03d", new Random().nextInt(1000));
+                StringFunctions.addLeadingZeros(String.valueOf(new Random().nextInt(1000)), 3);
     }
 }

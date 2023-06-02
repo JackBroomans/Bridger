@@ -17,10 +17,16 @@ public class UseraccountValidation {
 
     @Autowired
     public UseraccountValidation(UtilityUserAccount appVar) {
-        this.appVar = appVar;
+        UseraccountValidation.appVar = appVar;
     }
 
-
+    /**
+     * <strong>validateUserName<i>(String)</i></strong><br>
+     * Checks against a regular expression if a given username meets te requirements of a username.
+     * @param username The string which is checked.
+     * @return A boolean indicating if the given name meets the requirements.
+     * @throws PatternSyntaxException When the regular expression isn't valid.
+     */
     public static boolean validateUserName(String username) throws PatternSyntaxException {
         if (username.matches(appVar.REGEX_USER_NAME)) {
             return true;

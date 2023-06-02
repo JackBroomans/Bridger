@@ -1,7 +1,7 @@
 package com.bridger.development.model;
 
 import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
-import com.bridger.development.util.TextFunctions;
+import com.bridger.development.util.StringFunctions;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import static com.bridger.development.util.validation.ParticipantValidation.validateString;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Component
@@ -57,6 +58,10 @@ public class UserAccount implements Serializable {
         return userName;
     }
     public void setUserName(String userName) {
+        if (!validateString(userName)) {
+            logger.warn(appVar.MSG_INVALID_USERNAME_FORMAT);
+            return;
+        }
         this.userName = userName;
     }
 
@@ -104,18 +109,18 @@ public class UserAccount implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder text = new StringBuilder().append("User account");
 
-        text.append("\n\tId: ").append(this.id);
-        text.append("\n\tUser name: ").append(TextFunctions.presentation(this.userName));
-        text.append("\n\tDate registered: ").append(TextFunctions.presentation(this.dateRegistered.toString()));
-        text.append("\n\tDate last password reset: ")
-                .append(TextFunctions.presentation(this.dateLastChanged.toString()));
-        text.append("\n\tLogin attempts: ").append(TextFunctions.presentation(String.valueOf(this.loginAttempts)));
-        text.append("\n\tActive: ").append(TextFunctions.presentation(this.isActive ? "yes" : "no"));
-        text.append("\n\tLocked: ").append(TextFunctions.presentation(this.isLocked ? "yes" : "no"));
+        String text = "User account" +
+                "\n\tId: " + this.id +
+                "\n\tUser name: " + StringFunctions.presentation(this.userName) +
+                "\n\tDate registered: " + StringFunctions.presentation(this.dateRegistered.toString()) +
+                "\n\tDate last password reset: " +
+                StringFunctions.presentation(this.dateLastChanged.toString()) +
+                "\n\tLogin attempts: " + StringFunctions.presentation(String.valueOf(this.loginAttempts)) +
+                "\n\tActive: " + StringFunctions.presentation(this.isActive ? "yes" : "no") +
+                "\n\tLocked: " + StringFunctions.presentation(this.isLocked ? "yes" : "no");
 
-        return text.toString();
+        return text;
     }
 
 }
