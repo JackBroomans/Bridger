@@ -4,13 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#45 Unit test voor functie 'addLeadingZero's'">
-      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/bridger-java-application.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/bridger-java-application.service.ts" afterDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="Angular settings altered and generated new type-scripts.">
+      <change afterPath="$PROJECT_DIR$/MODEL.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TECHNOTES.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/add-user-account/add-user-account.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/add-user-account/add-user-account.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/add-user-account/add-user-account.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/add-user-account/add-user-account.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/user-account-details/user-account-details.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/user-account-details/user-account-details.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/user-account-details/user-account-details.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/user-account-details/user-account-details.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/user-account-list/user-account-list.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/user-account-list/user-account-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/user-account-list/user-account-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/components/user-account-list/user-account-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/models/user-account.model.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/models/user-account.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/services/bridger.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/services/bridger.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/entity_classes_test/PaticipantTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/entity_classes_test/UserAccountTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/ParticipantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/ParticipantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/UserAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/destination_entities/ContactListAllParticipants.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/payload/response/destination_entities/ContactListAllParticipants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityGeneral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/services/ParticipantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/services/ParticipantService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/StringFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/StringFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/validation/ParticipantValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/validation/ParticipantValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerUtilitiesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerUtilitiesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logging/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging/app.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,50 +103,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/jackb/IdeaProjects/bridger/bridger-development-java/src/main/resources/sql-scripts",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.6678161",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "a3ed0584f51aa0f714d056c5d8a86376",
-    "ts.external.directory.path": "C:\\Users\\jackb\\IdeaProjects\\bridger\\bridger-development-frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jackb/IdeaProjects/bridger/bridger-development-java/src/main/resources/sql-scripts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.6678161&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;a3ed0584f51aa0f714d056c5d8a86376&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jackb\\IdeaProjects\\bridger\\bridger-development-frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "RunConfigurationTargetLRU": [
-      "490dbad2-d3bb-4dd5-8810-af8f0770e7e3"
+    &quot;RunConfigurationTargetLRU&quot;: [
+      &quot;490dbad2-d3bb-4dd5-8810-af8f0770e7e3&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;MySQL&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jackb\IdeaProjects\bridger\bridger-development-java\src\main\resources\sql-scripts" />
@@ -137,13 +173,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.generated-requests | #2">
-    <configuration name="data_1.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
-      <script-file value="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data_1.sql" />
-      <script-mode>FILE</script-mode>
-      <data-source id="490dbad2-d3bb-4dd5-8810-af8f0770e7e3" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.PaticipantTest.participantNumberTest">
     <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -195,6 +225,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PaticipantTest.participantNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bridger-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bridger.development.entity_classes_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bridger.development.entity_classes_test" />
+      <option name="MAIN_CLASS_NAME" value="com.bridger.development.entity_classes_test.PaticipantTest" />
+      <option name="METHOD_NAME" value="participantNumberTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tests (case-developer-frontend)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/case-developer-frontend/karma.conf.js" />
       <karma-package-dir value="" />
@@ -225,11 +271,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PaticipantTest.participantNumberTest" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
         <item itemvalue="JUnit.BridgerUtilitiesTest.addleadingZerosTest" />
         <item itemvalue="JUnit.BridgerJavaApplicationTests.participantNumberTest" />
         <item itemvalue="JUnit.BridgerJavaApplicationRepositoryTest.deelnemerRepositorytest" />
-        <item itemvalue="Database Script.data_1.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +342,8 @@
       <workItem from="1685600451450" duration="20135000" />
       <workItem from="1685649832066" duration="12082000" />
       <workItem from="1685687239684" duration="15122000" />
-      <workItem from="1685733238220" duration="5025000" />
+      <workItem from="1685733238220" duration="5147000" />
+      <workItem from="1685785113204" duration="17076000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -522,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685702446233</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Angular settings altered and generated new type-scripts.">
+      <created>1685738518285</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1685738518285</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +628,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Entiteit adres toegevoegd en JPA annotaties aangepast" />
     <MESSAGE value="Datasource voor MySql (casebefrank) ingesteld. &#10;SQL-script (data) aangepast en geïntegreerd.&#10;H2 in POM uitgeschakeld en MySQL connector toegevoegd." />
     <MESSAGE value="Fundament REST-setservices geconfigureerd" />
     <MESSAGE value="Angular klasse 'Deelnemer' toegevoegd." />
@@ -599,19 +652,20 @@
     <MESSAGE value="#40 -&gt; Enumeratie UserRole toegevoegd." />
     <MESSAGE value="#39 en #42 -&gt; Tabel UserAccount aangemaakt inclusief Hibernete annotaties." />
     <MESSAGE value="#45 Unit test voor functie 'addLeadingZero's'" />
-    <option name="LAST_COMMIT_MESSAGE" value="#45 Unit test voor functie 'addLeadingZero's'" />
+    <MESSAGE value="Angular settings altered and generated new type-scripts." />
+    <option name="LAST_COMMIT_MESSAGE" value="Angular settings altered and generated new type-scripts." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java</url>
-          <line>146</line>
+          <line>152</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java</url>
-          <line>134</line>
+          <line>140</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

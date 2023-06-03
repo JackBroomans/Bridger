@@ -1,8 +1,16 @@
 package com.bridger.development.util;
 
-import static com.bridger.development.util.validation.ParticipantValidation.validateString;
-
 public class StringFunctions {
+
+    /**
+     * <strong>validateString(<i>String</i>)</strong><br>
+     * Checks if a string isn't null or empty or contains only whitespaces.<br>
+     * @param text The String to be validated.
+     * @return True if the string is validates and false when it's not specified.
+     */
+    public static boolean validateString(String text) {
+        return text != null && !text.isBlank();
+    }
 
     /**
      * <strong>presentation<i>(String)</i></strong><br>
@@ -31,5 +39,4 @@ public class StringFunctions {
         }
         return String.format("%1$" + length + "s", text).replace(' ', '0');
     }
-
 }

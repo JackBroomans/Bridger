@@ -45,24 +45,12 @@ required structure before returning it to the client. It also enables mapping wi
 
 ## Logging
 
-# Business rules
-## User-account
-### Username
-A valid username must apply the following rules:
-- Contains at least 5 characters an at most 15.
-- Can contain lowercase characters, uppercase characters, digits, hyphens and underscores.
-- Must start with a lower- or uppercase character.
 
-### Password
-#### Format
-A valid password must apply the following rules:
-- Contains at least 8 and at most 15 characters.
-- Can contain:
-- - Lowercase characters, uppercase charaters and digits 
-- - The following characters: ! @ # $ % & * _ -
-- - Whitespaces
-- Can't start neither end with a whitespace.
-#### Policy
-Regarding the password the following policy is applicable:
-- Is valid for a (external) adjustable number of days.
-- When redefining, it can't be equal to the former three.
+## Appriciations
+The base security is created with great help of the folks at BezCoder.
+I strongly recommend to read and try out their article at:
+https://www.bezkoder.com/angular-14-spring-boot-jwt-auth/.
+It certainly will give you a kickstart concerning SprinBoot security.
+
+My thanks also goes to the application developers at BeFrank who scaffolding this project and inspired me to
+carry on with the application I wanted to build for a long time, but never took the time for it. 

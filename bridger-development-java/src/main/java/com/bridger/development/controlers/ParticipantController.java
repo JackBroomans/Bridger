@@ -1,7 +1,7 @@
 package com.bridger.development.controlers;
 
 import com.bridger.development.model.Participant;
-import com.bridger.development.model.destination_entities.ContactListAllParticipants;
+import com.bridger.development.payload.response.destination_entities.ContactListAllParticipants;
 import com.bridger.development.repository.ParticipantRepository;
 import com.bridger.development.services.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;

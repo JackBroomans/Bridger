@@ -7,20 +7,16 @@ import com.bridger.development.model.enums.Gender;
 import com.bridger.development.model.enums.UserRole;
 import com.bridger.development.repository.ParticipantRepository;
 import com.bridger.development.util.DateTimeFunctions;
-import com.bridger.development.util.StringFunctions;
 import com.bridger.development.util.validation.ParticipantValidation;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Random;
 
-import static com.bridger.development.util.validation.ParticipantValidation.validateString;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -174,21 +170,7 @@ class BridgerJavaApplicationTests {
 		});
 	}
 
-	@Test
-	public void participantNumberTest() {
-		// Test if a (generated random number) gets the required leading zero's to meet tghe format of three digits.
-		assertEquals(3, String.format("%d03", 4).length());
 
-		// Test the construction of the participant number
-		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyMMdd-ssSSS");
-		StringBuilder builder = new StringBuilder()
-				.append(LocalDateTime.now().format(dateFormat))
-				.append("-");
-		assertFalse(builder.toString().matches(appVar.REGEX_PARTICIPANT_NUMBER));
-
-		builder.append(StringFunctions.addLeadingZeros(String.valueOf(new Random().nextInt(1000)), 3));
-		assertTrue(builder.toString().matches(appVar.REGEX_PARTICIPANT_NUMBER));
-	}
 
 	@Test
 	public void classAddressTest() {
@@ -199,16 +181,7 @@ class BridgerJavaApplicationTests {
 		assertFalse(address.getCurrentActive());
 	}
 
-	// Todo: Verplaats unit-test naar test voor utiliteitsklassen
-	@Test
-	public void validateStringTest() {
-		StringBuilder text = new StringBuilder();
-		assertFalse(validateString(text.toString()));
-		text.append("     ");
-		assertFalse(validateString(text.toString()));
-		text.delete(0, 255).append("Abc");
-		assertTrue(validateString(text.toString()));
-	}
+
 
 	@Test
 	public void classInvestmentTest() {

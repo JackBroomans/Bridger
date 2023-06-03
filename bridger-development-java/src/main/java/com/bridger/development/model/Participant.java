@@ -4,17 +4,17 @@ import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.enums.Gender;
 import com.bridger.development.util.StringFunctions;
 import jakarta.persistence.*;
-
-import static com.bridger.development.util.validation.ParticipantValidation.*;
-import static jakarta.persistence.GenerationType.IDENTITY;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.time.LocalDate;
+
+import static com.bridger.development.util.StringFunctions.validateString;
+import static com.bridger.development.util.validation.ParticipantValidation.validateBirthdate;
+import static com.bridger.development.util.validation.ParticipantValidation.validateEmailAddressFormat;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
  * <strong>Participant</strong><br>
@@ -81,10 +81,6 @@ public class Participant implements Serializable {
 
     @Column(name = "cellphone", nullable = false)
     private String cellphone;
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id", referencedColumnName = "useraccount_id")
-//    UserAccount userAccount;
 
     // Getters en Setters
     public long getId() {

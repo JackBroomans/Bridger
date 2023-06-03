@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import static com.bridger.development.util.validation.ParticipantValidation.validateString;
+import static com.bridger.development.util.StringFunctions.validateString;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Component

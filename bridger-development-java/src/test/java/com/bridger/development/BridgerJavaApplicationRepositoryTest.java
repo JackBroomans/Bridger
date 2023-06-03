@@ -1,13 +1,19 @@
 package com.bridger.development;
 
-import com.bridger.development.model.UserAccount;
-import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.Participant;
+import com.bridger.development.model.UserAccount;
+
+import com.bridger.development.model.entity_utility_classes.UtilityGeneral;
+import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
+
 import com.bridger.development.repository.ContributionRepository;
 import com.bridger.development.repository.ParticipantRepository;
 import com.bridger.development.repository.UseraccountRepository;
+
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -15,9 +21,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 
 @SpringBootTest
 public class BridgerJavaApplicationRepositoryTest {
@@ -29,6 +32,9 @@ public class BridgerJavaApplicationRepositoryTest {
 
     @Autowired
     ContributionRepository repoContribution;
+
+    @Autowired
+    UtilityGeneral appVarGeneral;
 
     @Autowired
     UtilityUserAccount appVarUserAccount;
@@ -84,12 +90,12 @@ public class BridgerJavaApplicationRepositoryTest {
         nieuweParticipant.setEmail("d.duck@duckstad.nl");
         nieuweParticipant.setCellphone("06 88990011");
 
-        // Todo: Variabele opnemen in resources-bestand om externe configuratie mogelijk te maken
-        DateTimeFormatter KORTE_DATUM_FORMAAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate birthdate = LocalDate.parse("16-02-1966", KORTE_DATUM_FORMAAT);
+
+        DateTimeFormatter shortDateFormat = DateTimeFormatter.ofPattern(appVarGeneral.SHORT_DATE_FORMAT);
+        LocalDate birthdate = LocalDate.parse("16-02-1966", shortDateFormat);
         nieuweParticipant.setBirthdate(birthdate);
 
-        /* Before we save the participant we must set the save the useraccount and link the participant */
+        /* Before we save the participant we must set the save the user account and link the participant */
         repoUserAccount.save(userAccount);
         nieuweParticipant.setUseracccountId(userAccount.getId());
         repoParticipant.save(nieuweParticipant);

@@ -1,7 +1,6 @@
 package com.bridger.development.model;
 
 import com.bridger.development.util.StringFunctions;
-import com.bridger.development.util.validation.ParticipantValidation;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -128,10 +127,10 @@ public class Address implements Serializable {
      * @return The for correspondence formatted address.
      */
     public String composeCorrespondenceAddress() {
-        return (ParticipantValidation.validateString(this.street) ? this.street : "") +
-                (ParticipantValidation.validateString(this.houseNumber) ? " " + this.houseNumber : "") + "\n" +
-                (ParticipantValidation.validateString(this.postalcode) ? " " + this.postalcode : "") +
-                (ParticipantValidation.validateString(this.city) ? " " + this.city : " ");
+        return (StringFunctions.validateString(this.street) ? this.street : "") +
+                (StringFunctions.validateString(this.houseNumber) ? " " + this.houseNumber : "") + "\n" +
+                (StringFunctions.validateString(this.postalcode) ? " " + this.postalcode : "") +
+                (StringFunctions.validateString(this.city) ? " " + this.city : " ");
     }
 
     @Override

@@ -42,16 +42,6 @@ public class ParticipantValidation {
     }
 
     /**
-     * <strong>validateString(<i>String</i>)</strong><br>
-     * Checks if a string isn't null or empty or contains only whitespaces.<br>
-     * @param text The String to be validated.
-     * @return True if the string is validates and false when it's not specified.
-     */
-    public static boolean validateString(String text) {
-        return text != null && !text.isBlank();
-    }
-
-    /**
      * <strong>validateBirthdate(<i>LocalDate</i>)</strong><br>
      * Checks if a birthdate is specified and matches the (external configured) requirements of the age boundaries.
      * @param birthdate The birthdate to be validated.
