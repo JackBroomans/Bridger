@@ -51,6 +51,8 @@ class BridgerJavaApplicationTests {
 		participant.setEmail("");
 		assertEquals("d.duck@duckstad.nl", participant.getEmail());
 
+		System.out.println(participant);
+
 	}
 
 	@Test
@@ -125,8 +127,6 @@ class BridgerJavaApplicationTests {
 		});
 	}
 
-
-
 	@Test
 	public void classAddressTest() {
 		/* Setting the default chosen country on instantiation of an address */
@@ -135,8 +135,6 @@ class BridgerJavaApplicationTests {
 		assertEquals(address.getCountry(), appVar.DEFAULT_COUNTRY);
 		assertFalse(address.getCurrentActive());
 	}
-
-
 
 	@Test
 	public void classInvestmentTest() {

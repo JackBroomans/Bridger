@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#36 Angular frontend component add-useraccount-component, gewijzingd in user-account-component.">
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/enum_test/enumTests.java" afterDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#46 Unittest voor enumerator 'user roles' voltooid.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityGeneral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/entity_classes_test/PaticipantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/PaticipantTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/entity_classes_test/UserAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/UserAccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/PaticipantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/PaticipantTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logging/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging/app.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,18 +136,50 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.enumTests.userRoleEnumTest">
-    <configuration name="PaticipantTest.setParticipantGendeerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BridgerJavaApplicationRepositoryTest.participantRepositoryTest">
+    <configuration name="BridgerJavaApplicationRepositoryTest.participantRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bridger-backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.bridger.development.model.entity_classes_test.*" />
+          <option name="PATTERN" value="com.bridger.development.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bridger.development" />
+      <option name="MAIN_CLASS_NAME" value="com.bridger.development.BridgerJavaApplicationRepositoryTest" />
+      <option name="METHOD_NAME" value="participantRepositoryTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BridgerJavaApplicationTests.classParticipantTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bridger-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bridger.development.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bridger.development" />
+      <option name="MAIN_CLASS_NAME" value="com.bridger.development.BridgerJavaApplicationTests" />
+      <option name="METHOD_NAME" value="classParticipantTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaticipantTest.participantNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bridger-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bridger.development.model.entity_classes_test.PaticipantTest" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.bridger.development.model.entity_classes_test" />
       <option name="MAIN_CLASS_NAME" value="com.bridger.development.model.entity_classes_test.PaticipantTest" />
-      <option name="METHOD_NAME" value="setParticipantGendeerTest" />
+      <option name="METHOD_NAME" value="participantNumberTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -198,12 +228,6 @@
     <configuration name="Angular Application (case-developer-frontend)" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
-    <configuration name="app.component.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/bridger/bridger-development-frontend/src/app/app.component.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/bridger/bridger-development-frontend/src/index.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
     <configuration name="BridgerJavaApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="bridger-backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.bridger.development.BridgerJavaApplication" />
@@ -223,11 +247,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BridgerJavaApplicationRepositoryTest.participantRepositoryTest" />
+        <item itemvalue="JUnit.BridgerJavaApplicationTests.classParticipantTest" />
+        <item itemvalue="JUnit.PaticipantTest.participantNumberTest" />
         <item itemvalue="JUnit.enumTests.userRoleEnumTest" />
         <item itemvalue="JUnit.enumTests.genderEnumTest" />
-        <item itemvalue="JUnit.PaticipantTest.setParticipantGendeerTest" />
-        <item itemvalue="JavaScript Debug.app.component.html" />
-        <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +320,7 @@
       <workItem from="1685687239684" duration="15122000" />
       <workItem from="1685733238220" duration="5147000" />
       <workItem from="1685785113204" duration="18343000" />
-      <workItem from="1685947320612" duration="7526000" />
+      <workItem from="1685947320612" duration="15852000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -543,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685950194977</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="#46 Unittest voor enumerator 'user roles' voltooid.">
+      <created>1685955727980</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1685955727980</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +652,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Angular klasse 'Deelnemer' toegevoegd." />
     <MESSAGE value="IntelliJ configuratie" />
     <MESSAGE value="Unit test voor CRUD-bewerking toegevoegd.&#10;JPA annoties Deelnemer afgerond.&#10;Deelnemer reository testen uitgebreid." />
     <MESSAGE value="Repository 'Deelnemer' uitgebreid met methode findByDeelnemersnummer()" />
@@ -646,7 +676,8 @@
     <MESSAGE value="Angular settings altered and generated new type-scripts." />
     <MESSAGE value="#36 Angular frontend componenten en (klasse) model '_user-account_' opgezet; add-user-component, user-account-list, user-account-details." />
     <MESSAGE value="#36 Angular frontend component add-useraccount-component, gewijzingd in user-account-component." />
-    <option name="LAST_COMMIT_MESSAGE" value="#36 Angular frontend component add-useraccount-component, gewijzingd in user-account-component." />
+    <MESSAGE value="#46 Unittest voor enumerator 'user roles' voltooid." />
+    <option name="LAST_COMMIT_MESSAGE" value="#46 Unittest voor enumerator 'user roles' voltooid." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -660,6 +691,14 @@
           <url>file://$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java</url>
           <line>140</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java</url>
+          <line>82</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -2,6 +2,7 @@ package com.bridger.development.model.entity_classes_test;
 
 import com.bridger.development.model.Participant;
 import com.bridger.development.model.UserAccount;
+import com.bridger.development.model.entity_utility_classes.UtilityGeneral;
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
 import com.bridger.development.model.enums.Gender;
@@ -12,13 +13,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class PaticipantTest {
+
+    @Autowired
+    UtilityGeneral appVarGeneral;
 
     @Autowired
     UtilityParticipant appVarParticipant;
@@ -70,8 +73,4 @@ public class PaticipantTest {
         userAccount.setUserName(appVarUserAccount.PREDEFINED_USER_NAME);
         userAccount.setPassword(appVarUserAccount.PREDEFINED_USER_PASSWORD);
     }
-
-
-
-
 }

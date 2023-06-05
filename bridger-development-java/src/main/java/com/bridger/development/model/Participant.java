@@ -1,11 +1,8 @@
 package com.bridger.development.model;
 
-import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.enums.Gender;
 import com.bridger.development.util.StringFunctions;
 import jakarta.persistence.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -24,18 +21,12 @@ import static jakarta.persistence.GenerationType.IDENTITY;
  *     <li>
  *         <strong>composeFullName()</strong>
  *     </li>
- *     <li>
- *         <strong>calculateAge()</strong>
- *     </li>
  * </ul>
  */
 @Component
 @Entity
 @Table(name = "participant")
 public class Participant implements Serializable {
-
-    private static final Logger logger = LoggerFactory.getLogger(Participant.class);
-    private static final UtilityParticipant appVar = new UtilityParticipant();
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -95,22 +86,18 @@ public class Participant implements Serializable {
         return participantNumber;
     }
     public void setParticipantNumber(String participantNumber) {
-        if (!validateString(participantNumber)) {
-            logger.warn(appVar.MSG_MISSING_NUMBER);
-            return;
+        if (validateString(participantNumber)) {
+            this.participantNumber = participantNumber;
         }
-        this.participantNumber = participantNumber;
     }
 
     public String getFamilyName() {
         return familyName;
     }
     public void setFamilyName(String familyName) {
-        if (!validateString(familyName)) {
-            logger.warn(appVar.MSG_MISSING_FAMILY_NAME);
-            return;
+        if (validateString(familyName)) {
+            this.familyName = familyName;
         }
-        this.familyName = familyName;
     }
 
     public String getPrefixes() {
@@ -124,11 +111,9 @@ public class Participant implements Serializable {
         return surNames;
     }
     public void setSurNames(String surNames) {
-        if (!validateString(surNames)) {
-            logger.warn(appVar.MSG_MISSING_SURNAMES);
-            return;
+        if (validateString(surNames)) {
+            this.surNames = surNames;
         }
-        this.surNames = surNames;
     }
 
     public String getInitials() {
@@ -159,8 +144,6 @@ public class Participant implements Serializable {
         if (gender != null) {
             this.gender = gender;
             this.genderCode = gender.getCode();
-        } else {
-            logger.warn(appVar.MSG_GENDER_NOT_SPECIFIED);
         }
     }
 
@@ -184,17 +167,9 @@ public class Participant implements Serializable {
         return email;
     }
     public void setEmail(String email) {
-        if (!validateString(email)) {
-            logger.warn(appVar.MSG_MISSING_EMAIL_ADDRESS);
-            return;
+        if (validateString(email) && validateEmailAddressFormat(email)) {
+            this.email = email;
         }
-        else {
-            if (!validateEmailAddressFormat(email)) {
-                logger.warn(appVar.MSG_INVALID_EMAIL_ADDRESS);
-                return;
-            }
-        }
-        this.email = email;
     }
 
     public String getHomeTelephone() {
@@ -208,11 +183,9 @@ public class Participant implements Serializable {
         return cellphone;
     }
     public void setCellphone(String cellphone) {
-        if (!validateString(cellphone)) {
-            logger.warn(appVar.MSG_MISSING_CELLPHONE_NUMBER);
-            return;
+        if (validateString(cellphone)) {
+            this.cellphone = cellphone;
         }
-        this.cellphone = cellphone;
     }
 
     /**
@@ -241,6 +214,7 @@ public class Participant implements Serializable {
         text.append("\n\tTitles (prefix): ").append(StringFunctions.presentation(this.prefixTitles));
         text.append("\n\tTitles (suffix): ").append(StringFunctions.presentation(this.suffixTitles));
         text.append("\n\tGender: ").append(this.gender.getDescription());
+        text.append("\n\tBirthdate: ").append(this.birthdate == null ? "" :this.birthdate);
         text.append("\n\tEmail: ").append(StringFunctions.presentation(this.email));
         text.append("\n\tTelephone home: ").append(StringFunctions.presentation(this.homeTelephone));
         text.append("\n\tCellphone: ").append(StringFunctions.presentation(this.cellphone)).append("\n");
