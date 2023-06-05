@@ -14,4 +14,11 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
         hibernate.format_sql: true
 
+# JWT properties
+bridger:
+  app:
+    jwtCookieName: bridger
+    jwtSecret: bridgerSecretKey
+    jwtExpirationMs: 86400000
+
 

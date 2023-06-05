@@ -3,8 +3,6 @@ package com.bridger.development;
 import com.bridger.development.model.Address;
 import com.bridger.development.model.Participant;
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
-import com.bridger.development.model.enums.Gender;
-import com.bridger.development.model.enums.UserRole;
 import com.bridger.development.repository.ParticipantRepository;
 import com.bridger.development.util.DateTimeFunctions;
 import com.bridger.development.util.validation.ParticipantValidation;
@@ -108,49 +106,6 @@ class BridgerJavaApplicationTests {
 		/* Calculating the age with an valid birthdate */
 		participant.setBirthdate(LocalDate.parse("16-12-1958", shortDateFormat));
 		assertTrue(ParticipantValidation.validateBirthdate(participant.getBirthdate()));
-	}
-
-	@Test
-	public void genderEnumTest() {
-		/* Searching and selecting the default gender */
-		Gender gender = Gender.getByCode(appVar.DEFAULT_GENDER);
-		assert gender != null;
-		assertEquals(appVar.DEFAULT_GENDER, gender.getCode());
-
-		/* Searching and selecting a gender based on it's code */
-		ArrayList<String> invalidCodes =new ArrayList<>();
-		invalidCodes.add(null);
-		invalidCodes.add("");
-		invalidCodes.add("XYZ");
-		invalidCodes.add("X");
-		invalidCodes.forEach((String test) -> {
-			assertNull(Gender.getByCode(null));
-		});
-		assertEquals(Gender.getByCode("M"), Gender.MALE);
-
-		/* On instantiation by conventional way the gender isn't set to the default setting. */
-		assertNull(new Participant().getGender());
-
-		/* On instantiation by configuration method the gender is set according the external default setting. */
-		Participant particpant = appVar.participant();
-		assertEquals(appVar.DEFAULT_GENDER, particpant.getGenderCode());
-
-		/* When erasing the gender by assigning null to it, its refused and the gender remains the same. */
-		particpant.setGender(null);
-		assertEquals(appVar.DEFAULT_GENDER, particpant.getGenderCode());
-
-		/* When assigning a new valid gender of a participant, the code of the gender is synchronized */
-		Gender newGender = Gender.FEMALE;
-		particpant.setGender(newGender);
-		assertEquals(newGender, particpant.getGender());
-		assertEquals(newGender.getCode(), particpant.getGenderCode());
-	}
-
-	@Test
-	public void userRoleEnumTest() {
-		UserRole role = UserRole.ADMIN;
-		assertNotEquals(role, UserRole.getDefaultSetting());
-		assertEquals(UserRole.getDefaultSetting(), UserRole.USER);
 	}
 
 	@Test

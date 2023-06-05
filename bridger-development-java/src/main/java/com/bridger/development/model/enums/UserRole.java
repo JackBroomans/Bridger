@@ -19,7 +19,9 @@ public enum UserRole {
      * The default setting is immutable, so the default setting can be returned immediately.<br>
      * @return The default user role which is UserRole.USER.
      */
-    public static UserRole getDefaultSetting() { return UserRole.USER; }
+    public static UserRole getDefaultSetting() {
+        return UserRole.USER;
+    }
 
     /**
      * <strong>toString()</strong><br>
