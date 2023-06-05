@@ -14,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 /**
  * <strong>SpringSecurityConfig</strong><br>
- * Configuration class for the Spring security settings for the 'Spring WebSecurity' practice.
+ * Configuration-class Where the SpringBoot security settings are kept
  */
 @Configuration
 @EnableWebSecurity
@@ -39,6 +39,12 @@ public class SpringSecurityConfig {
         return http.build();
     }
 
+    /**
+     * <strong>userDetailsService<i>()</i></strong><br>
+     * Specifies the properties of a special <i>'in memory'</i>for system operations. These properties are handled by
+     * the Spring Security <i>InMemoryUserDetailsManager</i> and are fetched from the external configuration settings.
+     * @return The user who is used as default (system) user in 'In Memory' operations.
+     */
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         UserDetails user = User.withUsername(appVar.PREDEFINED_USER_NAME)

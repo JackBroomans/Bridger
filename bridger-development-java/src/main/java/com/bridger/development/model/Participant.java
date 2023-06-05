@@ -188,19 +188,6 @@ public class Participant implements Serializable {
         }
     }
 
-    /**
-     * <strong>composeFullName()</strong><br>
-     * Assembles the individual elements of the name to one string formatted which is commonly (readable) used. <br>
-     * @return The composed name.
-     */
-    public String composeFullName() {
-        return (validateString(this.prefixTitles) ? this.prefixTitles : "") +
-                (validateString(this.initials) ? " " + this.initials : "") +
-                (validateString(this.prefixes) ? " " + this.prefixes : "") +
-                (validateString(this.familyName) ? " " + this.familyName : " ") +
-                (validateString(this.suffixTitles) ? " " + this.suffixTitles : "");
-    }
-
     @Override
     public String toString() {
         StringBuilder text = new StringBuilder().append("Participant");
