@@ -1,6 +1,7 @@
 package com.bridger.development.repository;
 
 import com.bridger.development.model.Participant;
+import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,7 @@ public interface ParticipantRepository extends CrudRepository<Participant, Long>
     Participant findById(long id);
 
     Participant findByEmail(String email);
+
 
     /**
      * <strong>findByParticipantNumber(<i>String</i>)</strong><br>

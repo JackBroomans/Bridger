@@ -60,13 +60,13 @@ public class ParticipantController {
     }
 
     /**
-     * <strong>haalDeelnemerOpEmailAdres(<i>String</i>)</strong><br>
-     * Zoek een deelnemer op basis van het email-adress.<br>
-     * @param email Het email-adres van de deelnemer die wordt gezocht.
-     * @return De deelnemer met het betreffende email-adres
+     * <strong>getParticipantOnEmail<i>(String)</i></strong><br>
+     * Searches and fetches a participant base on the email-address<br>
+     * @param email The email-address of the participant.
+     * @return The participant
      */
     @GetMapping("/participant/email/{email}")
-    Participant haalDeelnemerOpEmailAdres(@PathVariable String email) {
+    Participant getParticipantOnEmail(@PathVariable String email) {
         return this.repository.findByEmail(email);
     }
 

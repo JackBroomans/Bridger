@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@ConfigurationProperties(prefix = "general")
 @PropertySource("classpath:appVar.yml")
+@ConfigurationProperties(prefix = "general")
 public class UtilityGeneral {
 
     /* Regulier expressies */

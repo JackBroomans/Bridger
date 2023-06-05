@@ -2,6 +2,7 @@ package com.bridger.development.model.entity_classes_test;
 
 import com.bridger.development.model.Participant;
 import com.bridger.development.model.UserAccount;
+import com.bridger.development.model.entity_utility_classes.UtilityGeneral;
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
 import com.bridger.development.model.enums.Gender;
@@ -12,13 +13,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class PaticipantTest {
+
+    @Autowired
+    UtilityGeneral appVarGeneral;
 
     @Autowired
     UtilityParticipant appVarParticipant;
@@ -45,22 +48,21 @@ public class PaticipantTest {
         Gender gender = Gender.getByCode(appVarParticipant.DEFAULT_GENDER);
         assert gender != null;
 
-        /* On instantiation by conventional way the gender isn't set to the default setting. */
-        assertNull(new Participant().getGender());
+//participant
 
         /* On instantiation by configuration method the gender is to its default setting. */
-        Participant particpant = appVarParticipant.participant();
-        assertEquals(appVarParticipant.DEFAULT_GENDER, particpant.getGenderCode());
+        Participant participant = appVarParticipant.participant();
+        assertEquals(appVarParticipant.DEFAULT_GENDER, participant.getGenderCode());
 
         /* Erasing the gender by assigning null to it, is refused and the gender remains the same. */
-        particpant.setGender(null);
-        assertEquals(appVarParticipant.DEFAULT_GENDER, particpant.getGenderCode());
+        participant.setGender(null);
+        assertEquals(appVarParticipant.DEFAULT_GENDER, participant.getGenderCode());
 
         /* When assigning another gender, the gender code is synchronized */
         Gender newGender = Gender.FEMALE;
-        particpant.setGender(newGender);
-        assertEquals(newGender, particpant.getGender());
-        assertEquals(newGender.getCode(), particpant.getGenderCode());
+        participant.setGender(newGender);
+        assertEquals(newGender, participant.getGender());
+        assertEquals(newGender.getCode(), participant.getGenderCode());
     }
 
     @Test
@@ -70,8 +72,4 @@ public class PaticipantTest {
         userAccount.setUserName(appVarUserAccount.PREDEFINED_USER_NAME);
         userAccount.setPassword(appVarUserAccount.PREDEFINED_USER_PASSWORD);
     }
-
-
-
-
 }

@@ -13,11 +13,14 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
+import static com.bridger.development.util.StringFunctions.validateString;
+
 /**
- * <strong>UtililityParticipant</strong><br>
- * Entity Utility Class for the Participant entity which injects all required external configuration, and all the
- * messages concerning the entity and extends the Participant entity with additional functionality.
+ * <strong>UtilityParticipant</strong><br>
+ * Extends the participant entity which and contains all applicable external configuration variables including
+ * entity class as part of the persistence layer.
  */
+
 @Configuration
 @PropertySource("classpath:appVar.yml")
 @ConfigurationProperties(prefix = "participant")
@@ -85,7 +88,7 @@ public class UtilityParticipant {
     }
 
     /**
-     * <strong>participant<i>()</i></strong>
+     * <strong>participant<i>()</i></strong><br>
      * To assign the default settings on instantiation of an entity class without using field assignments,
      * instantiation of an entity should be done by this method.
      * @return A new Participant, including the default settings.
@@ -112,5 +115,18 @@ public class UtilityParticipant {
 
         return LocalDateTime.now().format(dateFormat) +  "-" +
                 StringFunctions.addLeadingZeros(String.valueOf(new Random().nextInt(1000)), 3);
+    }
+
+    /**
+     * <strong>composeFullName()</strong><br>
+     * Assembles the individual elements of the name to one string formatted which is commonly (readable) used. <br>
+     * @return The composed name.
+     */
+    public String composeFullName(Participant participant) {
+        return (validateString(participant.getPrefixTitles()) ? participant.getPrefixTitles() : "") +
+                (validateString(participant.getInitials()) ? " " + participant.getInitials() : "") +
+                (validateString(participant.getPrefixes()) ? " " + participant.getPrefixes() : "") +
+                (validateString(participant.getFamilyName()) ? " " + participant.getFamilyName() : " ") +
+                (validateString(participant.getSuffixTitles()) ? " " + participant.getSuffixTitles() : "");
     }
 }

@@ -1,7 +1,9 @@
 package com.bridger.development.services;
 
 import com.bridger.development.model.Participant;
+import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.payload.response.destination_entities.ContactListAllParticipants;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,6 +11,9 @@ import java.util.List;
 
 @Service("participantsService")
 public class ParticipantService {
+
+    @Autowired
+    UtilityParticipant appVarUtilityParticipant;
 
     /**
      * <strong>getContactListParticipants<i>()</i></strong><br>
@@ -25,7 +30,7 @@ public class ParticipantService {
             contactList.add(counter, new ContactListAllParticipants());
             ContactListAllParticipants element = contactList.get(counter);
             element.setParticipantNumber(participants.get(counter).getParticipantNumber());
-            element.setFullName(participants.get(counter).composeFullName());
+            element.setFullName(appVarUtilityParticipant.composeFullName(participants.get(counter)));
             element.setEmail(participants.get(counter).getEmail());
             element.setTelephone(participants.get(counter).getHomeTelephone());
             element.setCellphone(participants.get(counter).getCellphone());
