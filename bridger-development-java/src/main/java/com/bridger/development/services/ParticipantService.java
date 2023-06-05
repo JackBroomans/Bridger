@@ -1,7 +1,7 @@
 package com.bridger.development.services;
 
 import com.bridger.development.model.Participant;
-import com.bridger.development.model.destination_entities.ContactListAllParticipants;
+import com.bridger.development.payload.response.destination_entities.ContactListAllParticipants;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

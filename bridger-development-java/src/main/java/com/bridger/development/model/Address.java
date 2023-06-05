@@ -1,10 +1,10 @@
 package com.bridger.development.model;
 
-import com.bridger.development.util.TekstFuncties;
-import com.bridger.development.util.Validations;
+import com.bridger.development.util.StringFunctions;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
  * Entity class which describes an address. Addresses are typical. This class contain also a method to assemble the
  * address elements for correspondency.
  */
-
+@Component
 @Entity
 @Table(name = "address")
 public class Address implements Serializable {
@@ -117,7 +117,7 @@ public class Address implements Serializable {
     }
 
     public void setCurrentActive(Boolean currentActive) {
-        currentActive = currentActive;
+        this.currentActive = currentActive;
     }
 
     /**
@@ -127,28 +127,24 @@ public class Address implements Serializable {
      * @return The for correspondence formatted address.
      */
     public String composeCorrespondenceAddress() {
-        StringBuilder text = new StringBuilder()
-                .append(Validations.validateString(this.street) ? this.street : "")
-                .append(Validations.validateString(this.houseNumber) ? " " + this.houseNumber : "").append("\n")
-                .append(Validations.validateString(this.postalcode) ? " " + this.postalcode : "")
-                .append(Validations.validateString(this.city) ? " " + this.city : " ");
-        return text.toString();
+        return (StringFunctions.validateString(this.street) ? this.street : "") +
+                (StringFunctions.validateString(this.houseNumber) ? " " + this.houseNumber : "") + "\n" +
+                (StringFunctions.validateString(this.postalcode) ? " " + this.postalcode : "") +
+                (StringFunctions.validateString(this.city) ? " " + this.city : " ");
     }
 
     @Override
     public String toString() {
-        StringBuilder text = new StringBuilder().append("Deelnemer");
-        text.append("\n\tIdentifier: ").append(this.id);
-        text.append("\n\tSequence: ").append(this.sequence == 0 ? "" : this.sequence);
-        text.append("\n\tParticipant Id: ").append(this.participantId);
-        text.append("\n\tStreet: ").append(TekstFuncties.presentatie(this.street));
-        text.append("\n\tHouse number: ").append(TekstFuncties.presentatie(this.houseNumber));
-        text.append("\n\tPostal code: ").append(TekstFuncties.presentatie(this.postalcode));
-        text.append("\n\tCity: ").append(TekstFuncties.presentatie(this.city));
-        text.append("\n\tCoutry: ").append(TekstFuncties.presentatie(this.country));
-        text.append("\n\tCurrent address: ")
-                .append(this.currentActive ? "ja" : "nee").append("\n");
-
-        return text.toString();
+        return "Deelnemer" +
+                "\n\tIdentifier: " + this.id +
+                "\n\tSequence: " + (this.sequence == 0 ? "" : this.sequence) +
+                "\n\tParticipant Id: " + this.participantId +
+                "\n\tStreet: " + StringFunctions.presentation(this.street) +
+                "\n\tHouse number: " + StringFunctions.presentation(this.houseNumber) +
+                "\n\tPostal code: " + StringFunctions.presentation(this.postalcode) +
+                "\n\tCity: " + StringFunctions.presentation(this.city) +
+                "\n\tCoutry: " + StringFunctions.presentation(this.country) +
+                "\n\tCurrent address: " +
+                (this.currentActive ? "ja" : "nee") + "\n";
     }
 }

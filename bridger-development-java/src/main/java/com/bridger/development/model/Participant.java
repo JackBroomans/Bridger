@@ -2,19 +2,19 @@ package com.bridger.development.model;
 
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.enums.Gender;
-import com.bridger.development.util.TekstFuncties;
+import com.bridger.development.util.StringFunctions;
 import jakarta.persistence.*;
-
-import static com.bridger.development.util.Validations.*;
-import static jakarta.persistence.GenerationType.IDENTITY;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.Period;
+
+import static com.bridger.development.util.StringFunctions.validateString;
+import static com.bridger.development.util.validation.ParticipantValidation.validateBirthdate;
+import static com.bridger.development.util.validation.ParticipantValidation.validateEmailAddressFormat;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
  * <strong>Participant</strong><br>
@@ -41,6 +41,9 @@ public class Participant implements Serializable {
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
     private long id;
+
+    @Column(name = "useraccount_id", nullable = false)
+    public long useracccountId;
 
     @Column(name = "participantnumber", nullable = false, unique = true)
     private String participantNumber;
@@ -84,10 +87,13 @@ public class Participant implements Serializable {
         return id;
     }
 
+    public void setUseracccountId(long useracccountId) {
+        this.useracccountId = useracccountId;
+    }
+
     public String getParticipantNumber() {
         return participantNumber;
     }
-
     public void setParticipantNumber(String participantNumber) {
         if (!validateString(participantNumber)) {
             logger.warn(appVar.MSG_MISSING_NUMBER);
@@ -99,7 +105,6 @@ public class Participant implements Serializable {
     public String getFamilyName() {
         return familyName;
     }
-
     public void setFamilyName(String familyName) {
         if (!validateString(familyName)) {
             logger.warn(appVar.MSG_MISSING_FAMILY_NAME);
@@ -111,7 +116,6 @@ public class Participant implements Serializable {
     public String getPrefixes() {
         return prefixes;
     }
-
     public void setPrefixes(String prefixes) {
         this.prefixes = prefixes;
     }
@@ -119,7 +123,6 @@ public class Participant implements Serializable {
     public String getSurNames() {
         return surNames;
     }
-
     public void setSurNames(String surNames) {
         if (!validateString(surNames)) {
             logger.warn(appVar.MSG_MISSING_SURNAMES);
@@ -131,7 +134,6 @@ public class Participant implements Serializable {
     public String getInitials() {
         return initials;
     }
-
     public void setInitials(String initials) {
         this.initials = initials;
     }
@@ -139,7 +141,6 @@ public class Participant implements Serializable {
     public String getPrefixTitles() {
         return prefixTitles;
     }
-
     public void setPrefixTitles(String prefixTitles) {
         this.prefixTitles = prefixTitles;
     }
@@ -147,7 +148,6 @@ public class Participant implements Serializable {
     public String getSuffixTitles() {
         return suffixTitles;
     }
-
     public void setSuffixTitles(String suffixTitles) {
         this.suffixTitles = suffixTitles;
     }
@@ -155,7 +155,6 @@ public class Participant implements Serializable {
     public Gender getGender() {
         return this.gender;
     }
-
     public void setGender(Gender gender) {
         if (gender != null) {
             this.gender = gender;
@@ -168,7 +167,6 @@ public class Participant implements Serializable {
     public String getGenderCode() {
         return this.genderCode;
     }
-
     public void setGenderCode(String genderCode) {
         this.genderCode = genderCode;
     }
@@ -176,7 +174,6 @@ public class Participant implements Serializable {
     public LocalDate getBirthdate() {
         return birthdate;
     }
-
     public void setBirthdate(LocalDate birthdate) {
         if (validateBirthdate(birthdate)) {
             this.birthdate = birthdate;
@@ -186,7 +183,6 @@ public class Participant implements Serializable {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         if (!validateString(email)) {
             logger.warn(appVar.MSG_MISSING_EMAIL_ADDRESS);
@@ -204,7 +200,6 @@ public class Participant implements Serializable {
     public String getHomeTelephone() {
         return homeTelephone;
     }
-
     public void setHomeTelephone(String homeTelephone) {
         this.homeTelephone = homeTelephone;
     }
@@ -212,7 +207,6 @@ public class Participant implements Serializable {
     public String getCellphone() {
         return cellphone;
     }
-
     public void setCellphone(String cellphone) {
         if (!validateString(cellphone)) {
             logger.warn(appVar.MSG_MISSING_CELLPHONE_NUMBER);
@@ -220,14 +214,6 @@ public class Participant implements Serializable {
         }
         this.cellphone = cellphone;
     }
-
-//    public com.befrank.casedeveloperjava.model.ParticipantPremium getParticipantPremium() {
-//        return ParticipantPremium;
-//    }
-//
-//    public void setParticipantPremium(com.befrank.casedeveloperjava.model.ParticipantPremium participantPremium) {
-//        this.ParticipantPremium = participantPremium;
-//    }
 
     /**
      * <strong>composeFullName()</strong><br>
@@ -242,35 +228,22 @@ public class Participant implements Serializable {
                 (validateString(this.suffixTitles) ? " " + this.suffixTitles : "");
     }
 
-    /**
-     * <strong>calculateAge()</strong><br>
-     * Calculates the age of a participant based on the date of birth.<br>
-     * @return The age of the participant.
-     */
-    public int calculateAge() {
-        if (this.birthdate == null) {
-            logger.warn(appVar.MSG_AGE_CALCULATION_NOT_POSSIBLE);
-            return 0;
-        }
-        return Period.between(this.birthdate, LocalDate.now()).getYears();
-    }
-
     @Override
     public String toString() {
         StringBuilder text = new StringBuilder().append("Participant");
 
         text.append("\n\tId: ").append(this.id);
-        text.append("\n\tParticipant number: ").append(TekstFuncties.presentatie(this.participantNumber));
-        text.append("\n\tFamilyname: ").append(TekstFuncties.presentatie(this.familyName));
-        text.append("\n\tPrefixes: ").append(TekstFuncties.presentatie(this.prefixes));
-        text.append("\n\tSurnames: ").append(TekstFuncties.presentatie(this.surNames));
-        text.append("\n\tInitials: ").append(TekstFuncties.presentatie(this.initials));
-        text.append("\n\tTitles (prefix): ").append(TekstFuncties.presentatie(this.prefixTitles));
-        text.append("\n\tTitles (suffix): ").append(TekstFuncties.presentatie(this.suffixTitles));
+        text.append("\n\tParticipant number: ").append(StringFunctions.presentation(this.participantNumber));
+        text.append("\n\tFamilyname: ").append(StringFunctions.presentation(this.familyName));
+        text.append("\n\tPrefixes: ").append(StringFunctions.presentation(this.prefixes));
+        text.append("\n\tSurnames: ").append(StringFunctions.presentation(this.surNames));
+        text.append("\n\tInitials: ").append(StringFunctions.presentation(this.initials));
+        text.append("\n\tTitles (prefix): ").append(StringFunctions.presentation(this.prefixTitles));
+        text.append("\n\tTitles (suffix): ").append(StringFunctions.presentation(this.suffixTitles));
         text.append("\n\tGender: ").append(this.gender.getDescription());
-        text.append("\n\tEmail: ").append(TekstFuncties.presentatie(this.email));
-        text.append("\n\tTelephone home: ").append(TekstFuncties.presentatie(this.homeTelephone));
-        text.append("\n\tCellphone: ").append(TekstFuncties.presentatie(this.cellphone)).append("\n");
+        text.append("\n\tEmail: ").append(StringFunctions.presentation(this.email));
+        text.append("\n\tTelephone home: ").append(StringFunctions.presentation(this.homeTelephone));
+        text.append("\n\tCellphone: ").append(StringFunctions.presentation(this.cellphone)).append("\n");
 
         return text.toString();
     }

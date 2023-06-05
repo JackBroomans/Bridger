@@ -1,7 +1,9 @@
 package com.bridger.development;
 
+import com.bridger.development.model.Participant;
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.repository.ParticipantRepository;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -13,6 +15,11 @@ public class CaseDeveloperJavaControlerTest {
 
     @Autowired
     UtilityParticipant appVar;
+
+    @Test
+    public void participantControllerTest() {
+
+    }
 
 //    @Test
 //    public void berekenJaarlijksePremieTest() {

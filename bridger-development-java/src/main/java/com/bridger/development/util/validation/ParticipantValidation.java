@@ -1,6 +1,7 @@
-package com.bridger.development.util;
+package com.bridger.development.util.validation;
 
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
+import com.bridger.development.util.DateTimeFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,33 +26,23 @@ import java.util.regex.PatternSyntaxException;
  *         <strong>validateEmailAddress()</strong>
  *     </li>
  *     <li>
- *         <strong>vaildateParticipantNumber()</strong>
+ *         <strong>validateParticipantNumber()</strong>
  *     </li>
  * </ul>
  */
 @Component
-public class Validations {
-    private static final Logger logger = LoggerFactory.getLogger(Validations.class);
+public class ParticipantValidation {
+    private static final Logger logger = LoggerFactory.getLogger(ParticipantValidation.class);
 
     private static UtilityParticipant appVar;
 
     @Autowired
-    public Validations(UtilityParticipant appVar) {
-        Validations.appVar = appVar;
+    public ParticipantValidation(UtilityParticipant appVar) {
+        ParticipantValidation.appVar = appVar;
     }
 
     /**
-     * <strong>validateString</strong>(<i>String</i>)<br>
-     * Checks if a string isn't null or empty or contains only whitespaces.<br>
-     * @param text The String to be validated.
-     * @return True if the string is validates and false when it's not specified.
-     */
-    public static boolean validateString(String text) {
-        return text != null && !text.isBlank();
-    }
-
-    /**
-     * <strong>valideerGeboortedatum</strong>(<i>LocalDate</i>)<br>
+     * <strong>validateBirthdate(<i>LocalDate</i>)</strong><br>
      * Checks if a birthdate is specified and matches the (external configured) requirements of the age boundaries.
      * @param birthdate The birthdate to be validated.
      * @return True if the birthdate os specified and matches the requirements, otherwise False.
@@ -62,18 +53,18 @@ public class Validations {
                 logger.warn(appVar.MSG_MISSING_BIRTHDATE);
                 return false;
             }
-            int leeftijd = DatumTijdFuncties.getLeeftijd(birthdate);
+            int leeftijd = new DateTimeFunctions().calculateAge(birthdate);
             return leeftijd >= appVar.MIN_AGE_PARTICIPANT &&
                     leeftijd <= appVar.MAX_AGE_PARTICIPANT;
         }
         catch(DateTimeParseException ex) {
-            logger.warn("Invalid date format.");
+            logger.warn(appVar.MSG_MISSING_BIRTHDATE);
             return false;
         }
     }
 
     /**
-     * <strong>validateEmailAddressFormat</strong>(<i>String</i>)<br>
+     * <strong>validateEmailAddressFormat(<i>String</i></strong>)<br>
      * Validates the format of a given email-address against the external variable of the regular expression of the
      * email-address.
      * @param emailAddress The email-address to be validated.

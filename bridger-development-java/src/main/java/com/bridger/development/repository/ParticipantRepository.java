@@ -11,7 +11,6 @@ import java.util.List;
 public interface ParticipantRepository extends CrudRepository<Participant, Long> {
     List<Participant> findAll();
 
-
     Participant findById(long id);
 
     Participant findByEmail(String email);

@@ -3,6 +3,14 @@ general:
   short_date_format: dd-MM-yyyy
   short_date_time_format: dd-MM-yyyy hh:mm:ss
 
+  # Messages
+  age_calculation_not_possible: Age calculation not possible because of missing birthdate.
+
+security:
+  user.name: JamieOliver
+  user.password: JamieOliver@2023
+  user.roles: ADMIN USER
+
 participant:
   # Regular expressions
   regex_email_address: ^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$
@@ -26,7 +34,19 @@ participant:
   invalid_date_format: Invalid date format.
   invalid_email_address: Invalid email format.
   invalid_regular_expression_email: Invalid regular expression, can't check the email address format.
-  age_calculation_not_possible: Age calculation not possible because of missing birthdate.
+
+user-account:
+  # Regular expressions
+  regex_user_name: ^[a-zA-Z]{1}([a-zA-Z0-9_-]{4,16})$
+
+  # Password rules
+  login_attempts: 4
+  days_password_valid: 90
+  maximum_days_not_used: 30
+
+  # Messages
+  invalid_username_format: Missing- or invalid format username.
+  date_in_past: Past date is not allowed.
 
 address:
   # Default settings

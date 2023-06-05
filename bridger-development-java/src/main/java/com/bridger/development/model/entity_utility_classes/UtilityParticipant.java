@@ -2,6 +2,8 @@ package com.bridger.development.model.entity_utility_classes;
 
 import com.bridger.development.model.Participant;
 import com.bridger.development.model.enums.Gender;
+import com.bridger.development.util.StringFunctions;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +13,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
+/**
+ * <strong>UtililityParticipant</strong><br>
+ * Entity Utility Class for the Participant entity which injects all required external configuration, and all the
+ * messages concerning the entity and extends the Participant entity with additional functionality.
+ */
 @Configuration
 @PropertySource("classpath:appVar.yml")
 @ConfigurationProperties(prefix = "participant")
@@ -73,8 +80,16 @@ public class UtilityParticipant {
     @Value("${age_calculation_not_possible}")
     public String MSG_AGE_CALCULATION_NOT_POSSIBLE;
 
-    /* To assign the default settings on instantiation of an entity class without using a field assignment of the
-     external variables, instantiation of an entity should be done by the method in the configuration class. */
+    @PostConstruct
+    public void init() {
+    }
+
+    /**
+     * <strong>participant<i>()</i></strong>
+     * To assign the default settings on instantiation of an entity class without using field assignments,
+     * instantiation of an entity should be done by this method.
+     * @return A new Participant, including the default settings.
+     */
     public Participant participant() {
         Participant participant = new Participant();
         participant.setGender(Gender.getByCode(this.DEFAULT_GENDER));
@@ -92,12 +107,10 @@ public class UtilityParticipant {
      * </ol>
      * @return The generated participant number.
      */
-    private String generateParticipantNumber() {
+    public String generateParticipantNumber() {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyMMdd-ssSSS");
 
-        String builder = LocalDateTime.now().format(dateFormat) +
-                "-" +
-                new Random().nextInt(1000);
-        return builder;
+        return LocalDateTime.now().format(dateFormat) +  "-" +
+                StringFunctions.addLeadingZeros(String.valueOf(new Random().nextInt(1000)), 3);
     }
 }

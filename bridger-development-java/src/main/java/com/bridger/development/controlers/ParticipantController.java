@@ -1,10 +1,11 @@
 package com.bridger.development.controlers;
 
 import com.bridger.development.model.Participant;
-import com.bridger.development.model.destination_entities.ContactListAllParticipants;
+import com.bridger.development.payload.response.destination_entities.ContactListAllParticipants;
 import com.bridger.development.repository.ParticipantRepository;
 import com.bridger.development.services.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.NoSuchElementException;
 @RestController
 @RequestMapping("/bridger")
 @CrossOrigin(origins = "http://localhost:4200")
+@EnableWebSecurity
 public class ParticipantController {
 
     @Autowired
@@ -29,7 +31,7 @@ public class ParticipantController {
      * <strong>getAllParticipants<i>()</i></strong><br>
      * @return A list in JSON-format containing all 'Participants' instances.
      */
-    @RequestMapping("/participants")
+    @RequestMapping("/participant")
     public @ResponseBody
     List<Participant> getAllParticipants() {
         return repository.findAll();
@@ -39,7 +41,7 @@ public class ParticipantController {
      * <strong>getContactListAllParticipants<i>()</i></strong><br>
      * @return A list in JSON-format containing all 'ContactListAllParticipants' instances.
      */
-    @RequestMapping("participants/contactlist")
+    @RequestMapping("participant/contactlist")
     public @ResponseBody
     List<ContactListAllParticipants> getContactListAllParticipants() {
         return service.getContactListParticipants(repository.findAll());
@@ -52,7 +54,7 @@ public class ParticipantController {
      * @return The instance of the requested 'Participant' object
      * @throws NoSuchElementException when the participant isn't found.
      */
-    @GetMapping("/participants/id/{id}")
+    @GetMapping("/participant/id/{id}")
     Participant getParticipantOnId(@PathVariable long id) {
         return this.repository.findById(id);
     }

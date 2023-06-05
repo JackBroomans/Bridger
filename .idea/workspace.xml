@@ -4,107 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#13 -&gt; Generating unique participant number.">
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/BridgerJavaApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/configuration/SpringSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/ParticipantController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/ParticipantPremium.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/destination_entities/ContactListAllParticipants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityParticipant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/Gender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/ContributionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/ParticipantRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/services/ParticipantService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/DatumTijdFuncties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/TekstFuncties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/util/Validations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/appVar.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/CaseDeveloperJavaControlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/test/resources/appvar.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/befrank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bridger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#36 Angular frontend component add-useraccount-component, gewijzingd in user-account-component.">
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/enum_test/enumTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/.browserslistrc" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/.browserslistrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/karma.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/model/deelnemer.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/model/deelnemer.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/model/deelnemer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/model/deelnemer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/assets/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/assets/.gitkeep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/polyfills.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/src/test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-frontend/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-frontend/tsconfig.spec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/case-developer-java.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/BridgerJavaApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/controlers/ParticipantController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/model/Address.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/model/Participant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/model/ParticipantPremium.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/model/destination_entities/ContactListAllParticipants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityParticipant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/model/enums/Gender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/repository/ContributionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/repository/ParticipantRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/services/ParticipantService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/util/DatumTijdFuncties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/util/TekstFuncties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/java/com/bridger/development/util/Validations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/appVar.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/main/resources/sql-scripts/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/java/com/bridger/development/CaseDeveloperJavaControlerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/src/test/resources/appvar.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/case-developer-java/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/entity_classes_test/PaticipantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/PaticipantTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/entity_classes_test/UserAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/UserAccountTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logging/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging/app.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="spring-beans.schema" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -129,6 +36,19 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="907f9bff-12e5-45f7-a0d4-a3d034636c32" />
+        <option name="url" value="https://github.com/JackBroomans/befrank.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -159,8 +79,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TODO_SCOPE": "All Places",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/jackb/IdeaProjects/bridger",
+    "last_opened_file_path": "C:/Users/jackb/IdeaProjects/bridger/bridger-development-java/src/main/resources/sql-scripts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
@@ -171,9 +92,9 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.6678161",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.customizations",
     "spring.configuration.checksum": "a3ed0584f51aa0f714d056c5d8a86376",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "C:\\Users\\jackb\\IdeaProjects\\bridger\\bridger-development-frontend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -192,6 +113,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jackb\IdeaProjects\bridger\bridger-development-java\src\main\resources\sql-scripts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jackb\IdeaProjects\befrank\case-developer-java\src\main\resources\sql-scripts" />
       <recent name="C:\Users\jackb\IdeaProjects\befrank\case-developer-java\src\main\resources\sql-scrips" />
@@ -200,11 +124,11 @@
       <recent name="C:\Users\Jack\IdeaProjects\case-developer\befrank\case-developer-java\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.bridger.development.util.validation" />
       <recent name="com.befrank.casedeveloperjava.model.entity_utility_classes" />
       <recent name="com.befrank.casedeveloperjava.controlers" />
       <recent name="com.befrank.casedeveloperjava.repository" />
       <recent name="com.befrank.casedeveloperjava.util" />
-      <recent name="com.befrank.casedeveloperjava.model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -214,43 +138,50 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BridgerJavaApplication (1)">
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="BridgerJavaApplicationRepositoryTest.deelnemerRepositorytest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.enumTests.userRoleEnumTest">
+    <configuration name="PaticipantTest.setParticipantGendeerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bridger-backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.bridger.development.*" />
+          <option name="PATTERN" value="com.bridger.development.model.entity_classes_test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.bridger.development" />
-      <option name="MAIN_CLASS_NAME" value="com.bridger.development.BridgerJavaApplicationRepositoryTest" />
-      <option name="METHOD_NAME" value="deelnemerRepositorytest" />
+      <option name="PACKAGE_NAME" value="com.bridger.development.model.entity_classes_test" />
+      <option name="MAIN_CLASS_NAME" value="com.bridger.development.model.entity_classes_test.PaticipantTest" />
+      <option name="METHOD_NAME" value="setParticipantGendeerTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BridgerJavaApplicationTests.participantNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="enumTests.genderEnumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bridger-backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.bridger.development.*" />
+          <option name="PATTERN" value="com.bridger.development.model.enum_test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.bridger.development" />
-      <option name="MAIN_CLASS_NAME" value="com.bridger.development.BridgerJavaApplicationTests" />
-      <option name="METHOD_NAME" value="participantNumberTest" />
+      <option name="PACKAGE_NAME" value="com.bridger.development.model.enum_test" />
+      <option name="MAIN_CLASS_NAME" value="com.bridger.development.model.enum_test.enumTests" />
+      <option name="METHOD_NAME" value="genderEnumTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="enumTests.userRoleEnumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bridger-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bridger.development.model.enum_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bridger.development.model.enum_test" />
+      <option name="MAIN_CLASS_NAME" value="com.bridger.development.model.enum_test.enumTests" />
+      <option name="METHOD_NAME" value="userRoleEnumTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -267,16 +198,15 @@
     <configuration name="Angular Application (case-developer-frontend)" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
+    <configuration name="app.component.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/bridger/bridger-development-frontend/src/app/app.component.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/bridger/bridger-development-frontend/src/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="BridgerJavaApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="bridger-backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.bridger.development.BridgerJavaApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BridgerJavaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="bridger-backend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.befrank.casedeveloperjava.BridgerJavaApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -293,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BridgerJavaApplicationTests.participantNumberTest" />
-        <item itemvalue="JUnit.BridgerJavaApplicationRepositoryTest.deelnemerRepositorytest" />
-        <item itemvalue="HTTP Request.generated-requests | #3" />
-        <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="JUnit.enumTests.userRoleEnumTest" />
+        <item itemvalue="JUnit.enumTests.genderEnumTest" />
+        <item itemvalue="JUnit.PaticipantTest.setParticipantGendeerTest" />
+        <item itemvalue="JavaScript Debug.app.component.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -358,7 +288,15 @@
       <workItem from="1685193264042" duration="10664000" />
       <workItem from="1685350906427" duration="1222000" />
       <workItem from="1685439624023" duration="6331000" />
-      <workItem from="1685466088482" duration="8368000" />
+      <workItem from="1685466088482" duration="9362000" />
+      <workItem from="1685514673195" duration="21625000" />
+      <workItem from="1685570129419" duration="282000" />
+      <workItem from="1685600451450" duration="20135000" />
+      <workItem from="1685649832066" duration="12082000" />
+      <workItem from="1685687239684" duration="15122000" />
+      <workItem from="1685733238220" duration="5147000" />
+      <workItem from="1685785113204" duration="18343000" />
+      <workItem from="1685947320612" duration="7526000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -542,7 +480,70 @@
       <option name="project" value="LOCAL" />
       <updated>1685443558464</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="#13 -&gt; Base configuration of WebSecurity added">
+      <created>1685485177446</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1685485177446</updated>
+    </task>
+    <task id="LOCAL-00028" summary="#38 -&gt; User Account Utility klasse en Security configuratie klasse toegevoegd.">
+      <created>1685521539280</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1685521539281</updated>
+    </task>
+    <task id="LOCAL-00029" summary="#40 -&gt; Enumeratie UserRole toegevoegd.">
+      <created>1685532415554</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1685532415554</updated>
+    </task>
+    <task id="LOCAL-00030" summary="#39 en #42 -&gt; Tabel UserAccount aangemaakt inclusief Hibernete annotaties.">
+      <created>1685626967664</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1685626967664</updated>
+    </task>
+    <task id="LOCAL-00031" summary="#45 Unit test voor functie 'addLeadingZero's'">
+      <created>1685701073677</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1685701073677</updated>
+    </task>
+    <task id="LOCAL-00032" summary="#45 Unit test voor functie 'addLeadingZero's'">
+      <created>1685702446233</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1685702446233</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Angular settings altered and generated new type-scripts.">
+      <created>1685738518285</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1685738518285</updated>
+    </task>
+    <task id="LOCAL-00034" summary="#36 Angular frontend componenten en (klasse) model '_user-account_' opgezet; add-user-component, user-account-list, user-account-details.">
+      <created>1685832264415</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1685832264415</updated>
+    </task>
+    <task id="LOCAL-00035" summary="#36 Angular frontend component add-useraccount-component, gewijzingd in user-account-component.">
+      <created>1685950194977</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1685950194977</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,6 +566,32 @@
         <entry key="94b75805-8e57-49a4-9769-08ebfb48e07b" value="TOOL_WINDOW" />
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="develop" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="94b75805-8e57-49a4-9769-08ebfb48e07b">
@@ -580,7 +607,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="model" />
+                        <option value="develop" />
                       </list>
                     </value>
                   </entry>
@@ -594,14 +621,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="enumeratie Geslacht incl. unit-tests toegevoegd" />
-    <MESSAGE value="'Initial setup'" />
-    <MESSAGE value="Entiteit Deelnemer afgerond incl. unit-testen" />
-    <MESSAGE value="YAML-script voor docker MySQL database.&#10;SQL-script voor aanmaken database." />
-    <MESSAGE value="JPA connectie tussen Domein- en Database-model gelegd voor tabel 'deelnemer'" />
-    <MESSAGE value="Entiteit adres toegevoegd en JPA annotaties aangepast" />
-    <MESSAGE value="Datasource voor MySql (casebefrank) ingesteld. &#10;SQL-script (data) aangepast en geïntegreerd.&#10;H2 in POM uitgeschakeld en MySQL connector toegevoegd." />
-    <MESSAGE value="Fundament REST-setservices geconfigureerd" />
     <MESSAGE value="Angular klasse 'Deelnemer' toegevoegd." />
     <MESSAGE value="IntelliJ configuratie" />
     <MESSAGE value="Unit test voor CRUD-bewerking toegevoegd.&#10;JPA annoties Deelnemer afgerond.&#10;Deelnemer reository testen uitgebreid." />
@@ -619,15 +638,28 @@
     <MESSAGE value="#33 -&gt; Introduction Base Service and introduction mapstruct" />
     <MESSAGE value="#33 -&gt; Base service framework introduced" />
     <MESSAGE value="#13 -&gt; Generating unique participant number." />
-    <option name="LAST_COMMIT_MESSAGE" value="#13 -&gt; Generating unique participant number." />
+    <MESSAGE value="#13 -&gt; Base configuration of WebSecurity added" />
+    <MESSAGE value="#38 -&gt; User Account Utility klasse en Security configuratie klasse toegevoegd." />
+    <MESSAGE value="#40 -&gt; Enumeratie UserRole toegevoegd." />
+    <MESSAGE value="#39 en #42 -&gt; Tabel UserAccount aangemaakt inclusief Hibernete annotaties." />
+    <MESSAGE value="#45 Unit test voor functie 'addLeadingZero's'" />
+    <MESSAGE value="Angular settings altered and generated new type-scripts." />
+    <MESSAGE value="#36 Angular frontend componenten en (klasse) model '_user-account_' opgezet; add-user-component, user-account-list, user-account-details." />
+    <MESSAGE value="#36 Angular frontend component add-useraccount-component, gewijzingd in user-account-component." />
+    <option name="LAST_COMMIT_MESSAGE" value="#36 Angular frontend component add-useraccount-component, gewijzingd in user-account-component." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java</url>
-          <line>130</line>
+          <line>152</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationRepositoryTest.java</url>
+          <line>140</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

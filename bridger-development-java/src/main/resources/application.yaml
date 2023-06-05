@@ -14,9 +14,11 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
         hibernate.format_sql: true
 
-# Base security settings
-  security:
-    user:
-      name: JamieOliver
-      password: JamieOliver@2023
+# JWT properties
+bridger:
+  app:
+    jwtCookieName: bridger
+    jwtSecret: bridgerSecretKey
+    jwtExpirationMs: 86400000
+
 

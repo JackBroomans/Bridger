@@ -1,5 +1,6 @@
 package com.bridger.development.model.enums;
 
+import com.bridger.development.util.StringFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,7 +8,7 @@ import java.security.InvalidParameterException;
 
 /**
  * <strong>Gender</strong><br>
- * Enumerates the genders which can be assigned to a person.
+ * Enumerates the genders which can be assigned to a participant.
  */
 public enum Gender {
     MALE("M", "Male"),
@@ -17,8 +18,8 @@ public enum Gender {
 
     private static final Logger logger = LoggerFactory.getLogger(Gender.class);
 
-    private String code;
-    private String description;
+    private final String code;
+    private final String description;
 
     Gender(String code, String description) {
         this.code = code;
@@ -34,7 +35,7 @@ public enum Gender {
     }
 
     /**
-     * <strong>getByCode(<i>String</i></strong><br>
+     * <strong>getByCode(<i>String</i>)</strong><br>
      * Search and selects a gender based on a given code.<br>
      * @return The gender with the given code, if not found, <null> will be returned.
      */
@@ -61,10 +62,10 @@ public enum Gender {
      */
     @Override
     public String toString() {
-        return description = "Gender" +
-                "\n\tElement: " + this.name() +
-                "\n\tCode: " + this.code +
-                "\n\tDescription: " + this.description;
+        return  "Gender" +
+                "\n\tElement: " + StringFunctions.presentation(this.name()) +
+                "\n\tCode: " + StringFunctions.presentation(this.code) +
+                "\n\tDescription: " + StringFunctions.presentation(this.description);
     }
 }
 
