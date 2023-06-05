@@ -5,16 +5,20 @@ import { HttpClientModule } from '@angular/common/http';
 // import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { AddUserAccountComponent } from './components/add-user-account/add-user-account.component';
-import { BridgerDetailsComponent } from './components/user-account-details/user-account-details.component';
-import { BridgerListComponent } from './components/user-account-list/user-account-list.component';
+import { UserAccountAddComponent } from './components/user-account-add/user-account-add.component';
+import {
+  UserAccountDetailsComponent
+} from './components/user-account-details/user-account-details.component';
+import {
+  UserAccountListComponent
+} from './components/user-account-list/user-account-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddUserAccountComponent,
-    BridgerDetailsComponent,
-    BridgerListComponent
+    UserAccountAddComponent,
+    UserAccountDetailsComponent,
+    UserAccountListComponent
   ],
   imports: [
     // BrowserModule,
