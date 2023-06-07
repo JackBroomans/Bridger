@@ -15,6 +15,7 @@ import java.util.List;
 @Repository
 public interface UseraccountRepository extends CrudRepository<UserAccount, Long> {
 
+    @Override
     List<UserAccount> findAll();
 
     UserAccount findById(long id);

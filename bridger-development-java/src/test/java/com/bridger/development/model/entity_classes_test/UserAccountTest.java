@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
@@ -29,7 +30,7 @@ public class UserAccountTest {
         /* A new user account instance should have at least USER-rights  */
         UserAccount account = utilityUserAccount.userAccount();
         UserRole role = utilityUserRole.userRole();
-        assertTrue(role.getRole().name() == Roles.USER.name());
+        assertSame(role.getRole().name(), Roles.USER.name());
 
 
         /* Find out which roles(s) ar assigned to the user */

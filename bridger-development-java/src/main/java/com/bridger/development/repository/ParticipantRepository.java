@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface ParticipantRepository extends CrudRepository<Participant, Long> {
+    @Override
     List<Participant> findAll();
 
     Participant findById(long id);

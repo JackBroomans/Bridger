@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#41 Geboortedatum ontbreekt in toString() van participant">
+    <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#36 Many-to-many relationship between account and role." />
+    <list id="ac9861bb-f241-412c-bbaa-7217a4d21c95" name="Compilation error" comment="">
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityUserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/UseraccountRoleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/UserAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/UserAccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" afterDir="false" />
@@ -256,6 +260,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="" />
+      <changelist id="ac9861bb-f241-412c-bbaa-7217a4d21c95" name="Compilation error" comment="" />
       <created>1681370701951</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -318,7 +323,10 @@
       <workItem from="1685733238220" duration="5147000" />
       <workItem from="1685785113204" duration="18343000" />
       <workItem from="1685947320612" duration="17672000" />
-      <workItem from="1685985715941" duration="4540000" />
+      <workItem from="1685985715941" duration="5534000" />
+      <workItem from="1686035150823" duration="19020000" />
+      <workItem from="1686074798765" duration="6487000" />
+      <workItem from="1686119415199" duration="2582000" />
     </task>
     <task id="LOCAL-00001" summary="enumeratie Geslacht incl. unit-tests toegevoegd">
       <created>1681384068550</created>
@@ -579,7 +587,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685964111509</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="#41 Geboortedatum ontbreekt in toString() van participant">
+      <created>1685990572508</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1685990572508</updated>
+    </task>
+    <task id="LOCAL-00039" summary="#36 Many-to-many relationship between account and role.">
+      <created>1686121874786</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1686121874786</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -657,7 +679,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Unit test voor CRUD-bewerking toegevoegd.&#10;JPA annoties Deelnemer afgerond.&#10;Deelnemer reository testen uitgebreid." />
     <MESSAGE value="Repository 'Deelnemer' uitgebreid met methode findByDeelnemersnummer()" />
     <MESSAGE value="Database aanpassingen (float-&gt;double)&#10;One-to-one deelnemer-&gt;premie unidirectioneel gemaakt.&#10;CRUD Unit-testen toegevoegd (Deelnemer)" />
     <MESSAGE value="Repository premieDeelnemer aangemaakt.&#10;Externe configuratie voor Deelnemer geïmplementeerd.&#10;app,Component html- en ccs-bestanden aangepast." />
@@ -682,7 +703,8 @@
     <MESSAGE value="#36 Angular frontend component add-useraccount-component, gewijzingd in user-account-component." />
     <MESSAGE value="#46 Unittest voor enumerator 'user roles' voltooid." />
     <MESSAGE value="#41 Geboortedatum ontbreekt in toString() van participant" />
-    <option name="LAST_COMMIT_MESSAGE" value="#41 Geboortedatum ontbreekt in toString() van participant" />
+    <MESSAGE value="#36 Many-to-many relationship between account and role." />
+    <option name="LAST_COMMIT_MESSAGE" value="#36 Many-to-many relationship between account and role." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

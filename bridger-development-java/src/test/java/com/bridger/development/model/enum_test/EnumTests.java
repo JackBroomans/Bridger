@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class enumTests {
+public class EnumTests {
 
     @Autowired
     private UtilityParticipant appVarParticipant;
