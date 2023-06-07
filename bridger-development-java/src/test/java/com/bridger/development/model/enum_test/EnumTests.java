@@ -30,9 +30,7 @@ public class EnumTests {
         invalidCodes.add("");
         invalidCodes.add("XYZ");
         invalidCodes.add("X");
-        invalidCodes.forEach((String test) -> {
-            assertNull(Gender.getByCode(null));
-        });
+        invalidCodes.forEach((String test) -> assertNull(Gender.getByCode(null)));
         assertEquals(Gender.getByCode("M"), Gender.MALE);
     }
 

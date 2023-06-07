@@ -61,7 +61,7 @@ public class UserAccount implements Serializable {
     private boolean isLocked;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "useraccount_id")
+    @JoinColumn(name = "id", referencedColumnName = "useraccountid")
     Participant participant;
 
     @ManyToMany(mappedBy= "accounts", fetch = FetchType.LAZY)
