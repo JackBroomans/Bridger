@@ -2,14 +2,31 @@ CREATE DATABASE IF NOT EXISTS casebefrank COLLATE latin1_general_cs;
 
 USE casebefrank;
 
+DROP PROCEDURE IF EXISTS sp_RolesOfParticipantById;
 DROP PROCEDURE IF EXISTS sp_SumInvestmentsParticipant;
 DROP PROCEDURE IF EXISTS sp_GetLastProvidedParticipantNumber;
 
 DROP TABLE IF EXISTS belegging;
 DROP TABLE IF EXISTS participantpremium;
+DROP TABLE IF EXISTS useraccountroles;
 DROP TABLE IF EXISTS address;
 DROP TABLE IF EXISTS participant;
 DROP TABLE IF EXISTS useraccount;
+DROP TABLE IF EXISTS userrole;
+
+CREATE TABLE useraccountroles (
+    userid BIGINT NOT NULL,
+    roleid BIGINT NOT NULL,
+    registrationdate DATE
+) ENGINE  = INNODB;
+CREATE UNIQUE INDEX iUserIdRole ON useraccountroles (userid, roleid);
+
+CREATE TABLE userrole
+(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    role VARCHAR(15) NOT NULL
+) ENGINE = INNODB;
+CREATE UNIQUE INDEX iRoleName ON userrole (role);
 
 CREATE TABLE useraccount
 (
@@ -25,10 +42,18 @@ CREATE TABLE useraccount
 ) ENGINE = INNODB;
 CREATE UNIQUE INDEX iUserName ON useraccount (username);
 
+# Establish many to many relationship between user account and user roles
+ALTER TABLE useraccountroles
+    ADD CONSTRAINT useraccount_role_id_fk
+        FOREIGN KEY (userid) REFERENCES useraccount (id) ON DELETE CASCADE;
+ALTER TABLE useraccountroles
+    ADD CONSTRAINT role_useraccount_id_fk
+        FOREIGN KEY (roleid) REFERENCES userrole (id) ON DELETE CASCADE;
+
 CREATE TABLE  participant
 (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    useraccount_id BIGINT NOT NULL,
+    useraccountid BIGINT NOT NULL,
     participantnumber VARCHAR(16)  NOT NULL,
     familyname VARCHAR(131) NOT NULL,
     prefixes VARCHAR(31),
@@ -49,7 +74,7 @@ CREATE INDEX iEmail ON participant (email);
 
 ALTER TABLE participant
     ADD CONSTRAINT participant_useraccount_id_fk
-    FOREIGN KEY (useraccount_id) REFERENCES useraccount (id) ON DELETE CASCADE;
+        FOREIGN KEY (useraccountid) REFERENCES useraccount (id) ON DELETE CASCADE;
 
 CREATE TABLE  address
 (
@@ -69,7 +94,7 @@ CREATE INDEX iPostalCode ON address (postalcode);
 
 ALTER TABLE address
     ADD CONSTRAINT address_participant_id_fk
-    FOREIGN KEY (participant_id) REFERENCES participant (id) ON DELETE CASCADE;
+        FOREIGN KEY (participant_id) REFERENCES participant (id) ON DELETE CASCADE;
 
 CREATE TABLE participantpremium
 (
@@ -85,7 +110,7 @@ CREATE INDEX iParticipantPremium ON participantpremium (participantid);
 
 ALTER TABLE participantpremium
     ADD CONSTRAINT participantpremium_participant_id_fk
-    FOREIGN KEY (participantid) REFERENCES participant (id) ON DELETE CASCADE;
+        FOREIGN KEY (participantid) REFERENCES participant (id) ON DELETE CASCADE;
 
 CREATE TABLE belegging
 (
@@ -98,12 +123,18 @@ CREATE TABLE belegging
 
 ALTER TABLE belegging
     ADD CONSTRAINT belegging_participant_id_fk
-    FOREIGN KEY (participant_id) REFERENCES participant (id) ON DELETE CASCADE;
+        FOREIGN KEY (participant_id) REFERENCES participant (id) ON DELETE CASCADE;
 
 CREATE INDEX iParticipantInvestment ON belegging (participant_id);
 
+# Population the database for test purposes
+# Roles
+INSERT INTO userrole (role) VALUES ('ADMIN');
+INSERT INTO userrole (role) VALUES ('MODERATOR');
+INSERT INTO userrole (role) VALUES ('SUPPORT');
+INSERT INTO userrole (role) VALUES ('USER');
 
-# User-accounts
+# User accounts
 INSERT INTO useraccount (username, password, dateregistered, datelastpasswordreset, loginattempts)
 VALUES ('Botje', '', '2023-06-01', '2023-06-01', 0);
 INSERT INTO useraccount (username, password, dateregistered, datelastpasswordreset, loginattempts)
@@ -111,17 +142,27 @@ VALUES ('PukP33', '', '2023-06-01', '2023-06-01', 0);
 INSERT INTO useraccount (username, password, dateregistered, datelastpasswordreset, loginattempts)
 VALUES ('Giraffe', '', '2023-06-01', '2023-06-01', 0);
 
+# Roles per User accounts
+INSERT INTO useraccountroles (userid, roleid, registrationdate)
+VALUES (1, 4, '23-06-06');
+INSERT INTO useraccountroles (userid, roleid, registrationdate)
+VALUES (2, 1, '23-06-06');
+INSERT INTO useraccountroles (userid, roleid, registrationdate)
+VALUES (2, 4, '23-06-06');
+INSERT INTO useraccountroles (userid, roleid, registrationdate)
+VALUES (3, 4, '23-06-06');
+
 # Participants
-INSERT INTO participant (useraccount_id, participantnumber, familyname, surnames, initials, prefixtitles, gendercode,
+INSERT INTO participant (useraccountid, participantnumber, familyname, surnames, initials, prefixtitles, gendercode,
                          birthdate, email, cellphone)
 VALUES (1, '220416-00732-834', 'Botje', 'Berend', 'B.', 'dhr.', 'M', '1978-04-16', 'b.botje@zeilboot.nl', '06-11223344');
 
-INSERT INTO participant(useraccount_id, participantnumber, familyname, prefixes, surnames, initials, prefixtitles, gendercode,
+INSERT INTO participant(useraccountid, participantnumber, familyname, prefixes, surnames, initials, prefixtitles, gendercode,
                         birthdate, email, cellphone)
 VALUES (2, '220416-17902-055', 'Petteflet', 'van de', 'Puk', 'P.', 'dhr.', 'M', '1933-11-23', 'petteflet@flatgebouw.nl',
         '06-55667788');
 
-INSERT INTO participant(useraccount_id, participantnumber, familyname, surnames, initials, gendercode, birthdate, email,
+INSERT INTO participant(useraccountid, participantnumber, familyname, surnames, initials, gendercode, birthdate, email,
                         hometelephone, cellphone)
 VALUES (3, '220416-21495-701', 'Dap', 'Dikkertje', 'D.', 'M', '2001-05-03', 'dikkertje@dierentuin.nl', '020-12345678',
         '06-9911223344');
@@ -168,6 +209,16 @@ INSERT INTO belegging(participant_id, instituut, fonds, huidige_waarde)
 VALUES (3, 'KBC', 'Life S Defensive Balanced Responsible Investing Comfort', 10688);
 INSERT INTO belegging(participant_id, instituut, fonds, huidige_waarde)
 VALUES (3, 'Triodos', 'Triodos Global Equities', 466);
+
+# Get the roles which are assigned to a specific user account (participant)
+CREATE PROCEDURE  sp_RolesOfParticipantById(IN userId BIGINT)
+    BEGIN
+        SELECT ur.role
+        FROM useraccount ua
+                 LEFT JOIN useraccountroles uc ON ua.id = uc.userid
+                 LEFT JOIN userrole ur on uc.roleid = ur.id
+        WHERE ua.id = userId;
+    END;
 
 # Get the sum of de current value of an individual participant, based on the indentifier of that participant.
 CREATE PROCEDURE sp_SumInvestmentsParticipant(IN id BIGINT, OUT currentValue NUMERIC)

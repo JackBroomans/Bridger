@@ -2,17 +2,28 @@ package com.bridger.development.model;
 
 import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
 import com.bridger.development.util.StringFunctions;
-import jakarta.persistence.*;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Set;
 
 import static com.bridger.development.util.StringFunctions.validateString;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+
+/**
+ * <strong></strong><br>
+ *
+ */
 @Component
 @Entity
 @Table(name = "useraccount")
@@ -52,6 +63,10 @@ public class UserAccount implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "useraccount_id")
     Participant participant;
+
+    @ManyToMany(mappedBy= "accounts", fetch = FetchType.LAZY)
+    private Set<UserRole> roles;
+
 
     // Getters and setters
     public long getId() {

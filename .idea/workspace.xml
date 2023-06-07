@@ -6,14 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="6ca3f996-ba2e-4748-accb-52a98a84115b" name="Changes" comment="#41 Geboortedatum ontbreekt in toString() van participant">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/configuration/SpringSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/configuration/SpringSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/ParticipantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/ParticipantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/UserAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/controlers/UserAccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/Participant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityParticipant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/UserAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityUserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/entity_utility_classes/UtilityUserAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/model/enums/Roles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/ParticipantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/ParticipantRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/services/ParticipantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/services/ParticipantService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/BridgerJavaApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/PaticipantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/PaticipantTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/UseraccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/repository/UseraccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/services/UserAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/java/com/bridger/development/services/UserAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data_1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/UserAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/entity_classes_test/UserAccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/enum_test/enumTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/bridger-development-java/src/test/java/com/bridger/development/model/enum_test/enumTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logging/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging/app.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +29,8 @@
       <list>
         <option value="spring-beans.schema" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -140,22 +143,12 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BridgerJavaApplicationTests.classInvestmentTest">
-    <configuration name="BridgerJavaApplicationRepositoryTest.participantRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bridger-backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bridger.development.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bridger.development" />
-      <option name="MAIN_CLASS_NAME" value="com.bridger.development.BridgerJavaApplicationRepositoryTest" />
-      <option name="METHOD_NAME" value="participantRepositoryTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="Database Script.data_1.sql">
+    <configuration name="data_1.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/bridger-development-java/src/main/resources/sql-scripts/data_1.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="490dbad2-d3bb-4dd5-8810-af8f0770e7e3" />
+      <method v="2" />
     </configuration>
     <configuration name="BridgerJavaApplicationTests.classInvestmentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bridger-backend" />
@@ -168,22 +161,6 @@
       <option name="PACKAGE_NAME" value="com.bridger.development" />
       <option name="MAIN_CLASS_NAME" value="com.bridger.development.BridgerJavaApplicationTests" />
       <option name="METHOD_NAME" value="classInvestmentTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BridgerJavaApplicationTests.classParticipantTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bridger-backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bridger.development.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bridger.development" />
-      <option name="MAIN_CLASS_NAME" value="com.bridger.development.BridgerJavaApplicationTests" />
-      <option name="METHOD_NAME" value="classParticipantTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -221,6 +198,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserAccountTest.assignUserRolesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bridger-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bridger.development.model.entity_classes_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bridger.development.model.entity_classes_test" />
+      <option name="MAIN_CLASS_NAME" value="com.bridger.development.model.entity_classes_test.UserAccountTest" />
+      <option name="METHOD_NAME" value="assignUserRolesTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tests (case-developer-frontend)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/case-developer-frontend/karma.conf.js" />
       <karma-package-dir value="" />
@@ -251,11 +244,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Database Script.data_1.sql" />
+        <item itemvalue="JUnit.UserAccountTest.assignUserRolesTest" />
         <item itemvalue="JUnit.BridgerJavaApplicationTests.classInvestmentTest" />
         <item itemvalue="JUnit.BridgerJavaApplicationTests.emailFormatValidationTest" />
         <item itemvalue="JUnit.PaticipantTest.setParticipantGenderTest" />
-        <item itemvalue="JUnit.BridgerJavaApplicationRepositoryTest.participantRepositoryTest" />
-        <item itemvalue="JUnit.BridgerJavaApplicationTests.classParticipantTest" />
       </list>
     </recent_temporary>
   </component>

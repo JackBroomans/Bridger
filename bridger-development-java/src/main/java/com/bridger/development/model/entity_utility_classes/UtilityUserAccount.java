@@ -1,6 +1,7 @@
 package com.bridger.development.model.entity_utility_classes;
 
 import com.bridger.development.model.UserAccount;
+import com.bridger.development.model.enums.Roles;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Configuration
 @PropertySource("classpath:appVar.yml")
@@ -43,7 +45,7 @@ public class UtilityUserAccount {
     }
 
     /**
-     * <strong>useraccount<i>()</i></strong>
+     * <strong>useraccount<i>()</i></strong><br>
      * To assign the default settings on instantiation of an entity class without using field assignments,
      * instantiation of an entity should be done by this method.
      * @return A new instance of a UserAccount, with the default settings.
