@@ -4,7 +4,7 @@ import com.bridger.development.model.UserAccount;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
 /**
  * <strong>UseraccountRepository</strong><br>
@@ -13,10 +13,15 @@ import java.util.List;
  */
 
 @Repository
-public interface UseraccountRepository extends CrudRepository<UserAccount, Long> {
+public interface UserAccountRepository extends CrudRepository<UserAccount, Long> {
 
-    List<UserAccount> findAll();
+    Iterable<UserAccount> findAll();
 
     UserAccount findById(long id);
+
+    Optional<UserAccount> findByUserName(String userName);
+
+    Boolean existsByUserName(String userName);
+
 }
 

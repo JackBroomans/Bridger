@@ -1,24 +1,18 @@
 package com.bridger.development.util.validation;
 
-import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
+import com.bridger.development.model.UserAccount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.regex.PatternSyntaxException;
 
 @Component
-public class UseraccountValidation {
+public class UserAccountValidation {
 
     private static final Logger logger = LoggerFactory.getLogger(ParticipantValidation.class);
 
-    private static UtilityUserAccount appVar;
-
-    @Autowired
-    public UseraccountValidation(UtilityUserAccount appVar) {
-        UseraccountValidation.appVar = appVar;
-    }
+    private static UserAccount appVar;
 
     /**
      * <strong>validateUserName<i>(String)</i></strong><br>

@@ -3,10 +3,7 @@ package com.bridger.development.controlers;
 import com.bridger.development.services.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/bridger")
@@ -18,9 +15,27 @@ public class UserAccountController {
     UserAccountService service;
 
 
-    @GetMapping(path = "/login")
-    public String userAuthentication() {
+//    @PostMapping(path = "/auth/signup")
+
+    @PostMapping(path = "/auth/signin")
+    @ResponseBody
+    public String userAuthentication(@RequestParam String userName, @RequestParam String password) {
+
         return service.getAuthenticationMessage("You are authenticated");
     }
+
+//    @PostMapping(path = "/auth/signout/all")
+
+//    @PostMapping(path = "/auth/data/all")
+
+//    @GetMapping(path = "/auth/data/admin")
+
+//    @GetMapping(path = "/auth/data/support")
+
+//    @GetMapping(path = "auth/data/moderator")
+
+//    @GetMapping(path = "auth/data/user")
+
+//    }
 
 }

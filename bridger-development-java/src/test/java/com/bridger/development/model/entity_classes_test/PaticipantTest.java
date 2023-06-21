@@ -4,7 +4,6 @@ import com.bridger.development.model.Participant;
 import com.bridger.development.model.UserAccount;
 import com.bridger.development.model.entity_utility_classes.UtilityGeneral;
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
-import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
 import com.bridger.development.model.enums.Gender;
 import com.bridger.development.util.StringFunctions;
 import org.junit.jupiter.api.Test;
@@ -27,7 +26,7 @@ public class PaticipantTest {
     UtilityParticipant appVarParticipant;
 
     @Autowired
-    UtilityUserAccount appVarUserAccount;
+    UserAccount appVarUserAccount;
 
 
     @Test
@@ -68,7 +67,7 @@ public class PaticipantTest {
     @Test
     public void newParticipantTest() {
         /* First we need a user account to link the participant to, and provide it with the required properties. */
-        UserAccount userAccount = appVarUserAccount.userAccount();
+        UserAccount userAccount = new UserAccount();
         userAccount.setUserName(appVarUserAccount.PREDEFINED_USER_NAME);
         userAccount.setPassword(appVarUserAccount.PREDEFINED_USER_PASSWORD);
     }

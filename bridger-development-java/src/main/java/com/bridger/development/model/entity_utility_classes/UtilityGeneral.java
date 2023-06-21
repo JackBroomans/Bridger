@@ -19,5 +19,5 @@ public class UtilityGeneral {
 
     /* Messages */
     @Value("${age_calculation_not_possible}")
-    public static String MSG_DATE_BEFORE_CURRENT;
+    public String MSG_DATE_BEFORE_CURRENT;
 }

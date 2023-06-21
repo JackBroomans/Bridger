@@ -39,7 +39,8 @@ public class ParticipantController {
 
     /**
      * <strong>getContactListAllParticipants<i>()</i></strong><br>
-     * @return A list in JSON-format containing all 'ContactListAllParticipants' instances.
+     * @return A list in JSON-format containing the contact items (telephone, cel phone and email address) of all
+     * participants.
      */
     @RequestMapping("participant/contactlist")
     public @ResponseBody
@@ -71,14 +72,14 @@ public class ParticipantController {
     }
 
     /**
-     * <strong>haalDeelnemerOpDeelnemersnummer(<i>String</i>)</strong><br>
-     * Zoek een deelnemer op basis van diens deelnemersnummer.<br>
-     * @param deelnemersnummer Het deelnemersnummer van de deelnemer waarnaar wordt gezocht.
-     * @return De deelnemer met het betreffende email-adres
+     * <strong>getParticipantByNumber(<i>String</i>)</strong><br>
+     * Searches and returns a participant who had a particular participant number.<br>
+     * @param participantNumber The participant number of the requested participant.
+     * @return The participant who owns the participant number.
      */
-    @GetMapping("/participant/{deelnemersnummer}")
-    Participant haalDeelnemerOpDeelnemersnummer(@PathVariable String deelnemersnummer) {
-        return this.repository.findByParticipantNumber(deelnemersnummer);
+    @GetMapping("/participant/{participantNumber}")
+    Participant getParticipantByNumber(@PathVariable String participantNumber) {
+        return this.repository.findByParticipantNumber(participantNumber);
     }
 
 //    /**

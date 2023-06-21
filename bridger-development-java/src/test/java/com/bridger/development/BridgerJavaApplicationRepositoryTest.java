@@ -1,15 +1,14 @@
 package com.bridger.development;
 
 import com.bridger.development.model.Participant;
-import com.bridger.development.model.UserAccount;
 
+import com.bridger.development.model.UserAccount;
 import com.bridger.development.model.entity_utility_classes.UtilityGeneral;
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
-import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
 
 import com.bridger.development.repository.ContributionRepository;
 import com.bridger.development.repository.ParticipantRepository;
-import com.bridger.development.repository.UseraccountRepository;
+import com.bridger.development.repository.UserAccountRepository;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +24,7 @@ import java.util.ArrayList;
 @SpringBootTest
 public class BridgerJavaApplicationRepositoryTest {
     @Autowired
-    UseraccountRepository repoUserAccount;
+    UserAccountRepository repoUserAccount;
 
     @Autowired
     ParticipantRepository repoParticipant;
@@ -37,7 +36,7 @@ public class BridgerJavaApplicationRepositoryTest {
     UtilityGeneral appVarGeneral;
 
     @Autowired
-    UtilityUserAccount appVarUserAccount;
+    UserAccount appVarUserAccount;
 
     @Autowired
     UtilityParticipant appVarParticipant;
@@ -65,7 +64,8 @@ public class BridgerJavaApplicationRepositoryTest {
     void participantRepositoryTest() {
 
         /* First we need a user account to link the participant to and fill te required properties. */
-        UserAccount userAccount = appVarUserAccount.userAccount();
+        UserAccount userAccount = new UserAccount();
+
         userAccount.setUserName(appVarUserAccount.PREDEFINED_USER_NAME);
         userAccount.setPassword(appVarUserAccount.PREDEFINED_USER_PASSWORD);
 

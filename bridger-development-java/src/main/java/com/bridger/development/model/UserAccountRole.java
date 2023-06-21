@@ -17,7 +17,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Component
 @Entity
 @Table(name = "userrole")
-public class UserRole implements Serializable {
+public class UserAccountRole implements Serializable {
 
     @jakarta.persistence.Id
     @GeneratedValue(strategy = IDENTITY)
@@ -48,6 +48,6 @@ public class UserRole implements Serializable {
 
     @Override
     public String toString() {
-        return "Participant" + "\n\tId: " + this.id + "\n\tRole: "+this.role.name()+"\n";
+        return "User Account" + "\n\tId: " + this.id + "\n\tRole: "+this.role.name()+"\n";
     }
 }

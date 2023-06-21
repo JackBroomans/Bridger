@@ -44,9 +44,14 @@ user-account:
   days_password_valid: 90
   maximum_days_not_used: 30
 
+  # Predefined credentials
+  username: testUser
+  password: Test-User@Bridger
+
   # Messages
   invalid_username_format: Missing- or invalid format username.
   date_in_past: Past date is not allowed.
+  authorization_error:  Unauthorized error
 
 address:
   # Default settings
