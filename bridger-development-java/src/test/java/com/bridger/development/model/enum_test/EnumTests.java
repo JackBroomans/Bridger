@@ -2,7 +2,7 @@ package com.bridger.development.model.enum_test;
 
 import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import com.bridger.development.model.enums.Gender;
-import com.bridger.development.model.enums.UserRole;
+import com.bridger.development.model.enums.Roles;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class enumTests {
+public class EnumTests {
 
     @Autowired
     private UtilityParticipant appVarParticipant;
@@ -30,18 +30,16 @@ public class enumTests {
         invalidCodes.add("");
         invalidCodes.add("XYZ");
         invalidCodes.add("X");
-        invalidCodes.forEach((String test) -> {
-            assertNull(Gender.getByCode(null));
-        });
+        invalidCodes.forEach((String test) -> assertNull(Gender.getByCode(null)));
         assertEquals(Gender.getByCode("M"), Gender.MALE);
     }
 
     @Test
     public void userRoleEnumTest() {
         /* Searching and selecting the default gender */
-        UserRole role = UserRole.getDefaultSetting();
-        assertEquals(UserRole.USER, role);
-        role = UserRole.MODERATOR;
-        assertNotEquals(role, UserRole.getDefaultSetting());
+        Roles role = Roles.getDefaultSetting();
+        assertEquals(Roles.USER, role);
+        role = Roles.MODERATOR;
+        assertNotEquals(role, Roles.getDefaultSetting());
     }
 }

@@ -1,4 +1,9 @@
-# Case Bridger
+# Bridger
+## Other documentation
+Detail information is provided in teh following files:
+- [TECHNOTES.md](TECHNOTES.md)
+- [MODEL.md](MODEL.md)
+## Introduction
 Bridger is an application for bridge players, and offer the following features:
 - It can be used as a simple score calculator, including assingned IMP's.
 - It can register a number of played  games in a single bridge event with two couples.
@@ -18,39 +23,19 @@ The service returns the result in points assigned to the player's couple. Off co
 ### The calculation of the IMP's
 Additional to the score calculation the calculator determines the awarded IMP's based on the score. The method to determine these IMP's is yhe one which is descripted by the NBB. (Dutch Brigde Association)
 
+# Processes
+## Security
+### Sign-on
+### Sign-in (single)
+The (single) sign-in process is a sequence of the following sub-processes:
+1. The user provides username and password from the login-page in a Request to the webservice.
+2. The webservice filters these requests before they hit any landing-page, extract the username and password from the request and creates a 'token' from them. Then this 'token' is validated on the requirements. (format) When the token is not validated an HTTP:401 error response is returned.
+3. The 'token' is used to authenticate the user against the credentials in the database. When not authenticated, the request will be responded with a HTTP:403 error.
+4. When authorized the user is redirected tp the appropriate landing-page, if not a HTTP:403 error is returned.
 
-# Bridger Backend
-## Model
-### Entity classes
-Entity classes are abstract classes belonging to the persistence layer and subject of the (Hibernate) JPA-implementation.  
-Being part of the persistence layer, no (business) functionality is allowed in these classes. According to the JPA-implementation, the class only describes the structure and the relation(s) of the entity, reflecting the database and other external data sources such as JAXB-implementations for XML-files.
-Entity classes are placed in the root of the model package,
-### Entity utility classes.
-Entity utility classes are extensions of specific (abstract) entity class. They are:
-* Adding functionality to the entity class which doesn't belong to the persistence layer of the application, avoiding transient functional fields or methods.
-* Enabling external configuration of the particular entity.
-* Containing the (external stored) messages applicable in the entity class.
-#### Instantiation of entities
-To assign the default settings on instantiation of an entity class (without using field assignment), instantiation of an entity should be done by the method in the configuration class which is 
-attached tot the particular entity class.
-### Destination entities
-Destination entities are meant to service the request data structures of the frontend. It's not not required to introduce a destination claas for each time, because the reasonable change exist that returning standard entities is sufficient and ths effective.
-### Enums
-Due to there unique structure and purpose enumerators are placed under there own package.
-## Repository
-The application uses stored procedures alongside the Hibernate repository features. This enables controe over the database's performance (tuning query efficiency).
-### In- and output mapping
-When required, the in and output mapping is covered by the 'mapstruct-processor' library. This allows services (classes) to construct the 
-required structure before returning it to the client. It also enables mapping with dependency inhection.
+![Single Sign-in Flowchart](.\Images\Single Sign-in Flowchart.png)
 
-## Logging
+### Sign-out
 
 
 ## Appriciations
-The base security is created with great help of the folks at BezCoder.
-I strongly recommend to read and try out their article at:
-https://www.bezkoder.com/angular-14-spring-boot-jwt-auth/.
-It certainly will give you a kickstart concerning SprinBoot security.
-
-My thanks also goes to the application developers at BeFrank who scaffolding this project and inspired me to
-carry on with the application I wanted to build for a long time, but never took the time for it. 

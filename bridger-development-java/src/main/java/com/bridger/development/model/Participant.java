@@ -15,13 +15,12 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
  * <strong>Participant</strong><br>
- * This entity class describes the properties of a participant in the pension fund according to the associated database
- * table. The entity also contains the following (non persistable) methods:
- * <ul>
- *     <li>
- *         <strong>composeFullName()</strong>
- *     </li>
- * </ul>
+ * This entity class contains the properties which describes a participant and is associated with the database table
+ * <i>participant</i> through JPA/Hibernate annotations.The entity has the following relationships:
+ * <ol>
+ *     <li>An one-to-one relationship with <i>UserAccount</i></li>
+ *     <li>An one-to-more relationship with <i>Address</i></li>
+ * </ol>
  */
 @Component
 @Entity
@@ -33,7 +32,7 @@ public class Participant implements Serializable {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "useraccount_id", nullable = false)
+    @Column(name = "useraccountid", nullable = false)
     public long useracccountId;
 
     @Column(name = "participantnumber", nullable = false, unique = true)

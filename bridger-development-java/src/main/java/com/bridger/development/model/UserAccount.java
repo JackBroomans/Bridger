@@ -1,24 +1,35 @@
 package com.bridger.development.model;
 
-import com.bridger.development.model.entity_utility_classes.UtilityUserAccount;
+import com.bridger.development.model.entity_utility_classes.UserAccountConfig;
 import com.bridger.development.util.StringFunctions;
-import jakarta.persistence.*;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Set;
 
 import static com.bridger.development.util.StringFunctions.validateString;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+import jakarta.persistence.*;
+
+
+/**
+ * <strong>UserAccount</strong><br>
+ * Entity class which properties describes a user account. Each participant has exact one user account, while this
+ * account can attach one or several roles. The user account also has some attributes which maintains the status of
+ * the account.
+ *
+ */
 @Component
 @Entity
 @Table(name = "useraccount")
-public class UserAccount implements Serializable {
+public class UserAccount extends UserAccountConfig implements Serializable {
     private static final Logger logger = LoggerFactory.getLogger(Participant.class);
-    private static final UtilityUserAccount appVar = new UtilityUserAccount();
+//    private static final UtilityUserAccount appVar = new UtilityUserAccount();
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -38,7 +49,7 @@ public class UserAccount implements Serializable {
     private LocalDate dateLastChanged;
 
     @Column(name = "datalastused")
-    private LocalDate dateLastused;
+    private LocalDate dateLastUsed;
 
     @Column(name = "loginattempts")
     private int loginAttempts = 0;
@@ -50,8 +61,20 @@ public class UserAccount implements Serializable {
     private boolean isLocked;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "useraccount_id")
+    @JoinColumn(name = "id", referencedColumnName = "useraccountid")
     Participant participant;
+
+    @ManyToMany(mappedBy= "accounts", fetch = FetchType.LAZY)
+    private Set<UserAccountRole> roles;
+
+    // Constructor
+    public UserAccount() {
+        this.setLoginAttempts(0);
+        this.setDateRegistered(LocalDate.now());
+        this.setDateLastChanged(LocalDate.now());
+        this.setActive(false);
+        this.setLocked(false);
+    }
 
     // Getters and setters
     public long getId() {
@@ -63,7 +86,7 @@ public class UserAccount implements Serializable {
     }
     public void setUserName(String userName) {
         if (!validateString(userName)) {
-            logger.warn(appVar.MSG_INVALID_USERNAME_FORMAT);
+            logger.warn(MSG_INVALID_USERNAME_FORMAT);
             return;
         }
         this.userName = userName;
@@ -111,6 +134,10 @@ public class UserAccount implements Serializable {
         isLocked = locked;
     }
 
+    public Set<UserAccountRole> getRoles() {
+        return roles;
+    }
+
     @Override
     public String toString() {
 
@@ -126,5 +153,7 @@ public class UserAccount implements Serializable {
 
         return text;
     }
+
+
 
 }

@@ -1,7 +1,6 @@
 package com.bridger.development.repository;
 
 import com.bridger.development.model.Participant;
-import com.bridger.development.model.entity_utility_classes.UtilityParticipant;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -10,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface ParticipantRepository extends CrudRepository<Participant, Long> {
+    @Override
     List<Participant> findAll();
 
     Participant findById(long id);

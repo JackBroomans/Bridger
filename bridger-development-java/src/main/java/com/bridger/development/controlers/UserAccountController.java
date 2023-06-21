@@ -14,9 +14,28 @@ public class UserAccountController {
     @Autowired
     UserAccountService service;
 
-    @GetMapping(path = "/login")
-    public String userAuthentication() {
+
+//    @PostMapping(path = "/auth/signup")
+
+    @PostMapping(path = "/auth/signin")
+    @ResponseBody
+    public String userAuthentication(@RequestParam String userName, @RequestParam String password) {
+
         return service.getAuthenticationMessage("You are authenticated");
     }
+
+//    @PostMapping(path = "/auth/signout/all")
+
+//    @PostMapping(path = "/auth/data/all")
+
+//    @GetMapping(path = "/auth/data/admin")
+
+//    @GetMapping(path = "/auth/data/support")
+
+//    @GetMapping(path = "auth/data/moderator")
+
+//    @GetMapping(path = "auth/data/user")
+
+//    }
 
 }
